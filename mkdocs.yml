@@ -1,0 +1,93 @@
+site_name: My Tech Notes
+site_url: https://khansohil530.github.io/tech-notes/
+site_description: A personal collection of technical notes and tutorials
+repo_url: https://github.com/khansohil530/tech-notes
+repo_name: tech-notes
+
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.tabs
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+    - content.action.edit
+    - toc.integrate
+  palette:
+    # Light mode
+    - scheme: default
+      primary: indigo
+      accent: deep orange
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    # Dark mode
+    - scheme: slate
+      primary: indigo
+      accent: orange
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  font:
+    text: Inter
+    code: Fira Code
+
+
+plugins:
+  - search
+  - awesome-pages
+  - minify:
+      minify_html: true
+  - git-revision-date-localized:
+      fallback_to_build_date: true
+      enable_creation_date: false
+  - localsearch
+  - glightbox
+
+
+markdown_extensions:
+  - admonition
+  - def_list
+  - footnotes
+  - meta
+  - toc:
+      permalink: true
+  - pymdownx.emoji
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.snippets
+  - pymdownx.magiclink
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.inlinehilite
+
+#nav:
+#  - Home: index.md
+#  - Python:
+#      - Basics: python/basics.md
+#      - Tips: python/tips.md
+#      - 1: python/1.md
+#      - 2: python/2.md
+#      - 3: python/3.md
+#      - 4: python/4.md
+#  - Linux:
+#      - Commands: linux/commands.md
+#      - Systemd: linux/systemd.md
+#      - Dir1:
+#          - Test: linux/dir1/test.md
+#  - Web:
+#      - HTML: web/html.md
+#      - CSS: web/css.md
+#      - JavaScript: web/js.md
