@@ -10,7 +10,9 @@ theme:
   language: en
   features:
     - navigation.tabs
-    - navigation.expand
+    - navigation.tabs.sticky
+#    - navigation.expand
+    - navigation.indexes
     - navigation.top
     - navigation.footer
     - search.suggest
@@ -18,7 +20,7 @@ theme:
     - content.code.copy
     - content.tabs.link
     - content.action.edit
-    - toc.integrate
+#    - toc.integrate
   palette:
     # Light mode
     - scheme: default
@@ -42,21 +44,24 @@ theme:
 plugins:
   - search
   - awesome-pages
-  - minify:
-      minify_html: true
   - git-revision-date-localized:
       fallback_to_build_date: true
   - glightbox
+  - tags
 
 
 markdown_extensions:
+  - abbr
   - admonition
   - def_list
   - footnotes
   - meta
   - toc:
       permalink: true
-  - pymdownx.emoji
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.highlight:
@@ -70,3 +75,12 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.inlinehilite
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - styles/overrides.css

@@ -1,0 +1,11 @@
+title: Arrays and Hashing
+nav:
+  - contains_duplicate.md
+  - valid_anagram.md
+  - two_sum.md
+  - group_anagrams.md
+  - top_k_frequent_element.md
+  - encode_and_decode_strings.md
+  - product_of_array_except_self.md
+  - valid_sudoku.md
+  - longest_consecutive_sequence.md
