@@ -13,7 +13,7 @@ tags:
 Notes:
 
 - [x] [ACID](acid.md)
-- [ ] [Understanding Database Internals]()
+- [x] [Understanding Database Internals](db_internals.md)
 - [ ] [Database Indexing]()
 - [ ] [B-Trees vs B+-Trees]()
 - [ ] [Database Partitioning]()

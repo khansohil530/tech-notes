@@ -1,3 +1,5 @@
+# ACID 
+
 ACID, which stands for Atomicity, Consistency, Isolation and Durability - are fundamental properties desirable across
 all database systems.
 
