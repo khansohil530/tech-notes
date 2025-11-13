@@ -1,0 +1,5 @@
+title: Fundamentals of Database Engineering
+nav:
+    - index.md
+    - acid.md
+    - db_internals.md
