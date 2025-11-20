@@ -14,7 +14,7 @@ Notes:
 
 - [x] [ACID](acid.md)
 - [x] [Understanding Database Internals](db_internals.md)
-- [ ] [Database Indexing]()
+- [x] [Database Indexing](indexing.md)
 - [ ] [B-Trees vs B+-Trees]()
 - [ ] [Database Partitioning]()
 - [ ] [Database Sharding]()
