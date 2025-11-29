@@ -5,3 +5,5 @@ nav:
     - db_internals.md
     - db_index.md
     - indexing.md
+    - db_partition.md
+    - db_shard.md
