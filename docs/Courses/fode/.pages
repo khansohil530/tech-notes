@@ -3,3 +3,5 @@ nav:
     - index.md
     - acid.md
     - db_internals.md
+    - db_index.md
+    - indexing.md
