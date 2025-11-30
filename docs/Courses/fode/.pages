@@ -8,3 +8,4 @@ nav:
     - db_partition.md
     - db_shard.md
     - concurrency_control.md
+    - replication.md
