@@ -1,0 +1,16 @@
+title: Fundamentals of Database Engineering
+nav:
+    - index.md
+    - acid.md
+    - db_internals.md
+    - db_index.md
+    - indexing.md
+    - db_partition.md
+    - db_shard.md
+    - concurrency_control.md
+    - replication.md
+    - db_engines.md
+    - db_cursor.md
+    - nosql.md
+    - db_security.md
+    - extra.md
