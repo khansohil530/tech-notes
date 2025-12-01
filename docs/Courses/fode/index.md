@@ -22,7 +22,7 @@ Notes:
 - [x] [Replication]()
 - [x] [Database Engines]()
 - [x] [Database Cursor]()
-- [ ] [NoSQL Architecture]()
+- [x] [NoSQL Architecture]()
 - [ ] [Database Security]()
 - [ ] [Homomorphic Encryption]()
 - [ ] [Extra]()
