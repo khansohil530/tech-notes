@@ -12,3 +12,4 @@ nav:
     - db_engines.md
     - db_cursor.md
     - nosql.md
+    - db_security.md
