@@ -7,31 +7,31 @@
       
       
       
-        <link rel="canonical" href="https://khansohil530.github.io/tech-notes/DSA/neetcode150/Arrays_and_Hashing/longest_consecutive_sequence/">
+        <link rel="canonical" href="https://khansohil530.github.io/tech-notes/Courses/fode/db_internals/">
       
       
-        <link rel="prev" href="../valid_sudoku/">
+        <link rel="prev" href="../acid/">
       
       
-        <link rel="next" href="../../Two_Pointers/valid_palindrome/">
+        <link rel="next" href="../db_index/">
       
       
         
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>🟠 128. Longest Consecutive Sequence - My Tech Notes</title>
+        <title>Database Internals - My Tech Notes</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -50,15 +50,15 @@
       
     
     
-      <link rel="stylesheet" href="../../../../styles/overrides.css">
+      <link rel="stylesheet" href="../../../styles/overrides.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
-  <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#128-longest-consecutive-sequence" class="md-skip">
+        <a href="#database-internals" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="My Tech Notes" class="md-header__button md-logo" aria-label="My Tech Notes" data-md-component="logo">
+    <a href="../../.." title="My Tech Notes" class="md-header__button md-logo" aria-label="My Tech Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
@@ -123,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              🟠 128. Longest Consecutive Sequence
+              Database Internals
             
           </span>
         </div>
@@ -230,7 +230,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -247,13 +247,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../DSA/" class="md-tabs__link">
           
   
   
@@ -271,11 +269,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../../Courses/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -317,7 +317,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="My Tech Notes" class="md-nav__button md-logo" aria-label="My Tech Notes" data-md-component="logo">
+    <a href="../../.." title="My Tech Notes" class="md-nav__button md-logo" aria-label="My Tech Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
@@ -347,7 +347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -371,8 +371,6 @@
       
   
   
-    
-  
   
   
     
@@ -388,21 +386,18 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../" class="md-nav__link ">
+            <a href="../../../DSA/" class="md-nav__link ">
               
   
   
@@ -420,13 +415,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -443,8 +438,6 @@
                 
   
   
-    
-  
   
   
     
@@ -465,15 +458,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2">
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../../../DSA/neetcode150/" class="md-nav__link ">
               
   
   
@@ -497,7 +490,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -514,10 +507,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -546,11 +537,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
@@ -571,7 +562,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_2_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -589,7 +580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../contains_duplicate/" class="md-nav__link">
+      <a href="../../../DSA/neetcode150/Arrays_and_Hashing/contains_duplicate/" class="md-nav__link">
         
   
   
@@ -617,7 +608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../valid_anagram/" class="md-nav__link">
+      <a href="../../../DSA/neetcode150/Arrays_and_Hashing/valid_anagram/" class="md-nav__link">
         
   
   
@@ -645,7 +636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../two_sum/" class="md-nav__link">
+      <a href="../../../DSA/neetcode150/Arrays_and_Hashing/two_sum/" class="md-nav__link">
         
   
   
@@ -673,7 +664,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../group_anagrams/" class="md-nav__link">
+      <a href="../../../DSA/neetcode150/Arrays_and_Hashing/group_anagrams/" class="md-nav__link">
         
   
   
@@ -701,7 +692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../top_k_frequent_element/" class="md-nav__link">
+      <a href="../../../DSA/neetcode150/Arrays_and_Hashing/top_k_frequent_element/" class="md-nav__link">
         
   
   
@@ -729,7 +720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../encode_and_decode_strings/" class="md-nav__link">
+      <a href="../../../DSA/neetcode150/Arrays_and_Hashing/encode_and_decode_strings/" class="md-nav__link">
         
   
   
@@ -757,7 +748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../product_of_array_except_self/" class="md-nav__link">
+      <a href="../../../DSA/neetcode150/Arrays_and_Hashing/product_of_array_except_self/" class="md-nav__link">
         
   
   
@@ -785,7 +776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../valid_sudoku/" class="md-nav__link">
+      <a href="../../../DSA/neetcode150/Arrays_and_Hashing/valid_sudoku/" class="md-nav__link">
         
   
   
@@ -810,19 +801,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/Arrays_and_Hashing/longest_consecutive_sequence/" class="md-nav__link">
         
   
   
@@ -838,7 +820,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -921,7 +902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Two_Pointers/valid_palindrome/" class="md-nav__link">
+      <a href="../../../DSA/neetcode150/Two_Pointers/valid_palindrome/" class="md-nav__link">
         
   
   
@@ -949,7 +930,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Two_Pointers/two_sum_2/" class="md-nav__link">
+      <a href="../../../DSA/neetcode150/Two_Pointers/two_sum_2/" class="md-nav__link">
         
   
   
@@ -977,7 +958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Two_Pointers/3sum/" class="md-nav__link">
+      <a href="../../../DSA/neetcode150/Two_Pointers/3sum/" class="md-nav__link">
         
   
   
@@ -1005,7 +986,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Two_Pointers/container_with_most_water/" class="md-nav__link">
+      <a href="../../../DSA/neetcode150/Two_Pointers/container_with_most_water/" class="md-nav__link">
         
   
   
@@ -1033,7 +1014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Two_Pointers/trapping_rain_water/" class="md-nav__link">
+      <a href="../../../DSA/neetcode150/Two_Pointers/trapping_rain_water/" class="md-nav__link">
         
   
   
@@ -1081,6 +1062,8 @@
       
   
   
+    
+  
   
   
     
@@ -1096,18 +1079,21 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../Courses/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -1125,13 +1111,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1148,6 +1134,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1190,15 +1178,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../Courses/fode/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -1222,7 +1210,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1242,7 +1230,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Courses/fode/acid/" class="md-nav__link">
+      <a href="../acid/" class="md-nav__link">
         
   
   
@@ -1267,10 +1255,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../../Courses/fode/db_internals/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Internals
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1286,6 +1301,76 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tuple" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tuple
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#page" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Page
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Index
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1298,7 +1383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Courses/fode/db_index/" class="md-nav__link">
+      <a href="../db_index/" class="md-nav__link">
         
   
   
@@ -1326,7 +1411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Courses/fode/indexing/" class="md-nav__link">
+      <a href="../indexing/" class="md-nav__link">
         
   
   
@@ -1354,7 +1439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Courses/fode/db_partition/" class="md-nav__link">
+      <a href="../db_partition/" class="md-nav__link">
         
   
   
@@ -1382,7 +1467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Courses/fode/db_shard/" class="md-nav__link">
+      <a href="../db_shard/" class="md-nav__link">
         
   
   
@@ -1410,7 +1495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Courses/fode/concurrency_control/" class="md-nav__link">
+      <a href="../concurrency_control/" class="md-nav__link">
         
   
   
@@ -1438,7 +1523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Courses/fode/replication/" class="md-nav__link">
+      <a href="../replication/" class="md-nav__link">
         
   
   
@@ -1466,7 +1551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Courses/fode/db_engines/" class="md-nav__link">
+      <a href="../db_engines/" class="md-nav__link">
         
   
   
@@ -1494,7 +1579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Courses/fode/db_cursor/" class="md-nav__link">
+      <a href="../db_cursor/" class="md-nav__link">
         
   
   
@@ -1522,7 +1607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Courses/fode/nosql/" class="md-nav__link">
+      <a href="../nosql/" class="md-nav__link">
         
   
   
@@ -1550,7 +1635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Courses/fode/db_security/" class="md-nav__link">
+      <a href="../db_security/" class="md-nav__link">
         
   
   
@@ -1578,7 +1663,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Courses/fode/extra/" class="md-nav__link">
+      <a href="../extra/" class="md-nav__link">
         
   
   
@@ -1634,6 +1719,64 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tuple" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tuple
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#page" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Page
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Index
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1647,48 +1790,9 @@
                 
                   
 
-  <nav class="md-tags">
-    
-      
-      
-      
-      
-        <span class="md-tag">Array</span>
-      
-    
-      
-      
-      
-      
-        <span class="md-tag">Hash Table</span>
-      
-    
-      
-      
-      
-      
-        <span class="md-tag">LC_Medium</span>
-      
-    
-      
-      
-      
-      
-        <span class="md-tag">Neetcode150</span>
-      
-    
-      
-      
-      
-      
-        <span class="md-tag">Union Find</span>
-      
-    
-  </nav>
-
 
   
-    <a href="https://github.com/khansohil530/tech-notes/edit/master/docs/DSA/neetcode150/Arrays_and_Hashing/longest_consecutive_sequence.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/khansohil530/tech-notes/edit/master/docs/Courses/fode/db_internals.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
     </a>
@@ -1696,74 +1800,231 @@
   
 
 
-<h1 id="128-longest-consecutive-sequence"><img alt="🟠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f7e0.svg" title=":orange_circle:"> 128. Longest Consecutive Sequence<a class="headerlink" href="#128-longest-consecutive-sequence" title="Permanent link">¶</a></h1>
-<p><a href="https://leetcode.com/problems/longest-consecutive-sequence/description/" target="_blank">Problem Link</a></p>
-<p><strong>Brute Force</strong>: Since we only need to find the longest consecutive sequence irrespective of order in array,
-we can check the sequence starting each element and take the longest. This would result in <span class="arithmatex">\(O(n^2)\)</span> time 
-complexity.</p>
-<p>To optimize this, we can just check the sequence for <span class="arithmatex">\(num_i\)</span> whose previous number (<span class="arithmatex">\(num_i-1\)</span>) isn't present in our 
-array, as these number are guaranteed to generate unique sequence . This would result in checking the sequence for
-elements only once. </p>
+<h1 id="database-internals">Database Internals<a class="headerlink" href="#database-internals" title="Permanent link">¶</a></h1>
+<p>At a high level, DB systems involves storing vast amount of data and providing an API for querying
+over the data efficiently.
+To solve this DBs uses various strategies and data structure, the majority of which revolves around
+these two data structure: <strong>Table</strong> and <strong>Index</strong>.</p>
+<h2 id="table">Table<a class="headerlink" href="#table" title="Permanent link">¶</a></h2>
+<p>Table is a logical structure which defines how data is modeled and stored on disk. From outside,
+table is collection of <strong>rows</strong>(1) and <strong>columns</strong>(2) - usually representing an entity in your application.
+Internally, table is a collection of <strong>tuples</strong> (rows) organized across pages on one or more data files.</p>
+<p>{ .annotate }</p>
+<ol>
+<li>unique record or instance of entity referenced by the table </li>
+<li>specifies the attribute or field of referenced row </li>
+</ol>
+<h3 id="tuple">Tuple<a class="headerlink" href="#tuple" title="Permanent link">¶</a></h3>
+<p>Tuple is a structured block of bytes stored inside a page, the physical realization of a row.
+It's composed of header and data field, with following format roughly,</p>
+<p><code>| tuple header (visibility, length, flags, etc.) | col_1 value | col_2 value...|</code></p>
+<p>Within the page, it's paired with a line pointer which is generated by the byte offset of Tuple relative
+to the start of page, similar to following:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[Page]
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>...
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a> ├── Line pointer → Tuple #1 (offset 40)
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a> ├── Line pointer → Tuple #2 (offset 120)
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a> |
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>...
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a> |
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a> [ ... Tuple Data Area ... ]
+</code></pre></div>
+<p>With this, DB can globally identify each tuple physically within a table using following combination known as 
+<strong>Tuple ID</strong> -&gt; <code>(PageNumber, LinePointer)</code>.
+For example, <code>TID -&gt; (PageNumber=42, LinePointer=2)</code> would read the page number <span class="arithmatex">\(42\)</span> into memory, lookup
+the value of line pointer <span class="arithmatex">\(2\)</span> and fetch the data pointed by line pointer.
+TID allows DBs to reference rows efficiently and uniquely across various data structures like indexes.</p>
+<p>When designing a DB system, there are two broad choices based on how this TID mapping to physical location is utilized:</p>
+<ol>
+<li>
+<p class="annotate">DBs (like Postgres) where table is physically stored as a heap (1) uses <code>(PageNumber, LinePointer)</code> directly
+   since the rows are unordered. </p>
+<ol>
+<li>Unordered pages of tuple</li>
+</ol>
+</li>
+<li>
+<p class="annotate">DBs (like MySQL InnoDB) which uses clustered indexes (1), lays the physical location of tuple using primary key.
+   Due to this, the  TID mapping mentioned above can't be utilized directly. 
+   You've to use primary key to get the physical location, which internally uses mapping similar to TID managed by 
+    storage layer.</p>
+<ol>
+<li>Tuples are stored inside the index, whose key determines the physical and logical location of tuple.</li>
+</ol>
+</li>
+</ol>
 <details class="note">
-<summary>Pseudocode</summary>
+<summary>Tradeoff</summary>
+<p>You get the following summarized tradeoff based on this decision choice:</p>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th><strong>PostgreSQL (Internal TID)</strong></th>
+<th><strong>MySQL/InnoDB (External RowID)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Row addressing</strong></td>
+<td>Physical (page, slot)</td>
+<td>Logical (primary key)</td>
+</tr>
+<tr>
+<td><strong>Update behavior (MVCC)</strong></td>
+<td>New version = new TID (row moves)</td>
+<td>Row stays; old versions kept in undo log</td>
+</tr>
+<tr>
+<td><strong>Index maintenance</strong></td>
+<td>Indexes point to TIDs → need update when TIDs change</td>
+<td>Indexes point to PKs → stable, fewer updates</td>
+</tr>
+<tr>
+<td><strong>Lookup cost (secondary index)</strong></td>
+<td>One hop (index → heap)</td>
+<td>Two hops (secondary → primary → data)</td>
+</tr>
+<tr>
+<td><strong>Insert performance</strong></td>
+<td>Fast (append to heap)</td>
+<td>Slower (must maintain clustered order)</td>
+</tr>
+<tr>
+<td><strong>Range scan performance</strong></td>
+<td>Slower (heap unordered)</td>
+<td>Faster (rows ordered by PK)</td>
+</tr>
+<tr>
+<td><strong>VACUUM / cleanup</strong></td>
+<td>Required to reclaim old tuples</td>
+<td>Handled via purge of undo logs</td>
+</tr>
+<tr>
+<td><strong>Storage flexibility</strong></td>
+<td>Simple, flexible heap</td>
+<td>More rigid due to clustering</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h3 id="page">Page<a class="headerlink" href="#page" title="Permanent link">¶</a></h3>
+<p>All data structures in DBs (like Tables, collections, rows, columns, indexes, sequences, documents) 
+end up as bytes in a page. This model allows you to decouple the storage engine from the DB frontend which is 
+responsible for formating the data and provide an API over it. 
+A DB page is the fundamental unit of I/O and storage inside a DB engine.
+It’s the smallest chunk of data the DB reads from or writes to disk or caches in memory.</p>
+<p>But why do DBs use fixed size blocks for its read/write operations? This is due to the way
+disk storage (HDDs/SDDs) work and how they're different from memory (RAM). </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Physical Disk operates at the level of sectors (HDD) or blocks (SDD) which allow you to persist fixed chunks
+of data even in absence of power. Working with disk is abstracted by OS using LBA API and then File System API,
+which defines fixed size chunks known as Pages (usually <span class="arithmatex">\(4\)</span> KB) as smallest unit to read and write from disk
+(defined as an I/O).</p>
+</div>
+<p>So working with disk requires you to use fixed size blocks of storage known as pages.
+To be not confused with OS Pages, DBs uses their own logical page definition.
+This approach offers several key advantages which are requirements for DB systems:</p>
+<ol>
+<li>Separation of Concern, OS is designed to manage generic files and memory, while DBs needs exact control on
+   how data is laid out, cached, logged, and recovered. Using its own Page abstraction would allow DB system
+   to use all such optimize optimization.</li>
+<li>
+<p>OS Page size defaults to <span class="arithmatex">\(4\)</span> KB which works for many applications, but is inefficient of DBs
+   since the space acquired by metadata would out weigh the useful information available. Today, DBs uses
+   page size ranging from (<span class="arithmatex">\(8\)</span>-<span class="arithmatex">\(16\)</span> KB) optimized for their workload.</p>
+<details class="note">
+<summary>Small vs Large DB Pages</summary>
 <ul>
-<li>Iterate over the nums array. To keep checks constant time, we can also create a Hashset out of <code>nums</code> array.</li>
-<li>For each <code>num</code>, if the previous (<code>num-1</code>) isn't present in our array means we've a unique sequence starting 
-  from this <code>num</code>.</li>
-<li>To generate this sequence, declare a length pointer and increment it until we exhaust the sequence numbers
-  present in our hashset.</li>
-<li>Finally use a global variable to maintain the maximum length.</li>
+<li>Small pages are faster to read and write especially if the page size is closer to the media block size.
+   However, the overhead cost of the page header metadata compare to useful data can get higher for smaller pages.</li>
+<li>Larger pages can minimize metadata overhead and page splits but at the cost of higher cold read/write.</li>
 </ul>
 </details>
+</li>
+<li>
+<p class="annotate">This allows DBs to implement their own page cache/buffer pool as they already know which pages are "hot"(1) and want to 
+   manage them efficiently. </p>
+<ol>
+<li>When the required page is already present in memory/cache.</li>
+</ol>
+</li>
+<li>You can consistently port your data to different OS platform, which make replication and backup operations simpler.</li>
+</ol>
+<p>A simplified page structure on disk looks like as follows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>+----------------------------------------------------+
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>| Page Header (metadata)                             |
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>|----------------------------------------------------|
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>| Line Pointer Array (Item IDs / Slot Directory)     |
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>|----------------------------------------------------|
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>|                    Free Space                      |
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>|----------------------------------------------------|
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>| Tuple Data Area (actual rows/tuples)               |
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>|----------------------------------------------------|
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>| Special Space (optional, for indexes)              |
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>+----------------------------------------------------+
+</code></pre></div>
+<ul>
+<li>Page Header is a fixed size bytes which stores metadata like Page LSN (Log Sequence Number) -&gt; for WAL consistency,
+  checksums/CRC -&gt; corruption detection, and various flags and pointers.</li>
+<li>Line pointer array stores offset of tuple within the page along with other metadata like tuple length or whether
+  the tuple is dead or redirected, etc. These pointers grow downward from the header, as such the deleted/updated
+  tuples are marks respectively without moving other tuples immediately.</li>
+<li>Tuple Data Area, where actual data is stored. It consists of tuple headers (like visibility info, transaction IDs) and 
+  column data. Tuple Data grows upward from bottom of page.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Space occupied by dead/redirected tuples are reclaimed later by cleanup operations like <code>VACCUM</code> or compaction.  </p>
+</div>
 <details class="note">
-<summary>Runtime Complexity</summary>
-<p><b>Time</b>: <span class="arithmatex">\(O(n)\)</span>, single iteration over each element with constant time checks.
-It might look like we're iterating within 2 loops, but the conditional will reduce the
-inner iteration such that we're not repeating checks.</p>
-<p><b>Space</b>: <span class="arithmatex">\(O(n)\)</span> &lt;- from hashmap.</p>
+<summary>Role of Page Layout in forming different DB domains</summary>
+<p>The internal page layout and tuple organization fundamentally define what kind of database it is:</p>
+<ul>
+<li>Row based DBs stores complete tuples (rows) in each page. This gives you access to all columns of a row in same page,
+  which is ideal for OLTP workloads involving frequent read/writes over entire rows.</li>
+<li>Columnar DBs organizes each page to store data for individual columns across many rows. Since columns are
+  contiguously stored, such DBs are ideal for OLAP workload which involves reading few columns across large number of rows.</li>
+<li>Document DBs organizes their data in self-contained object (JSON/BSON) of variable length known as documents. This
+  model provides flexible schema and faster document level read/writes.  </li>
+<li>Graph DBs models their data as nodes and relationships (edges). Each page stores either nodes, relationship or property
+  records, where the relationship records has direct pointers to start and end nodes, making sequence traversal fast.</li>
+<li>Key Value Stores (Sorted Key Pages) like RocksDB, LevelDB stores sorted key-value pairs. 
+  The storage engine (often an LSM tree) manages multiple sorted runs which makes it ideal for efficient for range 
+  scans and sequential writes.</li>
+</ul>
 </details>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">Go</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">longestConsecutive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        <span class="n">nums</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>            <span class="k">if</span> <span class="n">num</span><span class="o">-</span><span class="mi">1</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>                <span class="n">length</span> <span class="o">=</span> <span class="mi">1</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>                <span class="k">while</span> <span class="n">num</span><span class="o">+</span><span class="n">length</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                    <span class="n">length</span><span class="o">+=</span><span class="mi">1</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>                <span class="n">res</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        <span class="k">return</span> <span class="n">res</span>
-</code></pre></div>
+<h2 id="index">Index<a class="headerlink" href="#index" title="Permanent link">¶</a></h2>
+<p>Another important data structure which plays crucial role in working of DBs is <strong>Index</strong>.
+Logically index is a data structure which allows database to quickly locate rows without scanning the
+entire table.
+Physically, they’re just files made up of fixed size pages consisting of index entries.
+The structure of these entries (and how pages are connected) defines the index type.
+Among which the most common type is B-Tree (B+Tree), which almost all general-purpose databases
+(Postgres, MySQL, Oracle, SQL Server, SQLite) use as standard indexes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To be not confused with B-Tree and B+Tree, modern DBs entirely uses B+Tree implementation, but you'll still
+find people using B-Tree naming convention from place to place.</p>
 </div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">func</span><span class="w"> </span><span class="nx">longestConsecutive</span><span class="p">(</span><span class="nx">nums</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nx">set</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="kd">interface</span><span class="p">{})</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">num</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">nums</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="nx">set</span><span class="p">[</span><span class="nx">num</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">nil</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nx">res</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">num</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">set</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">ok</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">set</span><span class="p">[</span><span class="nx">num</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span><span class="w"> </span><span class="p">!</span><span class="nx">ok</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">            </span><span class="nx">length</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">1</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">ok</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">set</span><span class="p">[</span><span class="nx">num</span><span class="o">+</span><span class="nx">length</span><span class="p">];</span><span class="w"> </span><span class="nx">ok</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">                    </span><span class="nx">length</span><span class="o">++</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">                    </span><span class="k">break</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">                </span><span class="p">}</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">            </span><span class="p">}</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">            </span><span class="nx">res</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">length</span><span class="p">)</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="p">}</span>
-</code></pre></div>
-</div>
-</div>
-</div>
+<p>At a high level, B+Tree index is a hierarchy of pages consisting of Root, Internal and Leaf pages (or nodes).
+The Root node is entry point for lookup, points to Internal nodes consisting of indexed keys -&gt;
+child node mapping. At the bottom, we've Leaf nodes which consists of the index key -&gt; TupleID mapping.
+Each node stores sorted list of keys and pointer which allows you to perform <strong>Binary Search</strong> on it to find the 
+respective key in <span class="arithmatex">\(O(logn)\)</span> time. Also, the leaf nodes are doubly linked to adjacent nodes, which allows you faster
+range queries.</p>
+<p>Some DBs (like InnoDB) decided to store the data tuple within index itself instead of using TID. Such indexes
+are known as <strong>Clustered Index</strong>, as they cluster the table within index itself. Since data is stored directly in index,
+the I/O cost for lookup is usually 1-page read which is faster compared other its counterpart. You also get faster
+range queries since the rows would live within same page if the keys are sequential.
+But this design is severally impacted inserts, since you must keep rows physically ordered by key which can cause page splits and 
+random I/O if the indexing key is random. Also, secondary Indexes point to primary key in clustered index.
+If you primary key is modified, all your secondary index needs to be updated.
+You also need to be aware of the primary key size, which can impact the secondary index size and performance.</p>
+<p>To optimize index performance, try to keep the index size as small as possible, since we need to load the index pages
+into memory before working with them. Smaller index entries would allow us to pack more information per index page,
+and if such information is user managed -&gt; just be mindful about the size of user defined field stored in such entries.</p>
 
 
 
@@ -1822,7 +2083,7 @@ inner iteration such that we're not repeating checks.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
-          <a href="../valid_sudoku/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 🟠 36. Valid Sudoku">
+          <a href="../acid/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ACID">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -1832,20 +2093,20 @@ inner iteration such that we're not repeating checks.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                🟠 36. Valid Sudoku
+                ACID
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../Two_Pointers/valid_palindrome/" class="md-footer__link md-footer__link--next" aria-label="Next: 🟢 125. Valid Palindrome">
+          <a href="../db_index/" class="md-footer__link md-footer__link--next" aria-label="Next: B-Tree Index">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                🟢 125. Valid Palindrome
+                B-Tree Index
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1882,12 +2143,12 @@ inner iteration such that we're not repeating checks.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link", "content.action.edit"], "search": "../../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
-        <script src="../../../../javascripts/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       

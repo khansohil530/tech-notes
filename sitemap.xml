@@ -2,70 +2,130 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://khansohil530.github.io/tech-notes/</loc>
-         <lastmod>2025-11-18</lastmod>
+         <lastmod>2025-12-01</lastmod>
+    </url>
+    <url>
+         <loc>https://khansohil530.github.io/tech-notes/Courses/</loc>
+         <lastmod>2025-12-01</lastmod>
+    </url>
+    <url>
+         <loc>https://khansohil530.github.io/tech-notes/Courses/fode/</loc>
+         <lastmod>2025-12-01</lastmod>
+    </url>
+    <url>
+         <loc>https://khansohil530.github.io/tech-notes/Courses/fode/acid/</loc>
+         <lastmod>2025-12-01</lastmod>
+    </url>
+    <url>
+         <loc>https://khansohil530.github.io/tech-notes/Courses/fode/concurrency_control/</loc>
+         <lastmod>2025-12-01</lastmod>
+    </url>
+    <url>
+         <loc>https://khansohil530.github.io/tech-notes/Courses/fode/db_cursor/</loc>
+         <lastmod>2025-12-01</lastmod>
+    </url>
+    <url>
+         <loc>https://khansohil530.github.io/tech-notes/Courses/fode/db_engines/</loc>
+         <lastmod>2025-12-01</lastmod>
+    </url>
+    <url>
+         <loc>https://khansohil530.github.io/tech-notes/Courses/fode/db_index/</loc>
+         <lastmod>2025-12-01</lastmod>
+    </url>
+    <url>
+         <loc>https://khansohil530.github.io/tech-notes/Courses/fode/db_internals/</loc>
+         <lastmod>2025-12-01</lastmod>
+    </url>
+    <url>
+         <loc>https://khansohil530.github.io/tech-notes/Courses/fode/db_partition/</loc>
+         <lastmod>2025-12-01</lastmod>
+    </url>
+    <url>
+         <loc>https://khansohil530.github.io/tech-notes/Courses/fode/db_security/</loc>
+         <lastmod>2025-12-01</lastmod>
+    </url>
+    <url>
+         <loc>https://khansohil530.github.io/tech-notes/Courses/fode/db_shard/</loc>
+         <lastmod>2025-12-01</lastmod>
+    </url>
+    <url>
+         <loc>https://khansohil530.github.io/tech-notes/Courses/fode/extra/</loc>
+         <lastmod>2025-12-01</lastmod>
+    </url>
+    <url>
+         <loc>https://khansohil530.github.io/tech-notes/Courses/fode/indexing/</loc>
+         <lastmod>2025-12-01</lastmod>
+    </url>
+    <url>
+         <loc>https://khansohil530.github.io/tech-notes/Courses/fode/nosql/</loc>
+         <lastmod>2025-12-01</lastmod>
+    </url>
+    <url>
+         <loc>https://khansohil530.github.io/tech-notes/Courses/fode/replication/</loc>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://khansohil530.github.io/tech-notes/DSA/</loc>
-         <lastmod>2025-11-18</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://khansohil530.github.io/tech-notes/DSA/neetcode150/</loc>
-         <lastmod>2025-11-18</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://khansohil530.github.io/tech-notes/DSA/neetcode150/Arrays_and_Hashing/contains_duplicate/</loc>
-         <lastmod>2025-11-18</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://khansohil530.github.io/tech-notes/DSA/neetcode150/Arrays_and_Hashing/encode_and_decode_strings/</loc>
-         <lastmod>2025-11-18</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://khansohil530.github.io/tech-notes/DSA/neetcode150/Arrays_and_Hashing/group_anagrams/</loc>
-         <lastmod>2025-11-18</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://khansohil530.github.io/tech-notes/DSA/neetcode150/Arrays_and_Hashing/longest_consecutive_sequence/</loc>
-         <lastmod>2025-11-18</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://khansohil530.github.io/tech-notes/DSA/neetcode150/Arrays_and_Hashing/product_of_array_except_self/</loc>
-         <lastmod>2025-11-18</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://khansohil530.github.io/tech-notes/DSA/neetcode150/Arrays_and_Hashing/top_k_frequent_element/</loc>
-         <lastmod>2025-11-18</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://khansohil530.github.io/tech-notes/DSA/neetcode150/Arrays_and_Hashing/two_sum/</loc>
-         <lastmod>2025-11-18</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://khansohil530.github.io/tech-notes/DSA/neetcode150/Arrays_and_Hashing/valid_anagram/</loc>
-         <lastmod>2025-11-18</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://khansohil530.github.io/tech-notes/DSA/neetcode150/Arrays_and_Hashing/valid_sudoku/</loc>
-         <lastmod>2025-11-18</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://khansohil530.github.io/tech-notes/DSA/neetcode150/Two_Pointers/3sum/</loc>
-         <lastmod>2025-11-18</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://khansohil530.github.io/tech-notes/DSA/neetcode150/Two_Pointers/container_with_most_water/</loc>
-         <lastmod>2025-11-18</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://khansohil530.github.io/tech-notes/DSA/neetcode150/Two_Pointers/trapping_rain_water/</loc>
-         <lastmod>2025-11-18</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://khansohil530.github.io/tech-notes/DSA/neetcode150/Two_Pointers/two_sum_2/</loc>
-         <lastmod>2025-11-18</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://khansohil530.github.io/tech-notes/DSA/neetcode150/Two_Pointers/valid_palindrome/</loc>
-         <lastmod>2025-11-18</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
 </urlset>

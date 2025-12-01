@@ -7,31 +7,31 @@
       
       
       
-        <link rel="canonical" href="https://khansohil530.github.io/tech-notes/DSA/neetcode150/Arrays_and_Hashing/longest_consecutive_sequence/">
+        <link rel="canonical" href="https://khansohil530.github.io/tech-notes/Courses/fode/concurrency_control/">
       
       
-        <link rel="prev" href="../valid_sudoku/">
+        <link rel="prev" href="../db_shard/">
       
       
-        <link rel="next" href="../../Two_Pointers/valid_palindrome/">
+        <link rel="next" href="../replication/">
       
       
         
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>🟠 128. Longest Consecutive Sequence - My Tech Notes</title>
+        <title>Concurrency Control - My Tech Notes</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -50,15 +50,15 @@
       
     
     
-      <link rel="stylesheet" href="../../../../styles/overrides.css">
+      <link rel="stylesheet" href="../../../styles/overrides.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
-  <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#128-longest-consecutive-sequence" class="md-skip">
+        <a href="#concurrency-control" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="My Tech Notes" class="md-header__button md-logo" aria-label="My Tech Notes" data-md-component="logo">
+    <a href="../../.." title="My Tech Notes" class="md-header__button md-logo" aria-label="My Tech Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
@@ -123,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              🟠 128. Longest Consecutive Sequence
+              Concurrency Control
             
           </span>
         </div>
@@ -230,7 +230,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -247,13 +247,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../DSA/" class="md-tabs__link">
           
   
   
@@ -271,11 +269,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../../Courses/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -317,7 +317,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="My Tech Notes" class="md-nav__button md-logo" aria-label="My Tech Notes" data-md-component="logo">
+    <a href="../../.." title="My Tech Notes" class="md-nav__button md-logo" aria-label="My Tech Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
@@ -347,7 +347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -371,8 +371,6 @@
       
   
   
-    
-  
   
   
     
@@ -388,21 +386,18 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../" class="md-nav__link ">
+            <a href="../../../DSA/" class="md-nav__link ">
               
   
   
@@ -420,13 +415,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -443,8 +438,6 @@
                 
   
   
-    
-  
   
   
     
@@ -465,15 +458,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2">
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../../../DSA/neetcode150/" class="md-nav__link ">
               
   
   
@@ -497,7 +490,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -514,10 +507,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -546,11 +537,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
@@ -571,7 +562,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_2_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -589,7 +580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../contains_duplicate/" class="md-nav__link">
+      <a href="../../../DSA/neetcode150/Arrays_and_Hashing/contains_duplicate/" class="md-nav__link">
         
   
   
@@ -617,7 +608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../valid_anagram/" class="md-nav__link">
+      <a href="../../../DSA/neetcode150/Arrays_and_Hashing/valid_anagram/" class="md-nav__link">
         
   
   
@@ -645,7 +636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../two_sum/" class="md-nav__link">
+      <a href="../../../DSA/neetcode150/Arrays_and_Hashing/two_sum/" class="md-nav__link">
         
   
   
@@ -673,7 +664,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../group_anagrams/" class="md-nav__link">
+      <a href="../../../DSA/neetcode150/Arrays_and_Hashing/group_anagrams/" class="md-nav__link">
         
   
   
@@ -701,7 +692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../top_k_frequent_element/" class="md-nav__link">
+      <a href="../../../DSA/neetcode150/Arrays_and_Hashing/top_k_frequent_element/" class="md-nav__link">
         
   
   
@@ -729,7 +720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../encode_and_decode_strings/" class="md-nav__link">
+      <a href="../../../DSA/neetcode150/Arrays_and_Hashing/encode_and_decode_strings/" class="md-nav__link">
         
   
   
@@ -757,7 +748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../product_of_array_except_self/" class="md-nav__link">
+      <a href="../../../DSA/neetcode150/Arrays_and_Hashing/product_of_array_except_self/" class="md-nav__link">
         
   
   
@@ -785,7 +776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../valid_sudoku/" class="md-nav__link">
+      <a href="../../../DSA/neetcode150/Arrays_and_Hashing/valid_sudoku/" class="md-nav__link">
         
   
   
@@ -810,19 +801,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/Arrays_and_Hashing/longest_consecutive_sequence/" class="md-nav__link">
         
   
   
@@ -838,7 +820,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -921,7 +902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Two_Pointers/valid_palindrome/" class="md-nav__link">
+      <a href="../../../DSA/neetcode150/Two_Pointers/valid_palindrome/" class="md-nav__link">
         
   
   
@@ -949,7 +930,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Two_Pointers/two_sum_2/" class="md-nav__link">
+      <a href="../../../DSA/neetcode150/Two_Pointers/two_sum_2/" class="md-nav__link">
         
   
   
@@ -977,7 +958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Two_Pointers/3sum/" class="md-nav__link">
+      <a href="../../../DSA/neetcode150/Two_Pointers/3sum/" class="md-nav__link">
         
   
   
@@ -1005,7 +986,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Two_Pointers/container_with_most_water/" class="md-nav__link">
+      <a href="../../../DSA/neetcode150/Two_Pointers/container_with_most_water/" class="md-nav__link">
         
   
   
@@ -1033,7 +1014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Two_Pointers/trapping_rain_water/" class="md-nav__link">
+      <a href="../../../DSA/neetcode150/Two_Pointers/trapping_rain_water/" class="md-nav__link">
         
   
   
@@ -1081,6 +1062,8 @@
       
   
   
+    
+  
   
   
     
@@ -1096,18 +1079,21 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../Courses/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -1125,13 +1111,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1148,6 +1134,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1190,15 +1178,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../Courses/fode/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -1222,7 +1210,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1242,7 +1230,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Courses/fode/acid/" class="md-nav__link">
+      <a href="../acid/" class="md-nav__link">
         
   
   
@@ -1270,7 +1258,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Courses/fode/db_internals/" class="md-nav__link">
+      <a href="../db_internals/" class="md-nav__link">
         
   
   
@@ -1298,7 +1286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Courses/fode/db_index/" class="md-nav__link">
+      <a href="../db_index/" class="md-nav__link">
         
   
   
@@ -1326,7 +1314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Courses/fode/indexing/" class="md-nav__link">
+      <a href="../indexing/" class="md-nav__link">
         
   
   
@@ -1354,7 +1342,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Courses/fode/db_partition/" class="md-nav__link">
+      <a href="../db_partition/" class="md-nav__link">
         
   
   
@@ -1382,7 +1370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Courses/fode/db_shard/" class="md-nav__link">
+      <a href="../db_shard/" class="md-nav__link">
         
   
   
@@ -1407,10 +1395,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../../Courses/fode/concurrency_control/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrency Control
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1426,6 +1441,137 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#locks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Locks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Locks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#locking-in-postgres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Locking in Postgres
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Locking in Postgres">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabel-level-locks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tabel Level Locks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#row-level-locks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Row Level Locks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#page-level-locks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Page Level Locks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dead-locks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dead Locks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advisory-locks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advisory Locks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimistic-concurrency-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optimistic Concurrency Control
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-version-concurrency-control-mvcc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Version Concurrency Control (MVCC)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1438,7 +1584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Courses/fode/replication/" class="md-nav__link">
+      <a href="../replication/" class="md-nav__link">
         
   
   
@@ -1466,7 +1612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Courses/fode/db_engines/" class="md-nav__link">
+      <a href="../db_engines/" class="md-nav__link">
         
   
   
@@ -1494,7 +1640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Courses/fode/db_cursor/" class="md-nav__link">
+      <a href="../db_cursor/" class="md-nav__link">
         
   
   
@@ -1522,7 +1668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Courses/fode/nosql/" class="md-nav__link">
+      <a href="../nosql/" class="md-nav__link">
         
   
   
@@ -1550,7 +1696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Courses/fode/db_security/" class="md-nav__link">
+      <a href="../db_security/" class="md-nav__link">
         
   
   
@@ -1578,7 +1724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Courses/fode/extra/" class="md-nav__link">
+      <a href="../extra/" class="md-nav__link">
         
   
   
@@ -1634,6 +1780,125 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#locks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Locks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Locks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#locking-in-postgres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Locking in Postgres
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Locking in Postgres">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabel-level-locks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tabel Level Locks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#row-level-locks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Row Level Locks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#page-level-locks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Page Level Locks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dead-locks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dead Locks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advisory-locks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advisory Locks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimistic-concurrency-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optimistic Concurrency Control
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-version-concurrency-control-mvcc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Version Concurrency Control (MVCC)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1647,48 +1912,9 @@
                 
                   
 
-  <nav class="md-tags">
-    
-      
-      
-      
-      
-        <span class="md-tag">Array</span>
-      
-    
-      
-      
-      
-      
-        <span class="md-tag">Hash Table</span>
-      
-    
-      
-      
-      
-      
-        <span class="md-tag">LC_Medium</span>
-      
-    
-      
-      
-      
-      
-        <span class="md-tag">Neetcode150</span>
-      
-    
-      
-      
-      
-      
-        <span class="md-tag">Union Find</span>
-      
-    
-  </nav>
-
 
   
-    <a href="https://github.com/khansohil530/tech-notes/edit/master/docs/DSA/neetcode150/Arrays_and_Hashing/longest_consecutive_sequence.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/khansohil530/tech-notes/edit/master/docs/Courses/fode/concurrency_control.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
     </a>
@@ -1696,74 +1922,121 @@
   
 
 
-<h1 id="128-longest-consecutive-sequence"><img alt="🟠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f7e0.svg" title=":orange_circle:"> 128. Longest Consecutive Sequence<a class="headerlink" href="#128-longest-consecutive-sequence" title="Permanent link">¶</a></h1>
-<p><a href="https://leetcode.com/problems/longest-consecutive-sequence/description/" target="_blank">Problem Link</a></p>
-<p><strong>Brute Force</strong>: Since we only need to find the longest consecutive sequence irrespective of order in array,
-we can check the sequence starting each element and take the longest. This would result in <span class="arithmatex">\(O(n^2)\)</span> time 
-complexity.</p>
-<p>To optimize this, we can just check the sequence for <span class="arithmatex">\(num_i\)</span> whose previous number (<span class="arithmatex">\(num_i-1\)</span>) isn't present in our 
-array, as these number are guaranteed to generate unique sequence . This would result in checking the sequence for
-elements only once. </p>
-<details class="note">
-<summary>Pseudocode</summary>
+<h1 id="concurrency-control">Concurrency Control<a class="headerlink" href="#concurrency-control" title="Permanent link">¶</a></h1>
+<p>Consider the given scenario, you've a ticket booking platform which allows multiple users to book
+ticket at same time. In one particular case, two users decides to book tickets for same seat at same time.
+Ideally the querying logic for this would be to</p>
 <ul>
-<li>Iterate over the nums array. To keep checks constant time, we can also create a Hashset out of <code>nums</code> array.</li>
-<li>For each <code>num</code>, if the previous (<code>num-1</code>) isn't present in our array means we've a unique sequence starting 
-  from this <code>num</code>.</li>
-<li>To generate this sequence, declare a length pointer and increment it until we exhaust the sequence numbers
-  present in our hashset.</li>
-<li>Finally use a global variable to maintain the maximum length.</li>
+<li>Check the availability of seat in DB -&gt; <code>SELECT is_booked FROM seats WHERE id ='xyz'</code></li>
+<li>If available book the seat and update booked to <code>true</code> -&gt; <code>UPDATE seats SET is_booked=1 WHERE id = 'xyz'</code></li>
 </ul>
-</details>
-<details class="note">
-<summary>Runtime Complexity</summary>
-<p><b>Time</b>: <span class="arithmatex">\(O(n)\)</span>, single iteration over each element with constant time checks.
-It might look like we're iterating within 2 loops, but the conditional will reduce the
-inner iteration such that we're not repeating checks.</p>
-<p><b>Space</b>: <span class="arithmatex">\(O(n)\)</span> &lt;- from hashmap.</p>
-</details>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">Go</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">longestConsecutive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        <span class="n">nums</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>            <span class="k">if</span> <span class="n">num</span><span class="o">-</span><span class="mi">1</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>                <span class="n">length</span> <span class="o">=</span> <span class="mi">1</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>                <span class="k">while</span> <span class="n">num</span><span class="o">+</span><span class="n">length</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                    <span class="n">length</span><span class="o">+=</span><span class="mi">1</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>                <span class="n">res</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        <span class="k">return</span> <span class="n">res</span>
-</code></pre></div>
+<p>This logic in our case would book the tickets and send the confirmation to both users which shouldn't be happening.
+Such scenarios exist all over applications which need to check the inventory and reserve the item for end users.
+You could prevent this mishap if you'd control over who could access the selected seat at start of any transaction.
+Such features are provided under Concurrency control category and locking is one of the most commonly
+used implementations. </p>
+<h2 id="locks">Locks<a class="headerlink" href="#locks" title="Permanent link">¶</a></h2>
+<p>Locks are logical constructs which could be placed over a resource to prevents access of certain operations over it
+from other parties. Based on access pattern, locks can be divided into 2 major category:</p>
+<ul>
+<li><strong>Exclusive Locks</strong>: Can be acquired by 1 transaction exclusively allowing it to read-write over the data while 
+  preventing read-writes from others. These locks are primarily used to allow a transaction modify data without external
+  conflict.  </li>
+<li><strong>Shared Locks</strong>: Can be shared between multiple transaction for reading but prevents writes from any. This allows
+  multiple transaction to read same data concurrently while maintaining the integrity of data. </li>
+</ul>
+<p>Usage of locks should be managed with care as it could easily lead to issues like <strong>Dead Lock</strong> where 2 transactions
+are waiting indefinitely to acquire lock obtained by each other. Since neither of transaction will release the 
+lock before committing the changes, they’ll both keep waiting forever. Such scenarios must be handled by the
+database and depending on implementation rollback and fail one of the transactions. One way to prevent Dead locks
+is by using Two Phase Locking.</p>
+<p><strong>Two Phase Locking</strong> ensures transaction are ordered during execution by controlling how they
+acquire and release locks. It works in two phases</p>
+<ol>
+<li>Growing phase where locks are acquired.</li>
+<li>Shrinking phase where locks are released.</li>
+</ol>
+<p>For example, in Double Booking Problem discussed at the start, if we’d acquired the exclusive lock during the
+reading phase we could avoid the double booking situation as other transactions can’t read this value currently.
+Only after the first transaction commits does this lock gets released upon which it can see that the seat 
+is already booked, so it’ll return immediately.</p>
+<h3 id="locking-in-postgres">Locking in Postgres<a class="headerlink" href="#locking-in-postgres" title="Permanent link">¶</a></h3>
+<p>While the concept of locks on top remains as discussed above, their implementation could vary over different DB systems,
+to provide more granular control. For example, we'll discuss the kinds of locks provide by Postgres. For more information,
+can view the original postgres docs Reference:
+<a href="https://www.postgresql.org/docs/current/explicit-locking.html" target="_blank">Postgres Docs</a></p>
+<p>Postgres categorizes its locks into 5 categories</p>
+<h4 id="tabel-level-locks">Tabel Level Locks<a class="headerlink" href="#tabel-level-locks" title="Permanent link">¶</a></h4>
+<p>Postgres provides 8 different type of table locks and transactions can have multiple locks on same table.
+Some of these lock can conflict, others don’t.</p>
+<ul>
+<li><code>ACCESS EXCLUSIVE</code>: conflicts will all other table locks and as such completely locks the table for other transactions.</li>
+<li><code>ACCESS SHARE</code>: Generally acquired by queries which only reads from table like <code>SELECT</code>.</li>
+<li><code>EXCLUSIVE</code>: similar to <code>ACCESS EXCLUSIVE</code> except it doesn’t conflict <code>ACCESS SHARE</code> locks for reading.
+  It’s only used by <code>REFRESH MATERIALIZED VIEW CONCURRENTLY</code> command, which seems it was added so that users
+  can refresh their materialized view while also reading from it.</li>
+<li><code>ROW SHARE</code>: designed for <code>SELECT FOR...</code> commands like <code>SELECT FOR UPDATE</code>, <code>SELECT FOR SHARE</code> which works on
+  row level. These commands obtain two kinds of locks — a Row lock and ROW SHARE table lock.</li>
+<li><code>ROW EXCLUSIVE</code>: this lock mainly impacts write latency in system since it's used by write commands like <code>UPDATE</code>,
+  <code>DELETE</code>, <code>INSERT</code>, <code>MERGE</code>, <code>COPY FROM</code>.</li>
+<li><code>SHARE ROW EXCLUSIVE</code>: prevents table against concurrent data changes, and is self-exclusive so that only one session 
+  can hold it at a time. Acquired by some <code>ALTER TABLE</code> command and <code>CREATE TRIGGER</code>.</li>
+<li><code>SHARE</code>: protects a table against concurrent data changes but isn't self exclusive. Used by <code>CREATE INDEX</code> so that 
+  you can create multiple indexes concurrently but the data isn’t allowed to change.</li>
+<li><code>SHARE UPDATE EXCLUSIVE</code>: allows concurrent writes and reads but prevents schema changes and VACCUM runs.</li>
+</ul>
+<p>Below table will summarize which locks would conflict with one another.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../static/pg_table_locks_conflict.png" data-desc-position="bottom"><img alt="Postgres Table Lock Conflicts" src="../../../static/pg_table_locks_conflict.png"></a></p>
+<h4 id="row-level-locks">Row Level Locks<a class="headerlink" href="#row-level-locks" title="Permanent link">¶</a></h4>
+<p>Row locks are critical to prevent lost updates. New tuples don’t require locks as they’re only visible to current
+transaction in which they were created. That’s why postgres doesn’t support READ UNCOMMITTED isolation. 
+These locks are limited to <code>DELETE</code> , <code>UPDATE (no key)</code> , <code>UPDATE (key)</code>, and all <code>SELECT FOR</code>s.
+(key/no key refers if the column has unique index on that column or not) </p>
+<ul>
+<li><code>FOR UPDATE</code>: highest row lock, you can’t delete, update on the row when this lock is acquired by other transaction. 
+  It’s self conflicting, so you can’t use two <code>FOR UPDATE</code> concurrently. You can still read it through normal <code>SELECT</code>.
+  It’s obtained by <code>DELETE</code>, <code>UPDATE (key)</code>, <code>SELECT</code> commands.</li>
+<li><code>FOR NO KEY UPDATE</code>: acquired for updates to column without a unique index. It’s weaker <code>FOR UPDATE</code> as it allows
+  <code>SELECT FOR KEY SHARE</code>.</li>
+<li><code>FOR SHARE</code>: true shared lock, it can be acquired by multiple transactions. When acquired, it blocks modification to row</li>
+<li><code>FOR KEY SHARE</code>: like <code>FOR SHARE</code> but allows update to column without unique index.</li>
+</ul>
+<p>To view conflict among above locks, refer to below table
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../static/pg_row_lock_conflict.png" data-desc-position="bottom"><img alt="Postgres Row Lock Conflicts" src="../../../static/pg_row_lock_conflict.png"></a></p>
+<div class="admonition note">
+<p>Postgres stores table locks in memory because they’re coarse but row locks are stored alongside table
+in <code>xmax</code> system field, which saves memory but costs disk write. </p>
 </div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">func</span><span class="w"> </span><span class="nx">longestConsecutive</span><span class="p">(</span><span class="nx">nums</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nx">set</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="kd">interface</span><span class="p">{})</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">num</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">nums</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="nx">set</span><span class="p">[</span><span class="nx">num</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">nil</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nx">res</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">num</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">set</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">ok</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">set</span><span class="p">[</span><span class="nx">num</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span><span class="w"> </span><span class="p">!</span><span class="nx">ok</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">            </span><span class="nx">length</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">1</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">ok</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">set</span><span class="p">[</span><span class="nx">num</span><span class="o">+</span><span class="nx">length</span><span class="p">];</span><span class="w"> </span><span class="nx">ok</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">                    </span><span class="nx">length</span><span class="o">++</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">                    </span><span class="k">break</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">                </span><span class="p">}</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">            </span><span class="p">}</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">            </span><span class="nx">res</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">length</span><span class="p">)</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="p">}</span>
-</code></pre></div>
-</div>
-</div>
-</div>
+<h4 id="page-level-locks">Page Level Locks<a class="headerlink" href="#page-level-locks" title="Permanent link">¶</a></h4>
+<p>Postgres page are of size 8KB and stores tuples for table and indexes.
+Since these pages loaded in shared buffer pool and Postgres being process based backend, multiple process 
+can access these pages in shared buffer memory which could lead to inconsistent read or conflicting writes.
+To avoid such cases, postgres provides page-level share/exclusive locks to control read/write access to table pages 
+in the shared buffer pool.</p>
+<h4 id="dead-locks">Dead Locks<a class="headerlink" href="#dead-locks" title="Permanent link">¶</a></h4>
+<p>Using explicit locking can increase the likelihood of deadlocks among transactions in DB.
+Postgres detects such conditions and kills one of the transaction to avoid blocking forever.
+So long as no deadlock situation is detected, a transaction seeking either a table-level or row-level lock
+will wait indefinitely for conflicting locks to be released.
+This means it’s a bad idea for applications to hold transactions open for long periods of time</p>
+<h4 id="advisory-locks">Advisory Locks<a class="headerlink" href="#advisory-locks" title="Permanent link">¶</a></h4>
+<p>Sometimes application requirements aren’t satisfied by postgres built in locks. 
+To help with this, postgres provides application based locks which are managed by application.
+However, these locks still live in databases. These are of two types:
+- session lock: obtained with <code>pg_advisory_lock()</code> , are kept for the length of session
+- transaction lock: obtained with <code>pg_advisory_xact_lock()</code>, are kept for length of current running transaction</p>
+<h2 id="optimistic-concurrency-control">Optimistic Concurrency Control<a class="headerlink" href="#optimistic-concurrency-control" title="Permanent link">¶</a></h2>
+<p>Locking as discussed above is categorized under Pessimistic Concurrency Control, as in you don’t trust others
+(Pessimistic) while updating a row, that you lock it and when anyone comes to mess with it while you’re updating 
+the row, you can tell them whatever you want to.</p>
+<p>Optimistic Concurrency Control in contrast allow transactions to freely (Optimistic) operate during transaction but
+validates conflicts during COMMIT. If there's any conflict found, it'll abort the transaction and return
+an error to user. This kind of concurrency control is mostly used in read heavy workload where you get
+conflicts rarely as data isn't modified as frequently.</p>
+<h2 id="multi-version-concurrency-control-mvcc">Multi-Version Concurrency Control (MVCC)<a class="headerlink" href="#multi-version-concurrency-control-mvcc" title="Permanent link">¶</a></h2>
+<p>Instead of locking rows for reads, the DB keeps multiple versions of rows. Readers see a consistent snapshot
+without blocking writers. Postgres uses MVCC which you can read more about in their 
+<a href="https://www.postgresql.org/docs/7.1/mvcc.html" target="_blank">docs</a></p>
 
 
 
@@ -1822,7 +2095,7 @@ inner iteration such that we're not repeating checks.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
-          <a href="../valid_sudoku/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 🟠 36. Valid Sudoku">
+          <a href="../db_shard/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Database Sharding">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -1832,20 +2105,20 @@ inner iteration such that we're not repeating checks.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                🟠 36. Valid Sudoku
+                Database Sharding
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../Two_Pointers/valid_palindrome/" class="md-footer__link md-footer__link--next" aria-label="Next: 🟢 125. Valid Palindrome">
+          <a href="../replication/" class="md-footer__link md-footer__link--next" aria-label="Next: Database Replication">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                🟢 125. Valid Palindrome
+                Database Replication
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1882,12 +2155,12 @@ inner iteration such that we're not repeating checks.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link", "content.action.edit"], "search": "../../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
-        <script src="../../../../javascripts/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
