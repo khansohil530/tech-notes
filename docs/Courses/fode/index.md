@@ -6,7 +6,7 @@ tags:
 # Fundamentals of Database Engineering
 
 ![Udemy](https://img.shields.io/badge/Platform-Udemy-purple?logo=udemy&logoColor=#A435F0)
-![In Progress](https://img.shields.io/badge/Status-In%20Progress-yellow)
+![Completed](https://img.shields.io/badge/Status-Completed-green)
 
 [Course Link](https://www.udemy.com/course/database-engines-crash-course/){target=_blank}
 
@@ -24,4 +24,4 @@ Notes:
 - [x] [Database Cursor](db_cursor.md)
 - [x] [NoSQL Architecture](nosql.md)
 - [x] [Database Security](db_security.md)
-- [ ] [Extra]()
+- [x] [Extra](extra.md)
