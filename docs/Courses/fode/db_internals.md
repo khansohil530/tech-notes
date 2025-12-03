@@ -10,9 +10,8 @@ these two data structure: **Table** and **Index**.
 Table is a logical structure which defines how data is modeled and stored on disk. From outside,
 table is collection of **rows**(1) and **columns**(2) - usually representing an entity in your application.
 Internally, table is a collection of **tuples** (rows) organized across pages on one or more data files.
-
 { .annotate }
-   
+
 1. unique record or instance of entity referenced by the table 
 2. specifies the attribute or field of referenced row 
 
