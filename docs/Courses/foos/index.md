@@ -13,7 +13,7 @@ tags:
 Notes:
 
 - [x] [Need of OS](intro.md)
-- [ ] [Process]()
+- [x] [Process](process.md)
 - [ ] [Memory]()
 - [ ] [CPU]()
 - [ ] [Process Management]()
