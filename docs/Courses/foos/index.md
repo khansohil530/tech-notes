@@ -14,7 +14,7 @@ Notes:
 
 - [x] [Need of OS](intro.md)
 - [x] [Process](process.md)
-- [ ] [Memory]()
+- [x] [Memory](memory.md)
 - [ ] [CPU]()
 - [ ] [Process Management]()
 - [ ] [Storage]()

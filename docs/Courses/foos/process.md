@@ -1,8 +1,8 @@
 # Program and Process 
 
-Process are logical construct used to encapsulate a running program. It consists of entire
-data and content required by OS to manage the program, like entrypoint of program, the shared libraries which needs
-to be loaded, user data, program instructions, etc.
+Process are logical construct used to encapsulate a running program.
+It's made up of all the metadata and content required by OS to manage and run a program,
+like entrypoint of program, the shared libraries which needs to be loaded, user data, program instructions, etc.
 
 But how does OS understand where to get these information? To understand this, we'll need to look into the layout
 of program files.
@@ -10,7 +10,7 @@ of program files.
 ## Program
 
 *Program* is an executable file which contains instructions for kernel about how to execute it’s work. 
-These instructions/codes are complied (1) and linked (2) for the CPU.
+These instructions/codes are complied (1) and linked (2) for a CPU.
 {.annotate}
 
 1. *Complied* means the instruction should be converted into codes understandable by CPU (which are 0s and 1s).
@@ -24,8 +24,8 @@ These instructions/codes are complied (1) and linked (2) for the CPU.
     combine all these libraries in same executable, but that’d increase the size of `exe` drastically which is why 
     they're kept dynamic for ease of distribution.
 
-This execution file has specific format, for example Unix like OS uses ELF (1) layout for its binaries which the 
-OS understands.
+This executable file has specific format, (for example Unix like OS uses ELF (1) layout for its binaries) which the 
+OS understands, using which it can load the process with required content and metadata to execute provided instructions.
 {.annotate}
 
 1. **E**xecutable and **L**inked **F**ormat
@@ -130,7 +130,7 @@ categories:
     ```
    
 2. **CPU Execution Context**, the state of CPU needed to resume the process after a context switch. It includes values for various
-   pointers like `pc`(1), `sp`(2), `bp`(3), etc. We'll discuss how this pointers are used later.
+   pointers like `pc`(1), `sp`(2), `bp`(3), etc. We'll discuss how these pointers are used later.
     {.annotate}
     
      1. Program Counter, points next instruction to execute
