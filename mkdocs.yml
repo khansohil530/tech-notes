@@ -48,6 +48,10 @@ plugins:
       fallback_to_build_date: true
   - glightbox
   - tags
+  - panzoom:
+      always_show_hint: false
+      full_screen: true
+      key: "none"
 
 
 markdown_extensions:
