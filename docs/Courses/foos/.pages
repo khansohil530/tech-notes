@@ -4,3 +4,4 @@ nav:
     - intro.md
     - process.md
     - memory.md
+    - cpu.md
