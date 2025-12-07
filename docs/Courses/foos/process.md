@@ -137,7 +137,7 @@ categories:
      2. Stack Pointer, top of user stack
      3. Base Pointer, points to start of currently executing function frame
 
-3. **Kernel-Space**, or PCB (1) which stores information about process like ids (PID, PPID, UID, GID(3)), scheduling info,
+3. **PCB** (1) which stores information about process like ids (PID, PPID, UID, GID(3)), scheduling info,
    MMU (2) structs, table of open file descriptors, process running status and threading info. This area of memory
    is only accessible to Kernel for security purposes.
    {.annotate}

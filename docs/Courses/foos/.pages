@@ -5,3 +5,4 @@ nav:
     - process.md
     - memory.md
     - cpu.md
+    - process_mgmt.md
