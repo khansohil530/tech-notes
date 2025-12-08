@@ -83,7 +83,7 @@ Further RAM can be divided into two categories based on their implementation and
 
 
 When we're installing RAM, we've mostly come across this kind of component.
-![RAM Module](../../static/ram-module.png){align=right}
+![RAM Module](../../static/ram-module.png){align=right width=256px}
 Usually, it comes as **SO-DIMM**(1) which consists of 3 majors parts:
 {.annotate}
 
@@ -137,15 +137,17 @@ With this access pattern, if a variable lies across two cache lines, the CPU wou
 slower and more complex to handle. To solve this problem, data alignment was introduced.
 
 With **Data alignment**, variables in memory are stored at addresses that are multiples of their size
-(or their required alignment boundary). Example of typically aligned data type
+(or their required alignment boundary).
 
-| Data Type                  | Size     | Common Alignment |
-|----------------------------|----------|------------------|
-| `char`                     | 1 byte   | 1-byte aligned   |
-| `short`                    | 2 bytes  | 2-byte aligned   |
-| `int32`                    | 4 bytes  | 4-byte aligned   |
-| `int64` / `double`         | 8 bytes  | 8-byte aligned   |
-| SIMD types (e.g., 128-bit) | 16 bytes | 16-byte aligned  |
+??? note "Typically aligned data type"
+    
+    | Data Type                  | Size     | Common Alignment |
+    |----------------------------|----------|------------------|
+    | `char`                     | 1 byte   | 1-byte aligned   |
+    | `short`                    | 2 bytes  | 2-byte aligned   |
+    | `int32`                    | 4 bytes  | 4-byte aligned   |
+    | `int64` / `double`         | 8 bytes  | 8-byte aligned   |
+    | SIMD types (e.g., 128-bit) | 16 bytes | 16-byte aligned  |
 
 Check following diagram to see how alignment is done when storing variables, 
 
@@ -176,9 +178,9 @@ flowchart TD
 ```
 
 You might notice that padding in cache line would lower the utilization of each cache lines. 
-![Data Alignment in Cache Memory](../../static/cache-data-alignment.png){align=right}
-Usage of padding is unavoidable since the performance boost provided by such alignment far outweighs this cost.
-But you can minimize padding, by decision like, reordering fields inside a struct or designing data layouts 
+![Data Alignment in Cache Memory](../../static/cache-data-alignment.png){align=right width=256px} but
+the performance boost provided by such alignment far outweighs this cost.
+However, you can minimize padding, by decision like, reordering fields inside a struct or designing data layouts 
 manually for cache-line friendliness. Google used this technique to improve performance of Linux TCP/IP stack
 by 40% by reordering internal structs ([blog](https://www.phoronix.com/news/Linux-6.8-Networking){target=_blank}). 
 

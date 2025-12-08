@@ -267,3 +267,28 @@ This code is executed in CPU as follows:
 
     If a branch misprediction occurred, the CPU flushes the ROB, rolls back register mappings  and restarts from 
    correct path
+
+??? note "Analyzing CPU usage in Linux using top"
+    Analyzing CPU usage for a programs give you better insight on its execution performance, and decide whether
+    its CPU bound or I/O bound. Running `top` in terminal gives you information similar to following fields at top,
+    ```shell
+    %Cpu(s):  5.0 us,  2.0 sy,  0.0 ni, 90.0 id,  3.0 wa,  0.0 hi,  0.0 si,  0.0 st
+    ```
+    
+    - **us** -> Time spent running *user* processes
+      - **sy** ->Time spent in *kernel/system* processes
+      - **id** -> Idle time
+      - **wa** -> Time spent *waiting for I/O*, tells if a process is CPU bound or I/O bound
+      - **hi/si** -> Hardware/software interrupts
+      - **st** -> Steal time (virtualized environments)
+    
+    
+    In the per process stats, we get following fields:
+    ```shell
+    PID USER  PR NI  VIRT  RES  SHR S %CPU %MEM  TIME+ COMMAND
+    ```
+    
+    - **%CPU** tell	% of CPU the process is consuming
+      - **S** is state of process, like Running (R), Sleeping (S), Uninterruptible IO sleep (D), etc.
+      - **TIME+** tells total CPU time used
+      - **COMMAND** is the name of process

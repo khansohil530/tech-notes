@@ -6,3 +6,4 @@ nav:
     - memory.md
     - cpu.md
     - process_mgmt.md
+    - storage.md

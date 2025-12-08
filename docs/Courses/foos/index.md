@@ -17,6 +17,6 @@ Notes:
 - [x] [Memory](memory.md)
 - [x] [CPU](cpu.md)
 - [x] [Process Management](process_mgmt.md)
-- [ ] [Storage]()
+- [x] [Storage](storage.md)
 - [ ] [Socket]()
 - [ ] [Extra]()
