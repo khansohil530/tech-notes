@@ -66,7 +66,7 @@ multiple bits per cell (1) to increase storage density.
    ![NAND Flash Cell](../../static/nand-flash-cell.png){align=right}
 
 ??? note "Physics of NAND flash cell" 
-    ![img.png](img.png){align=right width=256px}
+    ![Flash Cell Transistor](../../static/nand-flash-cell-transistor.png){align=right width=256px}
     NAND flash cell has a control gate and a floating gate, separated by a thin oxide layer. The floating gate can
     trap electrical charge which is used to store information as 0s and 1s. To fill charge in cell, you've to apply a
     high voltage at the control gate, which tunnels the electrons through the oxide layer and traps in the floating gate. 
@@ -233,7 +233,7 @@ have few of its own tradeoffs:
 
 
 We've already discussed how storage devices persists data internally, specially for [SSDs](storage.md#ssd). 
-But programs rarely work with storage devices directly, instead of provides different level of abstractions to simplify
+But programs rarely work with storage devices directly, instead OS provides different level of abstractions to simplify
 communicating with storage. 
  
 ### LBA

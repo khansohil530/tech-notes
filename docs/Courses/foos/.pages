@@ -7,3 +7,4 @@ nav:
     - cpu.md
     - process_mgmt.md
     - storage.md
+    - socket.md
