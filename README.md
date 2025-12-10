@@ -4,6 +4,7 @@ This site is built with MkDocs Material and serves as both a reference and a lea
 
 To run this site locally:
 
-
+```
 pip install -r requirements.txt
-mkdocs serve
+mkdocs serve --livereload
+```
