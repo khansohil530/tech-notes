@@ -1,3 +1,7 @@
+---
+comments: false
+---
+
 # Neetcode 150
 
 ![Neetcode](https://img.shields.io/badge/Platform-Neetcode-orange)

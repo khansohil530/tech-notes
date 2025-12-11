@@ -1,6 +1,5 @@
 ---
-tags:
-    - Operating System
+comments: false
 ---
 
 # Fundamentals of Operating System

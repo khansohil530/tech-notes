@@ -8,6 +8,7 @@ repo_name: tech-notes
 theme:
   name: material
   language: en
+  custom_dir: overrides
   features:
     - navigation.tabs
     - navigation.tabs.sticky
@@ -44,6 +45,7 @@ theme:
 plugins:
   - search
   - awesome-pages
+  - meta
   - git-revision-date-localized:
       fallback_to_build_date: true
   - glightbox
@@ -59,7 +61,6 @@ markdown_extensions:
   - admonition
   - def_list
   - footnotes
-  - meta
   - toc:
       permalink: true
   - attr_list

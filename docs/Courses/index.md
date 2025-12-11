@@ -1,3 +1,7 @@
+---
+comments: false
+---
+
 # Courses
 
 ![Udemy](https://img.shields.io/badge/Platform-Udemy-purple?logo=udemy&logoColor=#A435F0)
