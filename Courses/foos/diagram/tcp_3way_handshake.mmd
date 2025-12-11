@@ -1,0 +1,31 @@
+sequenceDiagram
+    participant Client
+    participant ServerNIC as Server NIC
+    participant TL as Transport Layer (Server)
+    participant ListenSock as Listening Socket
+    participant SynQ as SYN Queue
+    participant AcceptQ as Accept Queue
+    participant ChildSock as Child Connection Socket
+
+    Note over Client,TL: Client initiates connection
+
+    Client ->> ServerNIC: SYN
+    ServerNIC ->> TL: Deliver SYN packet
+
+    TL ->> ListenSock: Match on listening port found
+    TL ->> SynQ: Insert half-open connection (SYN entry)
+
+    TL ->> Client: SYN-ACK
+
+    Client ->> ServerNIC: ACK
+    ServerNIC ->> TL: Deliver ACK packet
+
+    TL ->> SynQ: Remove SYN entry
+    TL ->> ChildSock: Create new child connection socket (established)
+    TL ->> AcceptQ: Insert child socket into Accept Queue
+
+    Note over AcceptQ,ListenSock: accept() will retrieve this socket
+
+    ListenSock ->> ChildSock: accept() returns the established connection
+
+    Note over ChildSock,Client: Child socket now handles all data transfer

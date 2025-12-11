@@ -1,0 +1,18 @@
+sequenceDiagram
+    participant CPU
+    participant DMA as DMA Controller
+    participant Device as I/O Device
+    participant Mem as Main Memory
+
+    CPU->>DMA: Configure DMA (source, destination, size, direction)
+    CPU->>DMA: Start DMA operation
+    CPU-->>CPU: Continue other tasks
+
+    DMA->>Device: Request data (or prepare to send)
+    Device-->>DMA: Provide/receive data stream
+
+    DMA->>Mem: Transfer data directly to/from memory
+    Note over DMA,Mem: Bus arbitration, DMA controls the bus<br/>("cycle stealing" or burst mode)
+
+    DMA->>CPU: Interrupt → DMA transfer complete
+    CPU->>CPU: Handle completion and resume tasks

@@ -1,0 +1,34 @@
+sequenceDiagram
+    autonumber
+
+    participant Kernel
+    participant Memory
+    participant CPU
+
+    %% 1. Process created and text loaded
+    Kernel->>Memory: Loads and map process memory
+    Kernel->>CPU:  Sets initial values to CPU registers (PC -> entrypoint, SP -> top of stack)
+    Kernel->>CPU: Schedules process on CPU
+
+    %% 3. CPU fetches instruction into IR
+    CPU->>Memory: Fetch instruction at PC address
+    Memory->>CPU: Load instruction set into IR  (instruction register)
+
+    %% 4. Execute and increment PC
+    CPU->>CPU: Execute instruction and Increment PC to point next instruction
+
+    %% 5. Use cache for next instruction
+    CPU->>CPU: Check LCaches for next instruction
+    alt Instruction cached
+        CPU->>CPU: Load instruction from cache
+    else Not cached
+        CPU->>Memory: Fetch instructions in burst
+        Memory->>CPU: Fill cache line
+        CPU->>CPU: Provide next instruction
+    end
+
+    %% 6. PC not saved unless context switch
+    CPU-->>Kernel: Continue executing until preemption
+    Kernel->>Memory: Save registers on stack only during context switch
+    Memory->>CPU: Restore registers from stack when rescheduled
+

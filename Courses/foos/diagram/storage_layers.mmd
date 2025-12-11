@@ -1,0 +1,22 @@
+    sequenceDiagram
+        autonumber
+
+        participant APP as Application
+        participant VFS as VFS Layer
+        participant FS as Filesystem (ext4/NTFS/XFS)
+        participant BLK as Block Layer<br/>I/O Scheduler
+        participant DRV as Device Driver<br/>(SATA/NVMe/SCSI)
+        participant DEV as Storage Device<br/>(HDD/SSD)
+
+        APP->>VFS: read("fileA", offset, size)
+        VFS->>FS: Lookup file path<br/>Resolve filename → inode
+        FS->>FS: Translate file offset → filesystem block
+        FS->>BLK: Submit BIO request<br/>(read block X)
+        BLK->>BLK: Merge & schedule requests<br/>Apply I/O scheduler
+        BLK->>DRV: Dispatch request<br/>(READ LBA range)
+        DRV->>DEV: Issue protocol command<br/>(READ LBA N to N+K)
+        DEV-->>DRV: Return data
+        DRV-->>BLK: Complete I/O request
+        BLK-->>FS: Return data buffer
+        FS-->>VFS: File data
+        VFS-->>APP: read() returns with data

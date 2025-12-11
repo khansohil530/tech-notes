@@ -1,0 +1,25 @@
+    sequenceDiagram
+        participant Ctrl as SSD Controller (FTL)
+        participant NAND as NAND Flash
+        participant WL as Wear-Leveling Engine
+
+        Ctrl->>WL: Request block for new write
+        WL->>WL: Check erase counts of all blocks
+        WL->>Ctrl: Provide least-worn block
+
+        Ctrl->>NAND: Write data to selected block
+        NAND-->>Ctrl: Write complete
+
+        Note over WL: Background Wear-Leveling (Static)
+
+        WL->>WL: Identify cold data in low-wear blocks
+        WL->>NAND: Read cold data from low-wear block
+        NAND-->>WL: Return cold data
+
+        WL->>NAND: Write cold data to higher-wear block
+        NAND-->>WL: Write complete
+
+        WL->>NAND: Erase original low-wear block
+        NAND-->>WL: Block erased
+
+        WL->>Ctrl: Updated block wear distribution

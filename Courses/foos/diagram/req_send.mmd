@@ -1,0 +1,16 @@
+sequenceDiagram
+    participant App as Application
+    participant SockSend as Socket Send Buffer
+    participant TL as Transport Layer (TCP)
+    participant IP as IP Layer
+    participant NIC as NIC Driver / Hardware
+
+    Note over App,NIC: Send Request Flow
+
+    App ->> SockSend: send()/write() → copy data to send buffer
+    SockSend ->> TL: Data delivered to TCP layer
+    TL ->> TL: Segment data, assign seq#, manage retransmissions
+    TL ->> IP: Hand off TCP segments
+    IP ->> IP: Add IP header, routing decision
+    IP ->> NIC: Pass packets to NIC driver
+    NIC ->> NIC: Frame packets, transmit over network

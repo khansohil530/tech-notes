@@ -1,0 +1,22 @@
+    sequenceDiagram
+        participant Process
+        participant OS as Kernel
+        participant Mem as Physical Memory
+        participant Disk as Swap Space
+
+        Process->>OS: Request memory allocation
+        OS->>Mem: Check available free frames
+        Mem-->>OS: Not enough free memory
+
+        OS->>OS: Select victim pages (replacement policy)
+
+        OS->>Mem: Identify victim page frame
+        Mem->>Disk: Write victim page to swap (if dirty)
+        Disk-->>OS: Swap write complete
+
+        OS->>Mem: Free the victim frame
+        OS->>Disk: Read needed page from disk
+        Disk->>Mem: Load required page into freed frame
+
+        OS->>Process: Memory allocated successfully
+        Process->>Process: Continue execution

@@ -1,0 +1,11 @@
+    sequenceDiagram
+       participant OS as Operating System
+       participant Ctrl as SSD Controller (FTL)
+       participant NAND as NAND Flash
+
+       OS->>Ctrl: Write(LBA, Data)
+       Ctrl->>Ctrl: Find free (erased) page
+       Ctrl->>NAND: Program new page with Data
+       NAND-->>Ctrl: Write complete
+       Ctrl->>Ctrl: Update LBA → new page mapping
+       Ctrl-->>OS: Write success

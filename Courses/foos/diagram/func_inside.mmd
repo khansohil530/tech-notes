@@ -1,0 +1,28 @@
+   sequenceDiagram
+       autonumber
+
+       participant CPU as CPU (Executes Instructions)
+       participant SP as SP (Stack Pointer)
+       participant BP as BP (Base Pointer)
+       participant Stack as Stack Memory
+
+       %% Function has already been called
+       note over CPU,Stack: We are now INSIDE the function<br/>Stack frame has been created
+
+       CPU->>Stack: Reserve local variable <br/>e.g., int x
+
+       %% Storing variables
+       CPU->>Stack: Write value of local var x<br/>(at BP - offset)
+       Stack-->>CPU: Store complete
+
+       %% Using local variables
+       CPU->>Stack: Read local x via (BP - offset)
+       Stack-->>CPU: Return value of x
+
+       %% Temporary values / spills
+       CPU->>Stack: Spill register value to stack
+       SP-->>SP: SP moves DOWN (push)
+       Stack-->>CPU: Load spilled value later (pop)
+       SP-->>SP: SP moves UP (pop)
+
+       note over CPU,Stack: Execution continues using locals<br/>until function prepares to return
