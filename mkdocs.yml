@@ -88,9 +88,24 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
 
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/khansohil530
+      name: Github
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/sohil-khan-7206161a3
+      name: LinkedIn
+    - icon: fontawesome/solid/globe
+      link: https://khansohil530.github.io/
+      name: About me
+
+copyright: Copyright &copy; 2025 Sohil Khan
+
 extra_javascript:
   - javascripts/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 
 extra_css:
   - styles/overrides.css
+  - assets/stylesheets/extra.css

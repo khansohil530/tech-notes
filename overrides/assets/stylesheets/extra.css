@@ -1,0 +1,6 @@
+.discussion-separator {
+  margin: 2rem 0 1.25rem;
+  border: 0;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+  opacity: 0.7;
+}
