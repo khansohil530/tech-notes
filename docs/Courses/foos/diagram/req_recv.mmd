@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant NIC as NIC Driver / Hardware
+    participant IP as IP Layer
+    participant TL as Transport Layer (TCP)
+    participant SockRecv as Socket Receive Buffer
+    participant App as Application
+
+    Note over NIC,App: Receive Request Flow
+
+    NIC ->> IP: Receive packet from network
+    IP ->> IP: Validate, strip IP header
+    IP ->> TL: Deliver to TCP layer
+    TL ->> TL: Reassemble stream, ACK handling, ordering checks
+    TL ->> SockRecv: Place data into receive buffer
+    SockRecv ->> App: Wake recv() → copy data to user space

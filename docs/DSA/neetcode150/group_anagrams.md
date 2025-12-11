@@ -35,11 +35,11 @@ We can use this information to generate the group of Anagram string.
 
 === "Python"
     ```python 
-    --8<-- "docs/src/neetcode150/py/group_anagrams.py:2:"
+    --8<-- "docs/DSA/neetcode150/src/py/group_anagrams.py:2:"
     ```
 === "Go"
     ```go
-    --8<-- "docs/src/neetcode150/go/group_anagrams.go:2:"
+    --8<-- "docs/DSA/neetcode150/src/go/group_anagrams.go:2:"
     ```
 
 ??? info "Implementation Note"

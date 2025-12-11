@@ -8,7 +8,7 @@ tags:
 
 [Problem Link](https://leetcode.com/problems/3sum/description/){target=_blank}
 
-This problem is similar to [Two Sum](../Arrays_and_Hashing/two_sum.md), we can just use an outer iteration
+This problem is similar to [Two Sum](two_sum.md), we can just use an outer iteration
 to reduce it to a two sum. But core part would be, **how you'd avoid duplicate triplets in result?**
 
 One approach could be by sorting the array, and since duplicate values would be adjacent we could directly
@@ -29,11 +29,11 @@ runtime of our $O(n^2)$ solution.
 === "Python"
 
     ```python
-    --8<-- "docs/src/neetcode150/py/3sum.py:2"
+    --8<-- "docs/DSA/neetcode150/src/py/3sum.py:2"
     ```
 
 === "Go"
 
     ```go
-    --8<-- "docs/src/neetcode150/go/3sum.go:4"
+    --8<-- "docs/DSA/neetcode150/src/go/3sum.go:4"
     ```

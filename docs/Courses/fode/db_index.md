@@ -12,40 +12,7 @@ computer scientists invented a balanced tree data structure where each node (DB 
 with pointers to multiple child nodes similar to below diagram.
 
 ``` mermaid
-graph TD
-
-    %% Level 0 (root)
-    R["[20 | 40]"]
-
-    %% Level 1
-    A["[10]"]
-    B["[30]"]
-    C["[50 | 60]"]
-
-    R --> A
-    R --> B
-    R --> C
-
-    %% Level 2
-    A1["[5]"]
-    A2["[12 | 18]"]
-
-    B1["[22 | 25]"]
-    B2["[32 | 35]"]
-
-    C1["[45 | 48]"]
-    C2["[55]"]
-    C3["[65 | 70]"]
-
-    A --> A1
-    A --> A2
-
-    B --> B1
-    B --> B2
-
-    C --> C1
-    C --> C2
-    C --> C3
+--8<-- "docs/Courses/fode/diagram/btree_index.mmd"
 ```
 
 The tree consists of **root node** which is the starting point for search, **branch nodes** consisting of 

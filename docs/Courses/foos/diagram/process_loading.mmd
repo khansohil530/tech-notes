@@ -1,0 +1,27 @@
+sequenceDiagram
+    participant User as User / Shell
+    participant Kernel as Linux Kernel
+    participant ELF as ELF Executable
+    participant Loader as Dynamic Loader (ld.so)
+    participant Proc as New Process
+
+    User->>Kernel: execve("program", argv, envp)
+    Kernel->>ELF: Read ELF Header<br/>Check magic: 0x7F 'E' 'L' 'F'
+    Kernel->>ELF: Read Program Header Table
+    Kernel->>Proc: Create new process<br/>Create address space
+
+    loop For each PT_LOAD segment
+        Kernel->>Proc: Map PT_LOAD segment<br/>into virtual memory (R/W/X)
+    end
+
+    alt ELF contains PT_INTERP?
+        ELF->>Kernel: PT_INTERP = "/lib64/ld-linux-x86-64.so.2"
+        Kernel->>Loader: Load dynamic loader<br/>Map its segments
+        Kernel->>Loader: Transfer control<br/>to loader entry point (user mode)
+        Loader->>Proc: Resolve shared libs<br/>Relocations & symbol binding
+        Loader->>Proc: Jump to ELF entry point (_start)
+    end
+
+    Kernel->>Proc: Set up user stack<br/>argc, argv, envp, auxv
+    Kernel->>Proc: Jump directly to<br/>ELF entry point (_start)
+    Proc-->>User: Program runs (_start → main)

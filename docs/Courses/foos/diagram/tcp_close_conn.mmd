@@ -1,0 +1,23 @@
+sequenceDiagram
+    participant Initiator
+    participant Peer
+
+    Note over Initiator,Peer: Initiator begins connection close
+
+    Initiator ->> Peer: FIN
+    Note over Initiator: Enters FIN-WAIT-1
+
+    Peer ->> Initiator: ACK
+    Note over Initiator: Enters FIN-WAIT-2
+
+    Note over Peer: Application finishes processing and closes side
+
+    Peer ->> Initiator: FIN
+    Note over Peer: Enters CLOSE-WAIT
+
+    Initiator ->> Peer: ACK
+    Note over Initiator: Enters TIME-WAIT
+
+    Note over Peer: Connection resources freed
+
+    Note over Initiator: Waits for timeout, then fully closes

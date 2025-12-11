@@ -1,0 +1,10 @@
+    sequenceDiagram
+        participant OS as Operating System
+        participant Ctrl as SSD Controller (FTL)
+        participant NAND as NAND Flash
+
+        OS->>Ctrl: Read(LBA)
+        Ctrl->>Ctrl: Translate LBA -> physical page
+        Ctrl->>NAND: Read(physical page)
+        NAND-->>Ctrl: Return data
+        Ctrl-->>OS: Send data

@@ -1,0 +1,22 @@
+sequenceDiagram
+    participant Process as Terminating Process
+    participant Kernel as Kernel
+    participant Parent as Parent Process
+
+    Note over Process: Process finishes or is killed
+    Process->>Kernel: exit(status)
+
+    Kernel->>Kernel: Change state → TERMINATED
+    Kernel->>Kernel: Release resources<br/>(files, memory, mappings)
+    Kernel->>Kernel: Keep PCB + exit code<br/>Process becomes a ZOMBIE
+
+    Kernel-->>Parent: Send SIGCHLD
+
+    Note over Parent: Parent is notified that child has exited
+
+    Parent->>Kernel: wait()/waitpid()
+    Kernel->>Parent: Return child's exit status
+
+    Kernel->>Kernel: Remove zombie entry<br/>Free PCB and kernel structures
+
+    Note over Kernel: Process fully removed from system

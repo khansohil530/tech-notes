@@ -8,7 +8,7 @@ tags:
 
 [Problem Link](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/){target=_blank}
 
-Similar to problem [TwoSum](../Arrays_and_Hashing/two_sum.md), except the `nums` array is sorted now. 
+Similar to problem [TwoSum](two_sum.md), except the `nums` array is sorted now. 
 We can greedily use this information by comparing sum of left and right end. If our sum exceed target,
 we should reduce it by decreasing the right pointer. Else if our sum is smaller than target, we can increase
 our current sum by increasing left pointer.
@@ -23,11 +23,11 @@ our current sum by increasing left pointer.
 === "Python"
 
     ```python
-    --8<-- "docs/src/neetcode150/py/two_sum_2.py:2"
+    --8<-- "docs/DSA/neetcode150/src/py/two_sum_2.py:2"
     ```
 
 === "Go"
 
     ```go
-    --8<-- "docs/src/neetcode150/go/two_sum_2.go:2"
+    --8<-- "docs/DSA/neetcode150/src/go/two_sum_2.go:2"
     ```

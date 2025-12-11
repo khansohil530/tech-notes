@@ -1,0 +1,26 @@
+    sequenceDiagram
+        autonumber
+
+        participant CPU as CPU
+        participant SP as SP (Stack Pointer)
+        participant BP as BP (Base Pointer)
+        participant Stack as Stack Memory
+
+        note over CPU,Stack: Function call instruction is executed
+        %% Function Call
+        CPU->>Stack: push return address
+        note right of SP: SP moves DOWN<br/>(decrement)
+        SP-->>SP: SP = SP - addr_size
+
+        CPU->>Stack: push old BP
+        note right of SP: SP moves DOWN again
+        SP-->>SP: SP = SP - addr_size
+
+        CPU->>BP: BP = SP
+        note right of BP: New frame base established
+
+        %% Inside Function
+        CPU->>Stack: allocate locals (SP = SP - frame_size)
+        note right of SP: SP moves DOWN for locals
+
+        note over CPU,Stack: Execution continues using locals<br/>until function prepares to return

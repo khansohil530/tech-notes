@@ -1,0 +1,25 @@
+sequenceDiagram
+    participant UserApp as User Application
+    participant LibC as Libc Wrapper
+    participant CPU as CPU (User → Kernel Mode)
+    participant Kernel as Kernel System Call Handler
+
+    Note over UserApp: Program calls a system function<br/>e.g., open("data.txt")
+
+    UserApp->>LibC: Call libc wrapper (open)
+    LibC->>CPU: Load syscall number & args<br/>Execute syscall instruction
+
+    Note over CPU: CPU switches to kernel mode<br/>and jumps to syscall entry
+
+    CPU->>Kernel: Enter kernel system call handler
+    Kernel->>Kernel: Look up syscall number<br/>Dispatch to sys_open()
+
+    Kernel->>Kernel: Perform privileged operations<br/>e.g., check permissions, open file, allocate FD
+
+    Kernel-->>CPU: Return result (e.g., file descriptor)
+    Note over CPU: CPU switches back to user mode
+
+    CPU-->>LibC: Return from syscall
+    LibC-->>UserApp: Deliver return value
+
+    Note over UserApp: Program resumes execution

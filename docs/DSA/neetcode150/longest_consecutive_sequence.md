@@ -38,9 +38,9 @@ elements only once.
 
 === "Python"
     ```python
-    --8<-- "docs/src/neetcode150/py/longest_consecutive_sequence.py:3"
+    --8<-- "docs/DSA/neetcode150/src/py/longest_consecutive_sequence.py:3"
     ```
 === "Go"
     ```go
-    --8<-- "docs/src/neetcode150/go/longest_consecutive_sequence.go:2"
+    --8<-- "docs/DSA/neetcode150/src/go/longest_consecutive_sequence.go:2"
     ```

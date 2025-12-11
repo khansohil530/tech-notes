@@ -37,9 +37,9 @@ of those number in `nums`. Now, you can use this hashmap to generate list of num
 
 === "Python"
     ```python 
-    --8<-- "docs/src/neetcode150/py/top_k_frequent_element.py:3:"
+    --8<-- "docs/DSA/neetcode150/src/py/top_k_frequent_element.py:3:"
     ```
 === "Go"
     ```go
-    --8<-- "docs/src/neetcode150/go/top_k_frequent_element.go:2:"
+    --8<-- "docs/DSA/neetcode150/src/go/top_k_frequent_element.go:2:"
     ```

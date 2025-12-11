@@ -74,34 +74,7 @@ loader can load and run the program. At a high level, an ELF file has following 
 Checkout below sequence diagram to understand complete flow of loading a program into process using ELF format:
 
 ```mermaid
-sequenceDiagram
-    participant User as User / Shell
-    participant Kernel as Linux Kernel
-    participant ELF as ELF Executable
-    participant Loader as Dynamic Loader (ld.so)
-    participant Proc as New Process
-
-    User->>Kernel: execve("program", argv, envp)
-    Kernel->>ELF: Read ELF Header<br/>Check magic: 0x7F 'E' 'L' 'F'
-    Kernel->>ELF: Read Program Header Table
-    Kernel->>Proc: Create new process<br/>Create address space
-
-    loop For each PT_LOAD segment
-        Kernel->>Proc: Map PT_LOAD segment<br/>into virtual memory (R/W/X)
-    end
-
-    alt ELF contains PT_INTERP?
-        ELF->>Kernel: PT_INTERP = "/lib64/ld-linux-x86-64.so.2"
-        Kernel->>Loader: Load dynamic loader<br/>Map its segments
-        Kernel->>Loader: Transfer control<br/>to loader entry point (user mode)
-        Loader->>Proc: Resolve shared libs<br/>Relocations & symbol binding
-        Loader->>Proc: Jump to ELF entry point (_start)
-    end
-   
-    Kernel->>Proc: Set up user stack<br/>argc, argv, envp, auxv
-    Kernel->>Proc: Jump directly to<br/>ELF entry point (_start)
-    Proc-->>User: Program runs (_start → main)
-
+--8<-- "docs/Courses/foos/diagram/process_loading.mmd"
 ```
 
 Now you have overview on how a program is loaded into memory to form a Process, let's understand how Process
@@ -150,40 +123,7 @@ To get a simple understanding how process execution happens, go through below di
 in depth.
 
 ```mermaid
-sequenceDiagram
-    autonumber
-
-    participant Kernel
-    participant Memory
-    participant CPU
-
-    %% 1. Process created and text loaded
-    Kernel->>Memory: Loads and map process memory
-    Kernel->>CPU:  Sets initial values to CPU registers (PC -> entrypoint, SP -> top of stack)
-    Kernel->>CPU: Schedules process on CPU
-
-    %% 3. CPU fetches instruction into IR
-    CPU->>Memory: Fetch instruction at PC address
-    Memory->>CPU: Load instruction set into IR  (instruction register)
-
-    %% 4. Execute and increment PC
-    CPU->>CPU: Execute instruction and Increment PC to point next instruction
-
-    %% 5. Use cache for next instruction
-    CPU->>CPU: Check LCaches for next instruction
-    alt Instruction cached
-        CPU->>CPU: Load instruction from cache
-    else Not cached
-        CPU->>Memory: Fetch instructions in burst
-        Memory->>CPU: Fill cache line
-        CPU->>CPU: Provide next instruction
-    end
-
-    %% 6. PC not saved unless context switch
-    CPU-->>Kernel: Continue executing until preemption
-    Kernel->>Memory: Save registers on stack only during context switch
-    Memory->>CPU: Restore registers from stack when rescheduled
-
+--8<-- "docs/Courses/foos/diagram/process_exec.mmd"
 ```
 
 ### Stack
@@ -205,32 +145,7 @@ we can explain how stack is used when executing a process,
 
 1. **When we call a new function**,
     ```mermaid
-    sequenceDiagram
-        autonumber
-    
-        participant CPU as CPU
-        participant SP as SP (Stack Pointer)
-        participant BP as BP (Base Pointer)
-        participant Stack as Stack Memory
-        
-        note over CPU,Stack: Function call instruction is executed
-        %% Function Call
-        CPU->>Stack: push return address
-        note right of SP: SP moves DOWN<br/>(decrement)
-        SP-->>SP: SP = SP - addr_size
-    
-        CPU->>Stack: push old BP
-        note right of SP: SP moves DOWN again
-        SP-->>SP: SP = SP - addr_size
-    
-        CPU->>BP: BP = SP
-        note right of BP: New frame base established
-    
-        %% Inside Function
-        CPU->>Stack: allocate locals (SP = SP - frame_size)
-        note right of SP: SP moves DOWN for locals
-       
-        note over CPU,Stack: Execution continues using locals<br/>until function prepares to return
+    --8<-- "docs/Courses/foos/diagram/func_call.mmd"
     ```
    
     !!! note ""
@@ -240,64 +155,12 @@ we can explain how stack is used when executing a process,
 2. **While we're in a function**, we can store local function variable or temporary register values like `lr` or `bp` in stack
    locally and reference them w.r.t `bp` of frame.
    ```mermaid
-   sequenceDiagram
-       autonumber
-
-       participant CPU as CPU (Executes Instructions)
-       participant SP as SP (Stack Pointer)
-       participant BP as BP (Base Pointer)
-       participant Stack as Stack Memory
-
-       %% Function has already been called
-       note over CPU,Stack: We are now INSIDE the function<br/>Stack frame has been created
-
-       CPU->>Stack: Reserve local variable <br/>e.g., int x
-
-       %% Storing variables
-       CPU->>Stack: Write value of local var x<br/>(at BP - offset)
-       Stack-->>CPU: Store complete
-
-       %% Using local variables
-       CPU->>Stack: Read local x via (BP - offset)
-       Stack-->>CPU: Return value of x
-
-       %% Temporary values / spills
-       CPU->>Stack: Spill register value to stack
-       SP-->>SP: SP moves DOWN (push)
-       Stack-->>CPU: Load spilled value later (pop)
-       SP-->>SP: SP moves UP (pop)
-
-       note over CPU,Stack: Execution continues using locals<br/>until function prepares to return
+   --8<-- "docs/Courses/foos/diagram/func_inside.mmd"
    ```
 
 3. **When we return from a function**, 
     ```mermaid
-    sequenceDiagram
-        autonumber
-    
-        participant CPU as CPU (Executes Instructions)
-        participant SP as SP (Stack Pointer)
-        participant BP as BP (Base Pointer)
-        participant Stack as Stack Memory
-    
-        note over CPU,Stack: Function has finished executing<br/>Now preparing to RETURN to caller
-    
-        %% Step 1 — Deallocate locals
-        CPU->>SP: Move SP back to BP (SP = BP)
-        note right of SP: SP jumps UP<br/>removing local variables
-    
-        %% Step 2 — Restore old BP
-        CPU->>Stack: pop saved BP
-        Stack-->>BP: Write old BP into BP register
-        note right of BP: BP now points to caller's frame
-    
-        %% Step 3 — Load return address
-        CPU->>Stack: pop return address
-        Stack-->>CPU: Return address loaded
-    
-        %% Step 4 — Jump back to caller
-        CPU->>CPU: RET instruction<br/>PC = return address
-        note over CPU,Stack: CPU resumes executing caller function
+    --8<-- "docs/Courses/foos/diagram/func_return.mmd"
     ```
 
 

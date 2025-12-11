@@ -9,7 +9,7 @@ controlling other components in computer to operate as a single unit(1) essentia
 
 ## CPU Architecture
 
-![CPU IC](../../static/CPU-IC.png){align=right width=256px}
+![CPU IC](static/CPU-IC.png){align=right width=256px}
 CPUs are packaged as a single integrated chip as shown on right, which is connected via motherboard. Internally,
 this single chip is divided into different components like cores, shared caches and more. 
 

@@ -129,31 +129,7 @@ reduces memory usage because most processes never modify most of their inherited
 performance of child creation. To fully understand how this works, checkout below sequence diagram. 
 
 ```mermaid
-sequenceDiagram
-    participant Parent
-    participant Kernel
-    participant Child
-    participant Memory as Physical Memory
-
-    Note over Parent: Parent calls fork()
-
-    Parent->>Kernel: fork()
-    Kernel->>Memory: Mark parent pages as shared (read-only)
-    Kernel->>Child: Create child process<br/>Share parent's pages (read-only)
-    Child-->>Parent: fork() returns in both processes
-
-    Note over Parent,Child: Both processes now share the same physical pages
-
-    Child->>Kernel: Write to a shared page
-    Kernel-->>Child: Page Fault (Write on read-only page)
-
-    Kernel->>Memory: Allocate new private physical page for Child
-    Kernel->>Memory: Copy shared page contents
-    Kernel->>Child: Update child's page table → writable
-    Kernel-->>Child: Retry instruction (write now succeeds)
-
-    Note over Child: Child now has its own private copy
-    Note over Parent: Parent still uses original page
+--8<-- "docs/Courses/foos/diagram/cow.mmd"
 ```
 
 ## IPC
@@ -192,31 +168,7 @@ kernel space. But when application needs to access such restricted functionality
 system call which internally works as follows:
 
 ```mermaid
-sequenceDiagram
-    participant UserApp as User Application
-    participant LibC as Libc Wrapper
-    participant CPU as CPU (User → Kernel Mode)
-    participant Kernel as Kernel System Call Handler
-
-    Note over UserApp: Program calls a system function<br/>e.g., open("data.txt")
-
-    UserApp->>LibC: Call libc wrapper (open)
-    LibC->>CPU: Load syscall number & args<br/>Execute syscall instruction
-
-    Note over CPU: CPU switches to kernel mode<br/>and jumps to syscall entry
-
-    CPU->>Kernel: Enter kernel system call handler
-    Kernel->>Kernel: Look up syscall number<br/>Dispatch to sys_open()
-
-    Kernel->>Kernel: Perform privileged operations<br/>e.g., check permissions, open file, allocate FD
-
-    Kernel-->>CPU: Return result (e.g., file descriptor)
-    Note over CPU: CPU switches back to user mode
-
-    CPU-->>LibC: Return from syscall
-    LibC-->>UserApp: Deliver return value
-
-    Note over UserApp: Program resumes execution
+--8<-- "docs/Courses/foos/diagram/syscall.mmd"
 ```
 
 Note that system calls are slow compared to normal function calls due to mode switch from user-kernel-user during which
@@ -237,28 +189,7 @@ the process is forced to exit due to unexpected errors or external kill.  Check 
 complete flow of termination
 
 ```mermaid
-sequenceDiagram
-    participant Process as Terminating Process
-    participant Kernel as Kernel
-    participant Parent as Parent Process
-
-    Note over Process: Process finishes or is killed
-    Process->>Kernel: exit(status)
-
-    Kernel->>Kernel: Change state → TERMINATED
-    Kernel->>Kernel: Release resources<br/>(files, memory, mappings)
-    Kernel->>Kernel: Keep PCB + exit code<br/>Process becomes a ZOMBIE
-
-    Kernel-->>Parent: Send SIGCHLD
-
-    Note over Parent: Parent is notified that child has exited
-
-    Parent->>Kernel: wait()/waitpid()
-    Kernel->>Parent: Return child's exit status
-
-    Kernel->>Kernel: Remove zombie entry<br/>Free PCB and kernel structures
-
-    Note over Kernel: Process fully removed from system
+--8<-- "docs/Courses/foos/diagram/process_term.mmd"
 ```
 
 ### Zombie Process

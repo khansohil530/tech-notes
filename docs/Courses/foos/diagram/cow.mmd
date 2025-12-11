@@ -1,0 +1,25 @@
+sequenceDiagram
+    participant Parent
+    participant Kernel
+    participant Child
+    participant Memory as Physical Memory
+
+    Note over Parent: Parent calls fork()
+
+    Parent->>Kernel: fork()
+    Kernel->>Memory: Mark parent pages as shared (read-only)
+    Kernel->>Child: Create child process<br/>Share parent's pages (read-only)
+    Child-->>Parent: fork() returns in both processes
+
+    Note over Parent,Child: Both processes now share the same physical pages
+
+    Child->>Kernel: Write to a shared page
+    Kernel-->>Child: Page Fault (Write on read-only page)
+
+    Kernel->>Memory: Allocate new private physical page for Child
+    Kernel->>Memory: Copy shared page contents
+    Kernel->>Child: Update child's page table → writable
+    Kernel-->>Child: Retry instruction (write now succeeds)
+
+    Note over Child: Child now has its own private copy
+    Note over Parent: Parent still uses original page

@@ -33,11 +33,11 @@ have to worry about missing the current area in result.
 === "Python"
 
     ```python
-    --8<-- "docs/src/neetcode150/py/container_with_most_water.py:2"
+    --8<-- "docs/DSA/neetcode150/src/py/container_with_most_water.py:2"
     ```
 
 === "Go"
 
     ```go
-    --8<-- "docs/src/neetcode150/go/container_with_most_water.go:2"
+    --8<-- "docs/DSA/neetcode150/src/go/container_with_most_water.go:2"
     ```

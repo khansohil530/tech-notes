@@ -10,14 +10,7 @@ For example, we to execute the following query -> `SELECT name FROM Customer WHE
 In original table, DB have to sequentially scan the whole table to fetch this row.
 But if we partition our table on `Id` as following figure
 ```mermaid
-flowchart LR
-    A[Customer Table] --> B[Partition 1<br/>Id: 1 - 200,000]
-    A --> C[Partition 2<br/>Id: 200,001 - 400,000]
-    A --> D[Partition 3<br/>Id: 400,001 - 600,000]
-    A --> E[Partition 4<br/>Id: 600,001 - 800,000]
-    A --> F[Partition 5<br/>Id: 800,001 - 1,000,000]
-
-    class B,C,D,E,F partition;
+--8<-- "docs/Courses/fode/diagram/db_partition.mmd"
 ```
 The DB would directly jump to Partition 4 since it knows that `Id` -> $(600k,800k)$ belongs to that partition and
 here it’ll only have to scan through 200k rows at max. 

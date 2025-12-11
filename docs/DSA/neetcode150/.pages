@@ -1,5 +1,19 @@
 title: Neetcode 150
 nav:
   - index.md
-  - Arrays_and_Hashing
-  - Two_Pointers
+  - Arrays and Hashing:
+     - contains_duplicate.md
+     - valid_anagram.md
+     - two_sum.md
+     - group_anagrams.md
+     - top_k_frequent_element.md
+     - encode_and_decode_strings.md
+     - product_of_array_except_self.md
+     - valid_sudoku.md
+     - longest_consecutive_sequence.md
+  - Two Pointers:
+     - valid_palindrome.md
+     - two_sum_2.md
+     - 3sum.md
+     - container_with_most_water.md
+     - trapping_rain_water.md

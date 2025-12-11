@@ -1,0 +1,26 @@
+    sequenceDiagram
+        autonumber
+
+        participant CPU as CPU (Executes Instructions)
+        participant SP as SP (Stack Pointer)
+        participant BP as BP (Base Pointer)
+        participant Stack as Stack Memory
+
+        note over CPU,Stack: Function has finished executing<br/>Now preparing to RETURN to caller
+
+        %% Step 1 — Deallocate locals
+        CPU->>SP: Move SP back to BP (SP = BP)
+        note right of SP: SP jumps UP<br/>removing local variables
+
+        %% Step 2 — Restore old BP
+        CPU->>Stack: pop saved BP
+        Stack-->>BP: Write old BP into BP register
+        note right of BP: BP now points to caller's frame
+
+        %% Step 3 — Load return address
+        CPU->>Stack: pop return address
+        Stack-->>CPU: Return address loaded
+
+        %% Step 4 — Jump back to caller
+        CPU->>CPU: RET instruction<br/>PC = return address
+        note over CPU,Stack: CPU resumes executing caller function

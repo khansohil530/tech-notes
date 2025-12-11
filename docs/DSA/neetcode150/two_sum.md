@@ -28,9 +28,9 @@ fetch index of a value in a constant time.
 
 === "Python"
     ```python 
-    --8<-- "docs/src/neetcode150/py/two_sum.py:2:"
+    --8<-- "docs/DSA/neetcode150/src/py/two_sum.py:2:"
     ```
 === "Go"
     ```go
-    --8<-- "docs/src/neetcode150/go/two_sum.go:2:"
+    --8<-- "docs/DSA/neetcode150/src/go/two_sum.go:2:"
     ```

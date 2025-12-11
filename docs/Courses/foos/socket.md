@@ -25,7 +25,7 @@ programs, either on the same machine or different machine across a network (like
 for program to access the OS’s networking stack. 
 
 ??? note "Briefly on computer networking"
-    ![OSI Layers](../../static/osi-model.png){align=right width=256px}
+    ![OSI Layers](static/osi-model.png){align=right width=256px}
     
     To understand how computers communicate over network, we can use OSI Model which provides a simple reference model for
     various networking functions used in computer networking. To understand socket, we can just look at few top layers:
@@ -93,38 +93,7 @@ the server ready to receive new connections.
 When establishing a connection in TCP protocol, hosts have to complete a 3-way handshake.
 
 ```mermaid
-sequenceDiagram
-    participant Client
-    participant ServerNIC as Server NIC
-    participant TL as Transport Layer (Server)
-    participant ListenSock as Listening Socket
-    participant SynQ as SYN Queue
-    participant AcceptQ as Accept Queue
-    participant ChildSock as Child Connection Socket
-
-    Note over Client,TL: Client initiates connection
-
-    Client ->> ServerNIC: SYN
-    ServerNIC ->> TL: Deliver SYN packet
-
-    TL ->> ListenSock: Match on listening port found
-    TL ->> SynQ: Insert half-open connection (SYN entry)
-
-    TL ->> Client: SYN-ACK
-
-    Client ->> ServerNIC: ACK
-    ServerNIC ->> TL: Deliver ACK packet
-
-    TL ->> SynQ: Remove SYN entry
-    TL ->> ChildSock: Create new child connection socket (established)
-    TL ->> AcceptQ: Insert child socket into Accept Queue
-
-    Note over AcceptQ,ListenSock: accept() will retrieve this socket
-
-    ListenSock ->> ChildSock: accept() returns the established connection
-
-    Note over ChildSock,Client: Child socket now handles all data transfer
-
+--8<-- "docs/Courses/foos/diagram/tcp_3way_handshake.mmd"
 ```
 
 ??? note "SYN Flood Attack"
@@ -151,22 +120,7 @@ Once connection is established on both client and server, either host can send d
 socket object.
 
 ```mermaid
-sequenceDiagram
-    participant App as Application
-    participant SockSend as Socket Send Buffer
-    participant TL as Transport Layer (TCP)
-    participant IP as IP Layer
-    participant NIC as NIC Driver / Hardware
-
-    Note over App,NIC: Send Request Flow
-
-    App ->> SockSend: send()/write() → copy data to send buffer
-    SockSend ->> TL: Data delivered to TCP layer
-    TL ->> TL: Segment data, assign seq#, manage retransmissions
-    TL ->> IP: Hand off TCP segments
-    IP ->> IP: Add IP header, routing decision
-    IP ->> NIC: Pass packets to NIC driver
-    NIC ->> NIC: Frame packets, transmit over network
+--8<-- "docs/Courses/foos/diagram/req_send.mmd"
 ```
 
 During the transfer, Kernel also keep tracks various protocol based data to manages different protocol requirements.
@@ -177,22 +131,7 @@ flow control to avoid flooding receiver and congestion control to avoid flooding
 ### Receiving Request
 
 ```mermaid
-sequenceDiagram
-    participant NIC as NIC Driver / Hardware
-    participant IP as IP Layer
-    participant TL as Transport Layer (TCP)
-    participant SockRecv as Socket Receive Buffer
-    participant App as Application
-
-    Note over NIC,App: Receive Request Flow
-
-    NIC ->> IP: Receive packet from network
-    IP ->> IP: Validate, strip IP header
-    IP ->> TL: Deliver to TCP layer
-    TL ->> TL: Reassemble stream, ACK handling, ordering checks
-    TL ->> SockRecv: Place data into receive buffer
-    SockRecv ->> App: Wake recv() → copy data to user space
-
+--8<-- "docs/Courses/foos/diagram/req_recv.mmd"
 ```
 
 ??? note "Zero Copy"
@@ -212,29 +151,7 @@ Since using connection occupies resources (like memory and file descriptor value
 is done using `close()` syscall, which can be invoked by either side which initiate a 4-way handshake in case of TCP.
 
 ```mermaid
-sequenceDiagram
-    participant Initiator
-    participant Peer
-
-    Note over Initiator,Peer: Initiator begins connection close
-    
-    Initiator ->> Peer: FIN
-    Note over Initiator: Enters FIN-WAIT-1
-
-    Peer ->> Initiator: ACK
-    Note over Initiator: Enters FIN-WAIT-2
-
-    Note over Peer: Application finishes processing and closes side
-
-    Peer ->> Initiator: FIN
-    Note over Peer: Enters CLOSE-WAIT
-
-    Initiator ->> Peer: ACK
-    Note over Initiator: Enters TIME-WAIT
-
-    Note over Peer: Connection resources freed
-
-    Note over Initiator: Waits for timeout, then fully closes
+--8<-- "docs/Courses/foos/diagram/tcp_close_conn.mmd"
 ```
 
 ??? note "Why `TIME-WAIT`?"

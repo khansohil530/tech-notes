@@ -12,7 +12,7 @@ Think of the water amount as sum of water collected at each index.
 How would you calculate the trappable water at any index? This water level is bounded by the minimum of
 maximum heights on either side of given index.
 
-![Image Example](../../../static/trapping_rain_water.png){loading=lazy}
+![Image Example](static/trapping_rain_water.png){loading=lazy}
 
 With this, you can create such prefix arrays for maximum left and right heights of respective index and finally
 calculate the water trapped at each level. This would give us $O(n)$ time and space complexity.
@@ -42,11 +42,11 @@ our computation of water -> $min(maxL, maxR)-height[i]$.
 === "Python"
 
     ```python
-    --8<-- "docs/src/neetcode150/py/trapping_rain_water.py:2"
+    --8<-- "docs/DSA/neetcode150/src/py/trapping_rain_water.py:2"
     ```
 
 === "Go"
 
     ```go
-    --8<-- "docs/src/neetcode150/go/trapping_rain_water.go:2"
+    --8<-- "docs/DSA/neetcode150/src/go/trapping_rain_water.go:2"
     ```

@@ -1,0 +1,22 @@
+flowchart TD
+
+    %% Main memory layout
+    subgraph Memory["Physical Memory Layout"]
+        direction TB
+        A1000["1000: char a (1 byte)"]
+        PAD["1001–1003: padding (3 bytes)"]
+        A1004["1004–1007: int b (4 bytes)"]
+    end
+
+    %% Flow connections (visual sequence)
+    A1000 --> PAD --> A1004
+
+    %% Side explanation nodes
+    NOTE1["Step 1: Store char a → placed at address 1000"]
+    NOTE2["Step 2: Next free = 1001; int requires 4-byte alignment so add 3 bytes of padding to reach 1004 boundary"]
+    NOTE3["Step 3: Store int b = 1 → stored at 1004–1007"]
+
+    %% Attach side notes
+    NOTE1 -.-> A1000
+    NOTE2 -.-> PAD
+    NOTE3 -.-> A1004
