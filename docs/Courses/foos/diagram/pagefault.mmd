@@ -1,0 +1,26 @@
+    sequenceDiagram
+        participant Process
+        participant CPU
+        participant MMU as MMU<br/>(Memory Mgmt Unit)
+        participant OS as OS<br/>(Page Fault Handler)
+        participant Memory as Physical Memory
+        participant Disk as Secondary Storage
+
+        Process->>CPU: Execute instruction
+        CPU->>MMU: Request virtual address translation
+        MMU-->>CPU: Page Fault (page not in RAM)
+
+        CPU->>OS: Trigger Page Fault Interrupt
+        OS->>OS: Determine victim page (replacement policy)
+        OS->>Memory: Mark victim page for eviction
+        Memory->>Disk: Write victim page to disk (if dirty)
+
+        OS->>Disk: Read required page into memory
+        Disk->>Memory: Load page into freed frame
+
+        OS->>MMU: Update Page Table (new mapping)
+        OS-->>CPU: Return from interrupt
+
+        CPU->>MMU: Retry memory access
+        MMU->>Process: Provide physical address
+        Process->>Process: Continue execution

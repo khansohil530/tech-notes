@@ -1,3 +1,7 @@
+---
+comments: false
+---
+
 # DSA
 
 ![LeetCode](https://img.shields.io/badge/Platform-LeetCode-orange?logo=leetcode&logoColor=#FFA116)

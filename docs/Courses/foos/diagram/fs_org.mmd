@@ -1,0 +1,41 @@
+    flowchart TD
+
+        subgraph DIR[Directory Structure]
+            D1["Entry: fileA → inode #10"]
+            D2["Entry: fileB → inode #20"]
+            D3["Entry: notes → inode #30"]
+        end
+
+        DIR --> I10
+        DIR --> I20
+        DIR --> I30
+
+        subgraph INODES[Inode Table]
+            I10["Inode #10<br/>size, owner, timestamps,<br/>permissions, block pointers"]
+            I20["Inode #20<br/>metadata + block pointers"]
+            I30["Inode #30<br/>metadata + block pointers"]
+        end
+
+        I10 --> B1
+        I10 --> B2
+        I10 --> B3
+
+        I20 --> DB1["Direct Block"]
+        I20 --> IB1["Indirect Block"]
+        IB1 --> IB1_1["Data Block A"]
+        IB1 --> IB1_2["Data Block B"]
+
+        I30 --> C1["Content Block 1"]
+        I30 --> C2["Content Block 2"]
+
+        subgraph DATABLOCKS[Data Blocks on Disk]
+            B1["Block 100"]
+            B2["Block 101"]
+            B3["Block 102"]
+            DB1["Block 200"]
+            IB1["Block 300 (Indirect Block)"]
+            IB1_1["Block 301"]
+            IB1_2["Block 302"]
+            C1["Block 400"]
+            C2["Block 401"]
+        end

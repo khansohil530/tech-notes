@@ -83,7 +83,7 @@ Further RAM can be divided into two categories based on their implementation and
 
 
 When we're installing RAM, we've mostly come across this kind of component.
-![RAM Module](../../static/ram-module.png){align=right width=256px}
+![RAM Module](static/ram-module.png){align=right width=256px}
 Usually, it comes as **SO-DIMM**(1) which consists of 3 majors parts:
 {.annotate}
 
@@ -152,33 +152,11 @@ With **Data alignment**, variables in memory are stored at addresses that are mu
 Check following diagram to see how alignment is done when storing variables, 
 
 ```mermaid
-flowchart TD
-
-    %% Main memory layout
-    subgraph Memory["Physical Memory Layout"]
-        direction TB
-        A1000["1000: char a (1 byte)"]
-        PAD["1001–1003: padding (3 bytes)"]
-        A1004["1004–1007: int b (4 bytes)"]
-    end
-
-    %% Flow connections (visual sequence)
-    A1000 --> PAD --> A1004
-
-    %% Side explanation nodes
-    NOTE1["Step 1: Store char a → placed at address 1000"]
-    NOTE2["Step 2: Next free = 1001; int requires 4-byte alignment so add 3 bytes of padding to reach 1004 boundary"]
-    NOTE3["Step 3: Store int b = 1 → stored at 1004–1007"]
-
-    %% Attach side notes
-    NOTE1 -.-> A1000
-    NOTE2 -.-> PAD
-    NOTE3 -.-> A1004
-
+--8<-- "docs/Courses/foos/diagram/memory_align.mmd"
 ```
 
 You might notice that padding in cache line would lower the utilization of each cache lines. 
-![Data Alignment in Cache Memory](../../static/cache-data-alignment.png){align=right width=256px} but
+![Data Alignment in Cache Memory](static/cache-data-alignment.png){align=right width=256px} but
 the performance boost provided by such alignment far outweighs this cost.
 However, you can minimize padding, by decision like, reordering fields inside a struct or designing data layouts 
 manually for cache-line friendliness. Google used this technique to improve performance of Linux TCP/IP stack
@@ -244,59 +222,12 @@ This would solve all of above limitation:
 4. It also solves problem of limited memory by allowing OS to use more memory than the capacity of RAM. This is done
    using called **Page Swap**. Following diagram showcases how Page Swap is used to allocate space for new process
     ```mermaid
-    sequenceDiagram
-        participant Process
-        participant OS as Kernel
-        participant Mem as Physical Memory
-        participant Disk as Swap Space
-    
-        Process->>OS: Request memory allocation
-        OS->>Mem: Check available free frames
-        Mem-->>OS: Not enough free memory
-    
-        OS->>OS: Select victim pages (replacement policy)
-    
-        OS->>Mem: Identify victim page frame
-        Mem->>Disk: Write victim page to swap (if dirty)
-        Disk-->>OS: Swap write complete
-    
-        OS->>Mem: Free the victim frame
-        OS->>Disk: Read needed page from disk
-        Disk->>Mem: Load required page into freed frame
-    
-        OS->>Process: Memory allocated successfully
-        Process->>Process: Continue execution
-    
+    --8<-- "docs/Courses/foos/diagram/pageswap.mmd"
     ```
    But when the swapped process returns for execution, Kernel needs to reload the swapped memory into RAM to for its 
    continued execution. This is done using **Page Fault**, which is explained below 
     ```mermaid
-    sequenceDiagram
-        participant Process
-        participant CPU
-        participant MMU as MMU<br/>(Memory Mgmt Unit)
-        participant OS as OS<br/>(Page Fault Handler)
-        participant Memory as Physical Memory
-        participant Disk as Secondary Storage
-    
-        Process->>CPU: Execute instruction
-        CPU->>MMU: Request virtual address translation
-        MMU-->>CPU: Page Fault (page not in RAM)
-    
-        CPU->>OS: Trigger Page Fault Interrupt
-        OS->>OS: Determine victim page (replacement policy)
-        OS->>Memory: Mark victim page for eviction
-        Memory->>Disk: Write victim page to disk (if dirty)
-    
-        OS->>Disk: Read required page into memory
-        Disk->>Memory: Load page into freed frame
-    
-        OS->>MMU: Update Page Table (new mapping)
-        OS-->>CPU: Return from interrupt
-    
-        CPU->>MMU: Retry memory access
-        MMU->>Process: Provide physical address
-        Process->>Process: Continue execution
+    --8<-- "docs/Courses/foos/diagram/pagefault.mmd"
     ```
 
 **The tradeoff of using Virtual Memory**:
@@ -331,25 +262,7 @@ from main memory (RAM) without involving the CPU for every byte or word.
 
 Here’s the general flow of a DMA operation:
 ```mermaid
-sequenceDiagram
-    participant CPU
-    participant DMA as DMA Controller
-    participant Device as I/O Device
-    participant Mem as Main Memory
-
-    CPU->>DMA: Configure DMA (source, destination, size, direction)
-    CPU->>DMA: Start DMA operation
-    CPU-->>CPU: Continue other tasks
-
-    DMA->>Device: Request data (or prepare to send)
-    Device-->>DMA: Provide/receive data stream
-
-    DMA->>Mem: Transfer data directly to/from memory
-    Note over DMA,Mem: Bus arbitration, DMA controls the bus<br/>("cycle stealing" or burst mode)
-
-    DMA->>CPU: Interrupt → DMA transfer complete
-    CPU->>CPU: Handle completion and resume tasks
-
+--8<-- "docs/Courses/foos/diagram/dma.mmd"
 ```
 
 ??? annotate "Bus Arbitration"

@@ -1,0 +1,12 @@
+    sequenceDiagram
+        participant OS as Operating System
+        participant Ctrl as SSD Controller (FTL)
+        participant NAND as NAND Flash
+
+        OS->>Ctrl: TRIM(LBA Range)
+        Ctrl->>Ctrl: Lookup physical pages for LBA range
+        Ctrl->>Ctrl: Mark pages as "invalid" (no longer needed)
+
+        Note over Ctrl: TRIM does NOT erase data immediately.<br>It only marks space as reusable.
+        Ctrl->>Ctrl: Add invalid pages to GC candidate list to <br>erase in future Garbage Collection Cycle
+        Ctrl-->>OS: TRIM acknowledged

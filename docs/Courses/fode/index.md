@@ -1,6 +1,5 @@
 ---
-tags:
-    - Database
+comments: false
 ---
 
 # Fundamentals of Database Engineering

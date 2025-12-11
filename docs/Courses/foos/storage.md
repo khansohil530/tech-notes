@@ -34,10 +34,10 @@ smaller, faster, more reliable, and able to hold far more data. Let's briefly di
 ### HDD
 
 **HDD** (**Hard Disk Drive**) is one of the prominent technology used at this time for storage.
-![Physical HDD](../../static/physical-hdd.png){align=right width=256px}
+![Physical HDD](static/physical-hdd.png){align=right width=256px}
 
 It's an electro mechanical storage device that stores data using magnetism on rapidly spinning disks called **platters**.
-![HDD Layout](../../static/hdd-layout.png){align=right width=256px}
+![HDD Layout](static/hdd-layout.png){align=right width=256px}
 Inside the drive, there are one or more platter which spin at high speeds (1). A **head** is used to read/write data from
 platters, which is attached to physical arm (**actuator**) to move it across the platter. 
 {.annotate}
@@ -63,10 +63,10 @@ multiple bits per cell (1) to increase storage density.
 {.annotate}
 
 1. SLC (single-level) -> 1 bit, MLC (multi-level) -> 2 bits, TLC (triple-level) -> 3 bits, and QLC (quad-level) -> 4 bits.
-   ![NAND Flash Cell](../../static/nand-flash-cell.png){align=right}
+   ![NAND Flash Cell](static/nand-flash-cell.png){align=right}
 
 ??? note "Physics of NAND flash cell" 
-    ![Flash Cell Transistor](../../static/nand-flash-cell-transistor.png){align=right width=256px}
+    ![Flash Cell Transistor](static/nand-flash-cell-transistor.png){align=right width=256px}
     NAND flash cell has a control gate and a floating gate, separated by a thin oxide layer. The floating gate can
     trap electrical charge which is used to store information as 0s and 1s. To fill charge in cell, you've to apply a
     high voltage at the control gate, which tunnels the electrons through the oxide layer and traps in the floating gate. 
@@ -89,7 +89,7 @@ cells where grouped in **pages** and pages into **blocks**.
 With this data organization, SSDs can be efficiently used for storage purpose. To make it compatible for working
 with OS, we could've implemented hardware drivers for SSD within kernel to help translate simple OS commands (1) into the complex
 internal operations (2) needed for NAND flash. But instead of drivers, SSDs uses a hardware component for translation,
-![SSD Physical](../../static/ssd-physical.png){align=right width=256px}
+![SSD Physical](static/ssd-physical.png){align=right width=256px}
 so that SSDs can evolve internally without changing how they interact with OS. This was component is called 
 **controller**, which is a processor inside the SSD that manages all its operations. To map the logical address 
 provided by OS to physical location, controller uses **FTL** (Flash Translation Layer) which hides the data layout of 
@@ -116,107 +116,31 @@ below admonition.
 
 ??? note "Read"
     ```mermaid
-    sequenceDiagram
-        participant OS as Operating System
-        participant Ctrl as SSD Controller (FTL)
-        participant NAND as NAND Flash
-        
-        OS->>Ctrl: Read(LBA)
-        Ctrl->>Ctrl: Translate LBA -> physical page
-        Ctrl->>NAND: Read(physical page)
-        NAND-->>Ctrl: Return data
-        Ctrl-->>OS: Send data
+    --8<-- "docs/Courses/foos/diagram/ssd_read.mmd"
     ```
 
 ??? note "Write"
     ```mermaid
-    sequenceDiagram
-       participant OS as Operating System
-       participant Ctrl as SSD Controller (FTL)
-       participant NAND as NAND Flash
-    
-       OS->>Ctrl: Write(LBA, Data)
-       Ctrl->>Ctrl: Find free (erased) page
-       Ctrl->>NAND: Program new page with Data
-       NAND-->>Ctrl: Write complete
-       Ctrl->>Ctrl: Update LBA → new page mapping
-       Ctrl-->>OS: Write success
+    --8<-- "docs/Courses/foos/diagram/ssd_write.mmd"
     ```
 
 ??? note "Update"
     ```mermaid
-    sequenceDiagram
-       participant OS as Operating System
-       participant Ctrl as SSD Controller (FTL)
-       participant NAND as NAND Flash
-    
-       OS->>Ctrl: Write(LBA, New Data)
-       Ctrl->>Ctrl: Lookup old physical page
-       Ctrl->>Ctrl: Allocate new free page
-       Ctrl->>NAND: Program new page with New Data
-       NAND-->>Ctrl: Write complete
-       Ctrl->>Ctrl: Mark old page as invalid
-       Ctrl->>Ctrl: Update LBA → new page mapping
-       Ctrl-->>OS: Update success
+    --8<-- "docs/Courses/foos/diagram/ssd_update.mmd"
     ```
 ??? note "Delete/TRIM"
     ```mermaid
-    sequenceDiagram
-        participant OS as Operating System
-        participant Ctrl as SSD Controller (FTL)
-        participant NAND as NAND Flash
-    
-        OS->>Ctrl: TRIM(LBA Range)
-        Ctrl->>Ctrl: Lookup physical pages for LBA range
-        Ctrl->>Ctrl: Mark pages as "invalid" (no longer needed)
-    
-        Note over Ctrl: TRIM does NOT erase data immediately.<br>It only marks space as reusable.
-        Ctrl->>Ctrl: Add invalid pages to GC candidate list to <br>erase in future Garbage Collection Cycle
-        Ctrl-->>OS: TRIM acknowledged
+    --8<-- "docs/Courses/foos/diagram/ssd_delete.mmd"
     ```
 ??? note "Garbage Collection"
     ```mermaid
-    sequenceDiagram
-        participant Ctrl as SSD Controller
-        participant NAND as NAND Flash
-    
-        Ctrl->>Ctrl: Identify block with invalid pages
-        Ctrl->>NAND: Read valid pages from old block
-        NAND-->>Ctrl: Valid data
-        Ctrl->>NAND: Write valid pages to new block
-        NAND-->>Ctrl: Data written
-        Ctrl->>NAND: Erase old block
-        NAND-->>Ctrl: Block erased (free)
+    --8<-- "docs/Courses/foos/diagram/ssd_gc.mmd"
     ```
 ??? note "Wear-Leveling"
     Wear leveling is an optimization technique to prevents any single block from reaching its erase-cycle limit too soon
     by moving hot-data blocks (data which is frequently updated) to cold-data blocks (data which is rarely updated).
     ```mermaid
-    sequenceDiagram
-        participant Ctrl as SSD Controller (FTL)
-        participant NAND as NAND Flash
-        participant WL as Wear-Leveling Engine
-    
-        Ctrl->>WL: Request block for new write
-        WL->>WL: Check erase counts of all blocks
-        WL->>Ctrl: Provide least-worn block
-    
-        Ctrl->>NAND: Write data to selected block
-        NAND-->>Ctrl: Write complete
-    
-        Note over WL: Background Wear-Leveling (Static)
-    
-        WL->>WL: Identify cold data in low-wear blocks
-        WL->>NAND: Read cold data from low-wear block
-        NAND-->>WL: Return cold data
-    
-        WL->>NAND: Write cold data to higher-wear block
-        NAND-->>WL: Write complete
-    
-        WL->>NAND: Erase original low-wear block
-        NAND-->>WL: Block erased
-    
-        WL->>Ctrl: Updated block wear distribution 
+    --8<-- "docs/Courses/foos/diagram/ssd_wearlevel.mmd"
     ```
 
 SSDs have huge advantage in performance over HDDs mainly due to no involvement of mechanical apparatus. However, SSDs
@@ -290,47 +214,7 @@ Filesystem organizes blocks into data structures like,
 
 ??? note "Simple Visualization of filesystem organization"
     ```mermaid
-    flowchart TD
-    
-        subgraph DIR[Directory Structure]
-            D1["Entry: fileA → inode #10"]
-            D2["Entry: fileB → inode #20"]
-            D3["Entry: notes → inode #30"]
-        end
-    
-        DIR --> I10
-        DIR --> I20
-        DIR --> I30
-    
-        subgraph INODES[Inode Table]
-            I10["Inode #10<br/>size, owner, timestamps,<br/>permissions, block pointers"]
-            I20["Inode #20<br/>metadata + block pointers"]
-            I30["Inode #30<br/>metadata + block pointers"]
-        end
-    
-        I10 --> B1
-        I10 --> B2
-        I10 --> B3
-    
-        I20 --> DB1["Direct Block"]
-        I20 --> IB1["Indirect Block"]
-        IB1 --> IB1_1["Data Block A"]
-        IB1 --> IB1_2["Data Block B"]
-    
-        I30 --> C1["Content Block 1"]
-        I30 --> C2["Content Block 2"]
-    
-        subgraph DATABLOCKS[Data Blocks on Disk]
-            B1["Block 100"]
-            B2["Block 101"]
-            B3["Block 102"]
-            DB1["Block 200"]
-            IB1["Block 300 (Indirect Block)"]
-            IB1_1["Block 301"]
-            IB1_2["Block 302"]
-            C1["Block 400"]
-            C2["Block 401"]
-        end
+    --8<-- "docs/Courses/foos/diagram/fs_org.mmd"
     ```
 
 This allows filesystem to allocate blocks efficiently while maintaining consistency and durability. It ensures this by using 
@@ -369,27 +253,5 @@ which sends LBAs to the device.
 
 ??? note "Summary of Storage Layers"
     ```mermaid
-    sequenceDiagram
-        autonumber
-    
-        participant APP as Application
-        participant VFS as VFS Layer
-        participant FS as Filesystem (ext4/NTFS/XFS)
-        participant BLK as Block Layer<br/>I/O Scheduler
-        participant DRV as Device Driver<br/>(SATA/NVMe/SCSI)
-        participant DEV as Storage Device<br/>(HDD/SSD)
-    
-        APP->>VFS: read("fileA", offset, size)
-        VFS->>FS: Lookup file path<br/>Resolve filename → inode
-        FS->>FS: Translate file offset → filesystem block
-        FS->>BLK: Submit BIO request<br/>(read block X)
-        BLK->>BLK: Merge & schedule requests<br/>Apply I/O scheduler
-        BLK->>DRV: Dispatch request<br/>(READ LBA range)
-        DRV->>DEV: Issue protocol command<br/>(READ LBA N to N+K)
-        DEV-->>DRV: Return data
-        DRV-->>BLK: Complete I/O request
-        BLK-->>FS: Return data buffer
-        FS-->>VFS: File data
-        VFS-->>APP: read() returns with data
-    
+    --8<-- "docs/Courses/foos/diagram/storage_layers.mmd"
     ```

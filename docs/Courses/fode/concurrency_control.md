@@ -71,7 +71,7 @@ Some of these lock can conflict, others don’t.
 
 Below table will summarize which locks would conflict with one another.
 
-![Postgres Table Lock Conflicts](../../static/pg_table_locks_conflict.png)
+![Postgres Table Lock Conflicts](static/pg_table_locks_conflict.png)
 
 #### Row Level Locks
 
@@ -89,7 +89,7 @@ These locks are limited to `DELETE` , `UPDATE (no key)` , `UPDATE (key)`, and al
 - `FOR KEY SHARE`: like `FOR SHARE` but allows update to column without unique index.
 
 To view conflict among above locks, refer to below table
-![Postgres Row Lock Conflicts](../../static/pg_row_lock_conflict.png)
+![Postgres Row Lock Conflicts](static/pg_row_lock_conflict.png)
 
 !!! note ""
     Postgres stores table locks in memory because they’re coarse but row locks are stored alongside table

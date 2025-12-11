@@ -1,0 +1,11 @@
+    sequenceDiagram
+        participant Ctrl as SSD Controller
+        participant NAND as NAND Flash
+
+        Ctrl->>Ctrl: Identify block with invalid pages
+        Ctrl->>NAND: Read valid pages from old block
+        NAND-->>Ctrl: Valid data
+        Ctrl->>NAND: Write valid pages to new block
+        NAND-->>Ctrl: Data written
+        Ctrl->>NAND: Erase old block
+        NAND-->>Ctrl: Block erased (free)
