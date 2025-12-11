@@ -7,6 +7,8 @@ repo_name: tech-notes
 
 theme:
   name: material
+  logo: assets/logo.svg
+  favicon: assets/logo.svg
   language: en
   custom_dir: overrides
   features:
@@ -25,14 +27,14 @@ theme:
   palette:
     # Light mode
     - scheme: default
-      primary: indigo
+      primary: green
       accent: deep orange
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
     # Dark mode
     - scheme: slate
-      primary: indigo
+      primary: teal
       accent: orange
       toggle:
         icon: material/weather-sunny
