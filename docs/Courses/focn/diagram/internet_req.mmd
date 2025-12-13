@@ -1,0 +1,23 @@
+sequenceDiagram
+    participant H as Host (192.168.1.10)
+    participant R as Home NAT Router
+    participant ISP as ISP Edge Router
+    participant UP as Upstream / Backbone Router
+    participant SISP as Destination ISP Router
+    participant S as Internet Server (Public IP)
+
+    H->>R: Packet<br/>Src: 192.168.1.10:52344<br/>Dst: ServerIP:443
+    R->>R: NAT (PAT)<br/>192.168.1.10:52344 → 203.0.113.5:40001
+    R->>ISP: Translated Packet<br/>Src: 203.0.113.5:40001
+
+    ISP->>UP: Route using BGP<br/>(next hop decision)
+    UP->>SISP: Forward packet
+    SISP->>S: Deliver to server
+
+    S->>SISP: Reply<br/>Src: ServerIP:443<br/>Dst: 203.0.113.5:40001
+    SISP->>UP: Forward reply
+    UP->>ISP: Forward reply
+    ISP->>R: Reply arrives
+
+    R->>R: NAT Table Lookup<br/>203.0.113.5:40001 → 192.168.1.10:52344
+    R->>H: Restored Packet<br/>Dst: 192.168.1.10:52344

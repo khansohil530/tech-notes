@@ -12,3 +12,5 @@ Notes from course work done online
   Database Engines, Database Internals and more. 
 - [x] [Fundamentals of Operating System](foos/index.md): Learn how OS Kernel works under the hood to have a
   better understanding on management of different hardware done on our behalf.
+- [ ] [Fundamentals of Computer Networking](focn/index.md): Learn about different computer network protocol
+  which makes it possible to communicate over internet.
