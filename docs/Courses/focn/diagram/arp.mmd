@@ -1,0 +1,17 @@
+sequenceDiagram
+    participant A as Device A
+    participant LAN as LAN (Broadcast Domain)
+    participant B as Device B
+
+    A->>A: Check if destination IP is in same LAN
+    A->>A: Check ARP cache for IP → MAC mapping
+
+    alt MAC found in ARP cache
+        A->>A: Use cached MAC to build Ethernet frame
+    else MAC not found
+        A->>LAN: Broadcast ARP Request (Who has IP B?)
+        LAN->>B: ARP Request received
+        B->>A: Unicast ARP Reply (IP B is at MAC B)
+        A->>A: Store MAC in ARP cache
+        A->>A: Build Ethernet frame using MAC B
+    end

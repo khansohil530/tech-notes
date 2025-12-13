@@ -12,7 +12,7 @@ comments: false
 Notes:
 
 - [x] [Fundamentals of Networking](basic.md)
-- [ ] [Internet Protocol]()
+- [x] [Internet Protocol](ip.md)
 - [ ] [User Datagram Protocol]()
 - [ ] [Transmission Control Protocol]()
 - [ ] [Other Popular Protocols]()

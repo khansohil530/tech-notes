@@ -1,7 +1,3 @@
----
-comments: false
----
-
 # Basics of Networking
 
 ??? note "Brief History of Internet"

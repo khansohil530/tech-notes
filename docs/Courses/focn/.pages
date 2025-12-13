@@ -2,3 +2,4 @@ title: Fundamentals of Computer Networking
 nav:
    - index.md
    - basic.md
+   - ip.md
