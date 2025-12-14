@@ -1,7 +1,3 @@
----
-comments: false
----
-
 # Internet Protocol 
 
 IP is a L3 (network) protocol whose main responsibility is to help data move towards its destination host through

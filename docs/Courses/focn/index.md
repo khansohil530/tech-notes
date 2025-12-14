@@ -1,21 +1,18 @@
 ---
 comments: false
+hide:
+  - footer
 ---
-
 # Fundamentals of Computer Networking
 
-![Udemy](https://img.shields.io/badge/Platform-Udemy-purple?logo=udemy&logoColor=#A435F0)
-![In Progress](https://img.shields.io/badge/Status-In%20Progress-orange)
+<div class="grid cards" markdown>
 
-[Course Link](https://www.udemy.com/course/fundamentals-of-networking-for-effective-backend-design/){target=_blank}
-
-Notes:
-
-- [x] [Fundamentals of Networking](basic.md)
-- [x] [Internet Protocol](ip.md)
-- [ ] [User Datagram Protocol]()
-- [ ] [Transmission Control Protocol]()
-- [ ] [Other Popular Protocols]()
-- [ ] [Network Performance]()
-- [ ] [Network Routing]()
-- [ ] [Extra]()
+- :fontawesome-solid-circle-check:{ .status-done } [Fundamentals of Networking](basic.md)
+- :fontawesome-solid-circle-check:{ .status-done } [Internet Protocol](ip.md)
+- :fontawesome-solid-circle-check:{ .status-pending } [User Datagram Protocol](udp.md)
+- :fontawesome-solid-circle-check:{ .status-pending } [Transmission Control Protocol]()
+- :fontawesome-solid-circle-check:{ .status-pending } [Other Popular Protocols]()
+- :fontawesome-solid-circle-check:{ .status-pending } [Network Performance]()
+- :fontawesome-solid-circle-check:{ .status-pending } [Network Routing]()
+- :fontawesome-solid-circle-check:{ .status-pending } [Extra]()
+</div>

@@ -1,12 +1,35 @@
 ---
 comments: false
+hide:
+  - footer
 ---
 
 # DSA
 
-![LeetCode](https://img.shields.io/badge/Platform-LeetCode-orange?logo=leetcode&logoColor=#FFA116)
-![Language](https://img.shields.io/badge/Language-Python-blue?logo=python&logoColor=#3776AB)
-![Language](https://img.shields.io/badge/Language-Go-blue?logo=go&logoColor=#00ADD8)
-
-
-- [ ] [Neetcode 150](neetcode150/index.md)
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>References</th>
+            <th>Tags</th>
+        </tr>
+    </thead>
+    <tbody>
+         <tr>
+            <td>Neetcode150</td>
+            <td>Review DSA for technical interviews by solving 150 DSA problems based on commonly asked patterns.</td>
+            <td>
+                <a href="neetcode150/">notes</a> <br/>
+                <a href="https://neetcode.io/practice?tab=neetcode150" target="_blank">site</a>
+            </td>
+            <td>
+                <img src="https://img.shields.io/badge/Neetcode-grey"  alt="Neetcode Badge"/>
+                <img src="https://img.shields.io/badge/Leetcode-grey?logo=leetcode"  alt="Leetcode Logo"/>
+                <img src="https://img.shields.io/badge/Go-grey?logo=go&logoColor=#00ADD8" alt="Go Logo">
+                <img src="https://img.shields.io/badge/Python-grey?logo=python&logoColor=#3776AB" alt="Python Logo">
+                <img src="https://img.shields.io/badge/inactive-orange" alt="status: inactive">
+            </td>
+         </tr>
+    </tbody>
+</table>

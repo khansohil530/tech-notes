@@ -1,0 +1,68 @@
+td {
+    vertical-align: middle !important;
+}
+
+.status-done svg {
+  color: var(--md-accent-fg-color);
+  animation: tick-pop 400ms ease-out both;
+}
+
+.status-pending svg {
+  color: var(--md-accent-fg-color--transparent);
+  animation: tick-pop 400ms ease-out both;
+}
+
+.cards li:nth-child(1) .status-done svg { animation-delay: 0ms; }
+.cards li:nth-child(2) .status-done svg { animation-delay: 80ms; }
+.cards li:nth-child(3) .status-done svg { animation-delay: 160ms; }
+
+@keyframes tick-pop {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes star {
+  0%, 40%, 80%, 100% {
+    transform: scale(1);
+  }
+  20%, 60% {
+    transform: scale(1.15);
+  }
+}
+.star {
+  animation: star 1000ms infinite;
+}
+
+.md-typeset .admonition,
+.md-typeset details {
+  /*border-width: 0;*/
+  /*border-left-width: 4px;*/
+}
+
+.md-typeset .admonition.pending,
+.md-typeset details.pending {
+  border-color: var(--md-accent-fg-color);
+}
+.md-typeset .pending > .admonition-title,
+.md-typeset .pending > summary {
+  background-color: var(--md-accent-fg-color--transparent);
+}
+.md-typeset .pending > .admonition-title::before,
+.md-typeset .pending > summary::before {
+  background-color: var(--md-accent-fg-color);
+  -webkit-mask-image: var(--md-admonition-icon--failure);
+          mask-image: var(--md-admonition-icon--failure);
+}
+
+.grid .cards > .admonition {
+
+}
