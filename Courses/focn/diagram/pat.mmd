@@ -1,0 +1,12 @@
+sequenceDiagram
+    participant A as Device A (192.168.1.10)
+    participant R as NAT Router
+    participant S as Internet Server (142.250.72.14)
+
+    A->>R: TCP Packet<br/>Src: 192.168.1.10:52344<br/>Dst: 142.250.72.14:443
+    R->>R: Create NAT entry<br/>203.0.113.5:40001 ↔ 192.168.1.10:52344
+    R->>S: Translated Packet<br/>Src: 203.0.113.5:40001<br/>Dst: 142.250.72.14:443
+
+    S->>R: TCP Reply<br/>Src: 142.250.72.14:443<br/>Dst: 203.0.113.5:40001
+    R->>R: Lookup NAT table<br/>Find internal mapping
+    R->>A: Restored Packet<br/>Src: 142.250.72.14:443<br/>Dst: 192.168.1.10:52344
