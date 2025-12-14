@@ -4,7 +4,7 @@ tags:
   - LC_Hard
   - Neetcode150
 ---
-# :red_circle: 42. Trapping Rain Water
+# 42. Trapping Rain Water
 
 [Problem Link](https://leetcode.com/problems/trapping-rain-water/description/){target=_blank}
 

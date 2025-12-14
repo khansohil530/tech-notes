@@ -5,7 +5,7 @@ tags:
   - LC_Medium
   - Neetcode150
 ---
-# :orange_circle: 49. Group Anagrams
+# 49. Group Anagrams
 
 [Problem Link](https://leetcode.com/problems/group-anagrams/description/){target=_blank}
 

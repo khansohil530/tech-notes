@@ -1,0 +1,29 @@
+sequenceDiagram
+    participant L7 as Layer 7<br/>(Application)
+    participant L6 as Layer 6<br/>(Presentation)
+    participant L5 as Layer 5<br/>(Session)
+    participant L4 as Layer 4<br/>(Transport)
+    participant L3 as Layer 3<br/>(Network)
+    participant L2 as Layer 2<br/>(Data Link)
+    participant L1 as Layer 1<br/>(Physical)
+
+    %%Sender
+    Note over L7,L6: From Senders point of view
+    L7->>L6: Send POST request<br/> with JSON payload
+    L6->>L5: Serialize JSON <br/>into byte strings
+    L5->>L4: Establish/Identify<br/> connection
+    L4->>L3: Segment bytes into segments<br/>(add source & destination ports)
+    L3->>L2: Encapsulate segments into IP packets<br/>(add source & destination IPs)
+    L2->>L1: Encapsulate packet into frames<br/>(add source & destination MACs)
+    Note over L1: -> Convert frames into analog<br/> signal and send over network
+
+    %%Receiver
+    Note over L1: <- Convert analog signals into digital bits
+    L1->>L2: Assemble bits into frames
+    L2->>L3: Extract IP packets from frames
+    L3->>L4: Reassemble IP packets into TCP segments
+    L4->>L5: Establish/identify<br/> connection
+    L5->>L6: Deserialize bytes into<br/> JSON data
+    L6->>L7: Trigger “request received” <br/>event for app
+    Note over L7, L6: From Receivers point of view
+

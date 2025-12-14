@@ -6,7 +6,7 @@ tags:
   - LC_Medium
   - Neetcode150
 ---
-# :orange_circle: 128. Longest Consecutive Sequence
+# 128. Longest Consecutive Sequence
 
 
 

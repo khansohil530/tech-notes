@@ -4,7 +4,7 @@ tags:
   - LC_Medium
   - Neetcode150
 ---
-# :orange_circle: 167. Two Sum II - Input Array Is Sorted
+# 167. Two Sum II - Input Array Is Sorted
 
 [Problem Link](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/){target=_blank}
 
