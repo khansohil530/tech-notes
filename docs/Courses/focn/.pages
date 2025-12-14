@@ -4,3 +4,11 @@ nav:
    - basic.md
    - ip.md
    - tcp_udp.md
+   - Other Popular Protocols:
+        - dns.md
+        - http.md
+        - tls.md
+        - ssh.md
+        - ftp.md
+        - smtp.md
+        - quic.md

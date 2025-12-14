@@ -40,13 +40,6 @@ theme:
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
-    # Dark mode
-    - scheme: slate
-      primary: teal
-      accent: orange
-      toggle:
-        icon: material/weather-sunny
-        name: Switch to light mode
   font:
     text: Inter
     code: Fira Code

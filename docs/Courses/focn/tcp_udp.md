@@ -1,7 +1,3 @@
----
-comments: false
----
-
 # TCP and UDP
 
 IP protocol was designed to only deliver packets over network to destination IP address, it doesn't involve anything

@@ -1,0 +1,13 @@
+graph TD
+    ROOT["Root (.)"]
+
+    ROOT --> TLD["Top-Level Domain (TLD)"]
+    TLD --> gTLD["Generic TLD (.com, .org, .net)"]
+    TLD --> ccTLD["Country Code TLD (.us, .uk, .de)"]
+    TLD --> sTLD["Sponsored / Specialized TLD (.edu, .gov, .mil)"]
+
+    gTLD --> SLD["Second-Level Domain (example)"]
+    ccTLD --> SLD
+    sTLD --> SLD
+
+    SLD --> SUB["Subdomain (www, api, mail)"]
