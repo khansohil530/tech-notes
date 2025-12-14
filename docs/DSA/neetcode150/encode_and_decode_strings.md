@@ -4,7 +4,7 @@ tags:
   - LC_Medium
   - Neetcode150
 ---
-# :orange_circle: 271. Encode and Decode Strings
+# 271. Encode and Decode Strings
 
 [Problem Link](https://neetcode.io/problems/string-encode-and-decode?list=neetcode150){target=_blank}
 

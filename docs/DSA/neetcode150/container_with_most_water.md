@@ -5,7 +5,7 @@ tags:
   - LC_Medium
   - Neetcode150
 ---
-# :orange_circle: 11. Container With Most Water
+# 11. Container With Most Water
 
 [Problem Link](https://leetcode.com/problems/container-with-most-water/description/){target=_blank}
 

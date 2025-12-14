@@ -5,7 +5,7 @@ tags:
   - LC_Medium
   - Neetcode150
 ---
-# :orange_circle: 238. Product of Array Except Self
+# 238. Product of Array Except Self
 
 [Problem Link](https://leetcode.com/problems/product-of-array-except-self/description/){target=_blank}
 

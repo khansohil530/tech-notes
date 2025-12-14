@@ -5,7 +5,7 @@ tags:
   - LC_Easy
   - Neetcode150
 ---
-# :green_circle: 1. Two Sum
+# 1. Two Sum
 
 [Problem Link](https://leetcode.com/problems/two-sum/description/){target=_blank}
 

@@ -4,7 +4,7 @@ tags:
   - LC_Medium
   - Neetcode150
 ---
-# :orange_circle: 15. 3Sum
+# 15. 3Sum
 
 [Problem Link](https://leetcode.com/problems/3sum/description/){target=_blank}
 

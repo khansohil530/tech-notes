@@ -7,7 +7,7 @@ tags:
   - Neetcode150
   - Bucket Sort
 ---
-# :orange_circle: 347. Top K Frequent Elements
+# 347. Top K Frequent Elements
 
 [Problem Link](https://leetcode.com/problems/top-k-frequent-elements/description/){target=_blank}
 

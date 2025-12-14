@@ -5,7 +5,7 @@ tags:
   - LC_Easy
   - Neetcode150
 ---
-# :green_circle: 217. Contains Duplicate
+# 217. Contains Duplicate
 
 [Problem Link](https://leetcode.com/problems/contains-duplicate/description/){target=_blank}
 

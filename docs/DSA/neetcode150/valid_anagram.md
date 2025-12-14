@@ -4,7 +4,7 @@ tags:
   - LC_Easy
   - Neetcode150
 ---
-# :green_circle: 242. Valid Anagram
+# 242. Valid Anagram
 
 [Problem Link](https://leetcode.com/problems/valid-anagram/description/){target=_blank}
 

@@ -5,7 +5,7 @@ tags:
   - LC_Medium
   - Neetcode150
 ---
-# :orange_circle: 36. Valid Sudoku
+# 36. Valid Sudoku
 
 [Problem Link](https://leetcode.com/problems/valid-sudoku/description/){target=_blank}
 

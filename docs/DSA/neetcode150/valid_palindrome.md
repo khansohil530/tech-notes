@@ -4,7 +4,7 @@ tags:
   - LC_Easy
   - Neetcode150
 ---
-# :green_circle: 125. Valid Palindrome
+# 125. Valid Palindrome
 
 [Problem Link](https://leetcode.com/problems/valid-palindrome/description/){target=_blank}
 
