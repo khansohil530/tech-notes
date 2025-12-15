@@ -26,6 +26,13 @@ theme:
     - content.action.edit
 #    - toc.integrate
   palette:
+    # Dark mode (default)
+    - scheme: slate
+      primary: teal
+      accent: orange
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
     # Light mode
     - scheme: default
       primary: teal
