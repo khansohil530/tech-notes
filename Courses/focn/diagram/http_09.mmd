@@ -1,0 +1,8 @@
+sequenceDiagram
+    participant Client
+    participant Server
+
+    Client->>Server: TCP connection established (port 80)
+    Client->>Server: GET /index.html
+    Server-->>Client: <html>...</html>
+    Server->>Client: TCP connection closed

@@ -1,0 +1,24 @@
+sequenceDiagram
+    autonumber
+    participant Client as Browser / Client
+    participant Server as HTTPS Server
+
+    Note over Client, Server: Connection is establish
+
+    Client->>Server: ClientHello<br/>(TLS 1.2, Cipher Suites, Client Random)
+    Server->>Client: ServerHello<br/>(Selected Cipher, Server Random)
+    Server->>Client: Certificate<br/>(Server Public Key)
+    Server->>Client: ServerHelloDone
+
+    Client->>Client: Verify Certificate<br/>Generate Session Keys
+
+    Client->>Server: ClientKeyExchange<br/>(Pre-Master Secret encrypted with Server Public Key)
+
+    Client->>Server: ChangeCipherSpec
+    Client->>Server: Finished<br/>(Encrypted with Session Keys)
+
+    Server->>Server: Generate Session Keys
+    Server->>Client: ChangeCipherSpec
+    Server->>Client: Finished<br/>(Encrypted with Session Keys)
+
+    Note over Client, Server: Session keys established,<br/> both parties can communicate with encrypted data.

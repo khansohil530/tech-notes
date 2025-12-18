@@ -1,0 +1,19 @@
+sequenceDiagram
+    participant Client
+    participant Attacker
+    participant Server
+
+    Client->>Attacker: Hello, send me your public key
+    Attacker->>Client: Attacker Public Key (pretending to be Server)
+
+    Client->>Attacker: Secret encrypted with Attacker Public Key
+
+    Attacker->>Server: Hello, send me your public key
+    Server->>Attacker: Server Public Key
+
+    Attacker->>Server: Secret encrypted with Server Public Key
+
+    Note over Attacker: Attacker can decrypt<br/>read, and modify all data
+
+    Client-->>Attacker: Encrypted data
+    Attacker-->>Server: Modified encrypted data

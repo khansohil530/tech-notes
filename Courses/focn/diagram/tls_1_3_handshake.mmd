@@ -1,0 +1,23 @@
+sequenceDiagram
+    participant C as Client
+    participant S as Server
+
+    C->>S: ClientHello<br/>Supported cipher suites, groups,<br/>Client ECDHE key share
+
+    S->>C: ServerHello<br/>Selected cipher suite, group,<br/>Server ECDHE key share
+
+    Note over C,S: Derive Handshake Secrets<br/>↓<br/>Derive Handshake Traffic Keys<br/>(Encrypt handshake messages)
+
+    S->>C: Encrypted Extensions
+    S->>C: Encrypted Certificate
+    S->>C: Encrypted CertificateVerify<br/>(Proves server owns certificate private key)
+
+    Note over C,S: Derive Finished Keys<br/>(client_finished_key, server_finished_key)
+
+    S->>C: Encrypted Finished<br/>(Key confirmation: server)
+
+    C->>S: Encrypted Finished<br/>(Key confirmation: client)
+
+    Note over C,S: Handshake complete<br/>↓<br/>Derive Application (Session) Traffic Keys
+
+    Note over C,S: Fully secure channel established<br/>Application data encrypted
