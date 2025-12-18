@@ -1,0 +1,12 @@
+sequenceDiagram
+    participant Client
+    participant Server
+    Server->>Client: Sends Public Key (in Certificate)
+
+    Client->>Client: Generate <br/>Pre-Master Secret
+
+    Client->>Server: Send Pre-Master Secret (Encrypted with Public Key)
+
+    Server->>Server: Recover Pre-Master Secret (Decrypted with Private key)
+
+    Note over Client,Server: Derive same Symmetric Key from common Pre-Master Secret.

@@ -1,0 +1,18 @@
+sequenceDiagram
+    participant Client
+    participant Server
+    participant CA as Certificate Authority
+
+    Server->>CA: Certificate Signing Request (CSR)<br/>(Domain + Public Key)
+    CA->>CA: Verify domain ownership
+    CA->>Server: Signed Certificate<br/>(Public Key + CA Signature)
+
+    Client->>Server: ClientHello
+    Server->>Client: Certificate (CA-signed Public Key)
+
+    Client->>Client: Verify Certificate<br/>(Using its trust store)
+    alt Same Certificate
+        Note over Client,Server: Certificate valid, Safe to Continue
+    else Fake Certificate (Attacker Public Key)
+        Note over Client,Server: Verification FAILED, Connection aborted
+    end
