@@ -161,7 +161,7 @@ until P2 is retransmitted and only then delivers P2, P3, P4 to HTTP/2.
 
 ## HTTP/3
 
-To get around TCP-head-of-line blocking in HTTP/2, HTTP/3 upgraded its transport layer protocol to [**QUIC**](quic.md).
+To get around TCP-head-of-line blocking in HTTP/2, HTTP/3 upgraded its transport layer protocol to **QUIC**.
 QUIC which is build on top of UDP, which implements core features from TCP which guarantees reliability, ordering,
 congestion control, and security in user space. The key difference is that it applies these rules to independent 
 stream so that even if one stream faces packet loss, it doesn't block other streams. Now each HTTP request/response 

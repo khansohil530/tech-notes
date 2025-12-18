@@ -1,7 +1,3 @@
----
-comments: false
----
-
 # TLS
 
 Earlier application protocols (like HTTP, FTP, SMTP) used to send data in plain text which could be intercepted, read

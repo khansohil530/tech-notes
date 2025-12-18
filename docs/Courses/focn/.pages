@@ -8,7 +8,4 @@ nav:
         - dns.md
         - http.md
         - tls.md
-        - ssh.md
-        - ftp.md
-        - smtp.md
-        - quic.md
+   - extra.md
