@@ -1,0 +1,22 @@
+sequenceDiagram
+    participant C as Client
+    participant S as Server
+    participant A as Attacker (Passive)
+
+    Note over C,S: Time T1 – Normal TLS 1.2 RSA Handshake
+
+    C->>S: ClientHello
+    S->>C: ServerHello + Certificate (RSA Public Key)
+    C->>S: Pre-Master Secret encrypted with RSA public key
+    S->>C: Finished (Handshake Complete)
+
+    Note over A: Attacker records all traffic
+
+    Note over C,S: Time T2 – Server private key is compromised
+
+    A->>A: Obtain Server RSA Private Key
+    A->>A: Decrypt recorded Pre-Master Secret
+    A->>A: Derive session keys
+    A->>A: Decrypt past application data
+
+    Note over A: Past sessions are fully compromised

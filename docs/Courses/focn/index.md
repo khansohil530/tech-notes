@@ -9,10 +9,9 @@ hide:
 
 - :fontawesome-solid-circle-check:{ .status-done } [Fundamentals of Networking](basic.md)
 - :fontawesome-solid-circle-check:{ .status-done } [Internet Protocol](ip.md)
-- :fontawesome-solid-circle-check:{ .status-pending } [User Datagram Protocol](udp.md)
-- :fontawesome-solid-circle-check:{ .status-pending } [Transmission Control Protocol]()
-- :fontawesome-solid-circle-check:{ .status-pending } [Other Popular Protocols]()
-- :fontawesome-solid-circle-check:{ .status-pending } [Network Performance]()
-- :fontawesome-solid-circle-check:{ .status-pending } [Network Routing]()
-- :fontawesome-solid-circle-check:{ .status-pending } [Extra]()
+- :fontawesome-solid-circle-check:{ .status-done } [TCP and UDP](tcp_udp.md)
+- :fontawesome-solid-circle-check:{ .status-done } [DNS](dns.md)
+- :fontawesome-solid-circle-check:{ .status-done } [HTTP](http.md)
+- :fontawesome-solid-circle-check:{ .status-done } [TLS](tls.md)
+- :fontawesome-solid-circle-check:{ .status-done } [Extra](extra.md)
 </div>

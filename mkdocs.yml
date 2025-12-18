@@ -26,6 +26,13 @@ theme:
     - content.action.edit
 #    - toc.integrate
   palette:
+    # Dark mode (default)
+    - scheme: slate
+      primary: teal
+      accent: orange
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
     # Light mode
     - scheme: default
       primary: teal
@@ -33,13 +40,6 @@ theme:
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
-    # Dark mode
-    - scheme: slate
-      primary: teal
-      accent: orange
-      toggle:
-        icon: material/weather-sunny
-        name: Switch to light mode
   font:
     text: Inter
     code: Fira Code

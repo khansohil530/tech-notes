@@ -1,0 +1,22 @@
+sequenceDiagram
+    participant User as User / Browser
+    participant OS as Operating System Cache
+    participant Resolver as DNS Resolver
+    participant Root as Root DNS Server
+    participant TLD as TLD DNS Server
+    participant Auth as Authoritative DNS Server
+
+    User->>OS: Request IP for www.example.com
+    alt Cached locally
+        OS-->>User: Return IP address
+    else Not cached
+        OS->>Resolver: DNS query (www.example.com)
+        Resolver->>Root: Query for .com
+        Root-->>Resolver: Referral to .com TLD
+        Resolver->>TLD: Query for example.com
+        TLD-->>Resolver: Referral to authoritative server
+        Resolver->>Auth: Query for www.example.com
+        Auth-->>Resolver: A/AAAA record (IP)
+        Resolver-->>OS: Return IP + TTL
+        OS-->>User: Return IP address
+    end
