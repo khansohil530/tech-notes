@@ -1,8 +1,4 @@
----
-comments: false
----
-
-# Backend Communication Patterns
+# Communication Patterns
 
 During early days of web, most of the applications were just servers sharing resources with their clients through
 APIs. Requirement for this mode of communication was easily fulfilled using the **Request-Response** model, where the client

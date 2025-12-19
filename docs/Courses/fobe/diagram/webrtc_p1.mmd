@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant PeerA as Peer A (Browser)
+    participant Signal as Signaling Channel<br/>(WebSocket / HTTP / etc.)
+    participant PeerB as Peer B (Browser)
+
+    Note over PeerA, PeerB: Signaling change is establish via RTCPeerConnection
+    PeerA->>Signal: Send SDP Offer
+    Signal->>PeerB: Deliver SDP Offer
+
+    PeerB->>PeerB: Set Remote Description (Offer) <br/> Generate SDP Answer
+
+    PeerB->>Signal: Send SDP Answer
+    Signal->>PeerA: Deliver SDP Answer
+
+    PeerA->>PeerA: Set Remote Description (Answer)

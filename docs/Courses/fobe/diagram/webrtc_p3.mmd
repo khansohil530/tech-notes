@@ -1,0 +1,20 @@
+sequenceDiagram
+    participant PeerA as Peer A (Browser)
+    participant PeerB as Peer B (Browser)
+
+    Note over PeerA,PeerB: ICE completed — network path selected
+
+    PeerA->>PeerB: DTLS ClientHello
+    PeerB->>PeerA: DTLS ServerHello
+    PeerA->>PeerB: DTLS Handshake Messages
+    PeerB->>PeerA: DTLS Handshake Finished
+
+    Note over PeerA,PeerB: Secure channel established (DTLS)
+
+    Note over PeerA,PeerB: Media Transport Begins
+    PeerA-->>PeerB: Encrypted Audio/Video (SRTP)
+    PeerB-->>PeerA: Encrypted Audio/Video (SRTP)
+
+    Note over PeerA,PeerB: Data Transport Begins
+    PeerA-->>PeerB: Encrypted DataChannel Messages (SCTP over DTLS)
+    PeerB-->>PeerA: Encrypted DataChannel Messages (SCTP over DTLS)

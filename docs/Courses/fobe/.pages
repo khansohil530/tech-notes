@@ -2,3 +2,6 @@ title: Fundamentals of Backend Engineering
 nav:
    - index.md
    - comm_pattern.md
+   - app_protocols.md
+   - execution_patterns.md
+   - extra.md
