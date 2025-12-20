@@ -2,6 +2,7 @@
 comments: false
 hide:
   - footer
+  - toc
 ---
 
 Welcome to my personal knowledge base — a curated collection of notes, explanations, and resources I’ve written while learning and revising various technical topics.
