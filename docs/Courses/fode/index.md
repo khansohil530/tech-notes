@@ -2,8 +2,8 @@
 comments: false
 hide:
   - footer
+  - toc
 ---
-
 # Fundamentals of Database Engineering
 
 <div class="grid cards" markdown>

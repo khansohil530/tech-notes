@@ -2,6 +2,7 @@
 comments: false
 hide:
   - footer
+  - toc
 ---
 
 # DSA
