@@ -1,0 +1,8 @@
+flowchart LR
+    C[Client Device] --> P[Forward Proxy]
+    P --> I[Internet]
+    I --> S[External Server]
+
+    S --> I
+    I --> P
+    P --> C
