@@ -1,0 +1,17 @@
+sequenceDiagram
+    participant Client
+    participant Handler
+    participant JobQueue
+    participant Worker
+    participant ExternalIO
+
+    Client->>Handler: Incoming request
+    Handler->>JobQueue: Enqueue <br/>background job
+    Handler-->>Client: Respond immediately <br/>(202 Accepted)
+
+    Worker->>JobQueue: Dequeue job
+    activate Worker
+    Worker->>ExternalIO: Perform long-running I/O
+    Worker->>Worker: CPU-heavy processing
+    Worker-->>JobQueue: Acknowledge <br/>completion
+    deactivate Worker

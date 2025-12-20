@@ -117,14 +117,7 @@ from server can be used for:
 - Block sites, since proxies can see where is the destination we can control over what hosts can be accessed through proxy
 
 ```mermaid
-flowchart LR
-    C[Client Device] --> P[Forward Proxy]
-    P --> I[Internet]
-    I --> S[External Server]
-
-    S --> I
-    I --> P
-    P --> C
+--8<-- "docs/Courses/focn/diagram/forward_proxy.mmd"
 ```
 
 --- 
@@ -140,11 +133,7 @@ configuration. This concept can be used to:
   forwarding specific group of users to this new server so that we can get feedback on feature without disrupting all the users.
 
 ```mermaid
-flowchart LR
-    U[User / Client] --> RP[Reverse Proxy]
-    RP --> S1[App Server 1]
-    RP --> S2[App Server 2]
-    RP --> S3[App Server 3]
+--8<-- "docs/Courses/focn/diagram/reverse_proxy.mmd"
 ```
 
 ## Layer 4 and Layer 7 Load Balancing

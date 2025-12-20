@@ -1,0 +1,34 @@
+sequenceDiagram
+    participant PeerA as Peer A (Browser)
+    participant Signal as Signaling Channel<br/>(WebSocket / HTTP)
+    participant PeerB as Peer B (Browser)
+    participant STUN as STUN Server
+    participant TURN as TURN Server
+
+    Note over PeerA,PeerB: Continue from signaling...<br/>ICE Candidate Gathering Starts
+
+    PeerA->>STUN: STUN Binding Request
+    STUN-->>PeerA: Public IP:Port (Server-Reflexive Candidate)
+
+    PeerB->>STUN: STUN Binding Request
+    STUN-->>PeerB: Public IP:Port (Server-Reflexive Candidate)
+
+    PeerA->>TURN: Allocate Relay Address
+    TURN-->>PeerA: Relay IP:Port (Relay Candidate)
+
+    PeerB->>TURN: Allocate Relay Address
+    TURN-->>PeerB: Relay IP:Port (Relay Candidate)
+
+    PeerA->>Signal: Send ICE Candidates<br/>(Host / STUN / TURN)
+    Signal->>PeerB: Deliver ICE Candidates
+
+    PeerB->>Signal: Send ICE Candidates<br/>(Host / STUN / TURN)
+    Signal->>PeerA: Deliver ICE Candidates
+
+    Note over PeerA,PeerB: ICE Connectivity Checks
+    Note over PeerA,PeerB: Direct P2P Preferred (Host/STUN)
+    Note over PeerA,PeerB: TURN Relay Used if Direct Fails
+
+        PeerA-->>PeerB: Media/Data via SRTP/SCTP (P2P)
+        PeerA-->>TURN: Media/Data (Relay Path)
+        TURN-->>PeerB: Media/Data (Relay Path)

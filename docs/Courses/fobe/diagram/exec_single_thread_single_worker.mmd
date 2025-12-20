@@ -1,0 +1,19 @@
+sequenceDiagram
+    participant Client
+    participant Listener
+    participant Acceptor
+    participant Queue
+    participant Worker
+    participant Handler
+
+    Client->>Listener: Incoming request
+    Listener->>Acceptor: Notify new connection
+    Acceptor->>Queue: Enqueue request
+
+    Worker->>Queue: Dequeue request
+    activate Worker
+    Worker->>Handler: Execute handler logic
+    Handler->>Handler: Blocking I/O / computation
+    Handler-->>Worker: Result
+    Worker-->>Client: Send response
+    deactivate Worker

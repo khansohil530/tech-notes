@@ -1,0 +1,28 @@
+sequenceDiagram
+    participant Queue
+    participant Dispatcher
+    participant Worker1
+    participant Worker2
+    participant Handler
+
+    Dispatcher->>Queue: Dequeue request A
+    Dispatcher->>Worker1: Assign request A
+    activate Worker1
+    Worker1->>Handler: Execute handler A
+    activate Handler
+    Handler->>Handler: Blocking I/O
+
+    Dispatcher->>Queue: Dequeue request B
+    Dispatcher->>Worker2: Assign request B
+    activate Worker2
+    Worker2->>Handler: Execute handler B
+    deactivate Handler
+    activate Handler
+    Handler->>Handler: Blocking I/O
+    deactivate Handler
+
+    Handler-->>Worker1: Result A
+    deactivate Worker1
+
+    Handler-->>Worker2: Result B
+    deactivate Worker2
