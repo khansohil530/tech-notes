@@ -1,0 +1,25 @@
+sequenceDiagram
+    participant EventLoop
+    participant Handler
+    participant Dispatcher
+    participant Worker
+    participant ExternalIO as DB
+
+    EventLoop->>Handler: Start request handling
+
+    Note over Handler: Encounters a I/O request to DB
+    Handler->>ExternalIO: Async fetch user data
+    Handler-->>EventLoop: Yield (waiting for DB)
+    ExternalIO-->>EventLoop: DB response ready
+    EventLoop->>Handler: Resume handler
+
+    Note over Handler: Continue executing code
+    Note over Handler, Dispatcher: Encounters a CPU bound task, <br/> offloaded to worker
+    Handler->>Dispatcher: Submit CPU bound task
+    Dispatcher->>Worker: Assign CPU task
+    activate Worker
+    Worker-->>Dispatcher:  Return result
+    deactivate Worker
+    Dispatcher-->>Handler: Return result
+    Note over Handler: Continue executing control flow code.
+    Handler-->>EventLoop: Request complete

@@ -61,7 +61,7 @@ hide:
             </td>
             <td>
                 <img src="https://img.shields.io/badge/Udemy-purple?logo=udemy&logoColor=#A435F0"  alt="Udemy Logo"/>
-                <img src="https://img.shields.io/badge/active-blue" alt="status: completed">
+                <img src="https://img.shields.io/badge/completed-green" alt="status: completed">
             </td>
          </tr>
     </tbody>

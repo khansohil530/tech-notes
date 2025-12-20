@@ -8,8 +8,7 @@ hide:
 <div class="grid cards" markdown>
 
 - :fontawesome-solid-circle-check:{ .status-done } [Communication Patterns](comm_pattern.md)
-- :fontawesome-solid-circle-check:{ .status-done } [Communication Protocol](app_protocols.md)
-- :fontawesome-solid-circle-check:{ .status-pending } [Execution Patterns](execution_patterns.md)
-- :fontawesome-solid-circle-check:{ .status-pending } [Extra](extra.md)
+- :fontawesome-solid-circle-check:{ .status-done } [Communication Protocols](app_protocols.md)
+- :fontawesome-solid-circle-check:{ .status-done } [Execution Patterns](execution_patterns.md)
 
 </div>

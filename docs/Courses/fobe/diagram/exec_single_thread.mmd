@@ -1,0 +1,12 @@
+sequenceDiagram
+    participant Client
+    participant Server
+
+    Client->>Server: Send Request A
+    Server->>Server: Parse request <br/> Execute business logic <br/> Build response
+    Server-->>Client: Response A
+
+    Client->>Server: Send Request B
+    note right of Server: Request B waits until A completes
+    Server->>Server: Handle Request B
+    Server-->>Client: Response B

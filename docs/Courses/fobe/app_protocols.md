@@ -1,4 +1,4 @@
-# Communication Protocol
+# Communication Protocols
 
 Previously we'd discussed [backend communication patterns](comm_pattern.md), which describe when and why services 
 communicate, while in this chapter we'll describe how that communication is technically carried out using specific
