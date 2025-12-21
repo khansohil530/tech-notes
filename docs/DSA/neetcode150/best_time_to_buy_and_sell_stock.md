@@ -11,9 +11,10 @@ hide:
 
 [Problem Link](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/){target=_blank}
 
+![Image Example](static/best_time_to_buy_and_sell_stock.png){loading=lazy width=400vw align=right}
 To compute maximum profit, you've to buy at minimum and sell at maximum with condition that you've to sell after buying.
 Brute force method is to compute profit for every window (using left and right limit as buy and sell) using 2 loops
-resulting in $O(n^2)$ time. Above Brute force is a general solution which considers combination of every possible 
+resulting in $O(n^2)$ time. Above Brute force is a general solution which considers combination of every possible
 window, but we can optimize it by only including windows relevant to our solution.
 
 Think of the windows indicated by its  left and right bounds using two pointers $l$ (buy day) and $r$ (sell day) respectively.

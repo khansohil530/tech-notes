@@ -193,7 +193,7 @@ hide:
                 <a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/" target="_blank" >link</a></td>
         </tr>
         <tr>
-            <td>Longest Repeating Character Replacement</td>
+            <td>⭐Longest Repeating Character Replacement</td>
             <td>
                 <img src="https://img.shields.io/badge/medium-orange" alt="medium">
             </td>
