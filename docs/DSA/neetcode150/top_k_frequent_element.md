@@ -4,8 +4,10 @@ tags:
   - Array
   - Heap/Priority Queue
   - LC_Medium
-  - Neetcode150
   - Bucket Sort
+  - Neetcode150
+hide:
+  - toc
 ---
 # 347. Top K Frequent Elements
 

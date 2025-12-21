@@ -3,6 +3,8 @@ tags:
   - Hash Table
   - LC_Medium
   - Neetcode150
+hide:
+  - toc
 ---
 # 271. Encode and Decode Strings
 

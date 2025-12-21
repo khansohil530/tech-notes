@@ -3,6 +3,8 @@ tags:
   - Two Pointers
   - LC_Easy
   - Neetcode150
+hide:
+  - toc
 ---
 # 125. Valid Palindrome
 

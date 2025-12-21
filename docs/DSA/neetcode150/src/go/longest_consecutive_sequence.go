@@ -1,9 +1,9 @@
 package main
 
 func longestConsecutive(nums []int) int {
-	set := make(map[int]interface{})
+	set := make(map[int]struct{})
 	for _, num := range nums {
-		set[num] = nil
+		set[num] = struct{}{}
 	}
 	res := 0
 	for num, _ := range set {

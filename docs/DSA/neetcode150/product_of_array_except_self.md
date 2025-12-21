@@ -4,6 +4,8 @@ tags:
   - Prefix Sum
   - LC_Medium
   - Neetcode150
+hide:
+  - toc
 ---
 # 238. Product of Array Except Self
 

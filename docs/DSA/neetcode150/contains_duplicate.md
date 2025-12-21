@@ -4,6 +4,8 @@ tags:
   - Array
   - LC_Easy
   - Neetcode150
+hide:
+  - toc
 ---
 # 217. Contains Duplicate
 
@@ -39,3 +41,10 @@ $O(n)$, which majority of time is acceptable as memory isn't as scare as old day
     ```go
     --8<-- "docs/DSA/neetcode150/src/go/contains_duplicate.go:2"
     ```
+ 
+??? info "Go HashSet Implementation"
+    Go doesn't have any built-in HashSet type, but the idiomatic way to build one is using `map[T]struct{}`.
+    This give has $O(1)$ lookup over keys and has zero memory overhead from `struct{}`. 
+    
+    - To add any element: `set["apple"] = struct{}{}`
+    - To check presence of element: `if _, ok := set["apple"]; ok`

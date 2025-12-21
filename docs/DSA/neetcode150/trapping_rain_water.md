@@ -3,27 +3,32 @@ tags:
   - Two Pointers
   - LC_Hard
   - Neetcode150
+hide:
+  - toc
 ---
 # 42. Trapping Rain Water
 
 [Problem Link](https://leetcode.com/problems/trapping-rain-water/description/){target=_blank}
 
-Think of the water amount as sum of water collected at each index.
-How would you calculate the trappable water at any index? This water level is bounded by the minimum of
-maximum heights on either side of given index.
+![Image Example](static/trapping_rain_water.png){loading=lazy width=400vw align=right}
 
-![Image Example](static/trapping_rain_water.png){loading=lazy}
+Think of the total trapped water as sum of water collected at each index.
+How would you calculate the trappable water at any index? The water level is bounded by the lesser of
+maximum heights on left and right of given index. 
 
-With this, you can create such prefix arrays for maximum left and right heights of respective index and finally
-calculate the water trapped at each level. This would give us $O(n)$ time and space complexity.
+One way is to create prefix arrays storing maximum left and right heights for each index and finally calculate the 
+water trapped at each level, but that’d add $O(n)$ space complexity. We can optimize the solution to O(1) extra space
+using the two-pointer technique.
 
-We can optimize this to use $O(1)$ space by using a two pointers technique.
-For this, we'll need to initialize two pointers at left and right ends, and two variables storing the maximum
-left and right heights of among iterated values.
-For example, with `l` and `r` index pointers,  lets say maxL < maxR.
-For this, we can say for sure that the water collected for l cell is bounded by maxL.
-Because any consecutive height on right of `l` would be equal or greater than maxR which wouldn't impact
-our computation of water -> $min(maxL, maxR)-height[i]$.
+Start the iteration by declaring two pointers at left ($l$) and right ($r$) end of array, along with two variables to 
+store maximum height seen so far from given $l$ ($maxL$) and $r$ ($maxR$). With this information, the amount of water 
+that can be trapped at any possible is determined by: $water = min(maxL, maxR) - height[i]$. Now, we can move only the
+pointer on the side with the smaller maximum height, because that side becomes the limiting factor. For example,
+
+- $maxL < maxR$, then the left side limits the water level as the right side is guaranteed to have a boundary at least
+  as tall $maxL$ (from $< maxR$), hence the water trapped at $l$ depends only on $maxL$.
+  $\therefore water[l] = maxL - height[l]$ and we can move forward the $l$ as it's considered in out result
+- $maxR <= maxL$, similarly here the right side limits the water level $\therefore water[r] = maxR - height[r]$.
 
 ??? note "Pseudocode"
     - Declare two pointers for indicating current left and right position in iteration.
