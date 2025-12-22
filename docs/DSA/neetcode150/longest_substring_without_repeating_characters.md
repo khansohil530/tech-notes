@@ -26,7 +26,7 @@ overwritten as we continue scanning.
 ??? note "Runtime Complexity"
     <b>Time</b>: $O(n)$, each character is only processed once
     
-    <b>Space</b>: $O(n)$, from hashmap
+    <b>Space</b>: $O(m)$, m unique characters used as hashmap keys
 
 
 === "Python"

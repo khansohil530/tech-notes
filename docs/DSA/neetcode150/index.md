@@ -212,7 +212,7 @@ hide:
                 <a href="https://leetcode.com/problems/permutation-in-string/" target="_blank" >link</a>
             </td>
         </tr><tr>
-            <td>Minimum Window Substring</td>
+            <td>⭐Minimum Window Substring</td>
             <td>
                 <img src="https://img.shields.io/badge/hard-red" alt="hard">
             </td>
