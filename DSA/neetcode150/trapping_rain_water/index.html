@@ -13,7 +13,7 @@
         <link rel="prev" href="../container_with_most_water/">
       
       
-        <link rel="next" href="../../../Courses/">
+        <link rel="next" href="../best_time_to_buy_and_sell_stock/">
       
       
         
@@ -73,7 +73,7 @@
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style><meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -310,6 +310,8 @@
           
             
               
+                
+              
               <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -455,6 +457,8 @@
       
         
           
+        
+      
         
       
         
@@ -1052,6 +1056,246 @@
 
       </a>
       
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4">
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_4" id="__nav_2_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sliding Window
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Sliding Window
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../best_time_to_buy_and_sell_stock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    121. Best Time to Buy and Sell Stock
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../longest_substring_without_repeating_characters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Longest Substring Without Repeating Characters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../longest_repeating_character_replacement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    424. Longest Repeating Character Replacement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../permutation_in_string/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    567. Permutation in String
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../minimum_window_substring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    76. Minimum Window Substring
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sliding_window_maximum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    239. Sliding Window Maximum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -2452,7 +2696,9 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -2476,6 +2722,8 @@
               <article class="md-content__inner md-typeset">
                 
                   
+  
+
 
   <nav class="md-tags">
     
@@ -2514,19 +2762,23 @@
 
 <h1 id="42-trapping-rain-water">42. Trapping Rain Water<a class="headerlink" href="#42-trapping-rain-water" title="Permanent link">¶</a></h1>
 <p><a href="https://leetcode.com/problems/trapping-rain-water/description/" target="_blank">Problem Link</a></p>
-<p>Think of the water amount as sum of water collected at each index.
-How would you calculate the trappable water at any index? This water level is bounded by the minimum of
-maximum heights on either side of given index.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../static/trapping_rain_water.png" data-desc-position="bottom"><img alt="Image Example" loading="lazy" src="../static/trapping_rain_water.png"></a></p>
-<p>With this, you can create such prefix arrays for maximum left and right heights of respective index and finally
-calculate the water trapped at each level. This would give us <span class="arithmatex">\(O(n)\)</span> time and space complexity.</p>
-<p>We can optimize this to use <span class="arithmatex">\(O(1)\)</span> space by using a two pointers technique.
-For this, we'll need to initialize two pointers at left and right ends, and two variables storing the maximum
-left and right heights of among iterated values.
-For example, with <code>l</code> and <code>r</code> index pointers,  lets say maxL &lt; maxR.
-For this, we can say for sure that the water collected for l cell is bounded by maxL.
-Because any consecutive height on right of <code>l</code> would be equal or greater than maxR which wouldn't impact
-our computation of water -&gt; <span class="arithmatex">\(min(maxL, maxR)-height[i]\)</span>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../static/trapping_rain_water.png" data-desc-position="bottom"><img align="right" alt="Image Example" loading="lazy" src="../static/trapping_rain_water.png" width="400vw"></a></p>
+<p>Think of the total trapped water as sum of water collected at each index.
+How would you calculate the trappable water at any index? The water level is bounded by the lesser of
+maximum heights on left and right of given index. </p>
+<p>One way is to create prefix arrays storing maximum left and right heights for each index and finally calculate the 
+water trapped at each level, but that’d add <span class="arithmatex">\(O(n)\)</span> space complexity. We can optimize the solution to O(1) extra space
+using the two-pointer technique.</p>
+<p>Start the iteration by declaring two pointers at left (<span class="arithmatex">\(l\)</span>) and right (<span class="arithmatex">\(r\)</span>) end of array, along with two variables to 
+store maximum height seen so far from given <span class="arithmatex">\(l\)</span> (<span class="arithmatex">\(maxL\)</span>) and <span class="arithmatex">\(r\)</span> (<span class="arithmatex">\(maxR\)</span>). With this information, the amount of water 
+that can be trapped at any possible is determined by: <span class="arithmatex">\(water = min(maxL, maxR) - height[i]\)</span>. Now, we can move only the
+pointer on the side with the smaller maximum height, because that side becomes the limiting factor. For example,</p>
+<ul>
+<li><span class="arithmatex">\(maxL &lt; maxR\)</span>, then the left side limits the water level as the right side is guaranteed to have a boundary at least
+  as tall <span class="arithmatex">\(maxL\)</span> (from <span class="arithmatex">\(&lt; maxR\)</span>), hence the water trapped at <span class="arithmatex">\(l\)</span> depends only on <span class="arithmatex">\(maxL\)</span>.
+  <span class="arithmatex">\(\therefore water[l] = maxL - height[l]\)</span> and we can move forward the <span class="arithmatex">\(l\)</span> as it's considered in out result</li>
+<li><span class="arithmatex">\(maxR &lt;= maxL\)</span>, similarly here the right side limits the water level <span class="arithmatex">\(\therefore water[r] = maxR - height[r]\)</span>.</li>
+</ul>
 <details class="note">
 <summary>Pseudocode</summary>
 <ul>
@@ -2607,7 +2859,7 @@ our computation of water -&gt; <span class="arithmatex">\(min(maxL, maxR)-height
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 20, 2025 10:27:30 UTC">December 20, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 22, 2025 06:45:32 UTC">December 22, 2025</span>
   </span>
 
     
@@ -2617,6 +2869,8 @@ our computation of water -&gt; <span class="arithmatex">\(min(maxL, maxR)-height
   </aside>
 
 
+
+  
 
 
 
@@ -2683,6 +2937,8 @@ our computation of water -&gt; <span class="arithmatex">\(min(maxL, maxR)-height
   
     
       
+        
+      
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
@@ -2703,13 +2959,13 @@ our computation of water -&gt; <span class="arithmatex">\(min(maxL, maxR)-height
         
         
           
-          <a href="../../../Courses/" class="md-footer__link md-footer__link--next" aria-label="Next: Courses">
+          <a href="../best_time_to_buy_and_sell_stock/" class="md-footer__link md-footer__link--next" aria-label="Next: 121. Best Time to Buy and Sell Stock">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Courses
+                121. Best Time to Buy and Sell Stock
               </div>
             </div>
             <div class="md-footer__button md-icon">
