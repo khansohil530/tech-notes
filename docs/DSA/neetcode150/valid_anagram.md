@@ -3,6 +3,8 @@ tags:
   - Hash Table
   - LC_Easy
   - Neetcode150
+hide:
+  - toc
 ---
 # 242. Valid Anagram
 

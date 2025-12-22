@@ -1,13 +1,12 @@
 package main
 
 func containsDuplicate(nums []int) bool {
-	set := make(map[int]interface{})
-	for _, num := range nums {
-		_, ok := set[num]
-		if ok {
-			return true
-		}
-		set[num] = nil
-	}
-	return false
+    set := make(map[int]struct{})
+    for _, num := range nums {
+        if _, ok := set[num]; ok {
+            return true
+        }
+        set[num] = struct{}{}
+    }
+    return false
 }

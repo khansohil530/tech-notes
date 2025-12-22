@@ -3,17 +3,19 @@ tags:
   - Two Pointers
   - LC_Medium
   - Neetcode150
+hide:
+  - toc
 ---
 # 15. 3Sum
 
 [Problem Link](https://leetcode.com/problems/3sum/description/){target=_blank}
 
 This problem is similar to [Two Sum](two_sum.md), we can just use an outer iteration
-to reduce it to a two sum. But core part would be, **how you'd avoid duplicate triplets in result?**
+to reduce it to a two sum. The crux of the problem is, **how you'd avoid duplicate triplets in result?**
 
 One approach could be by sorting the array, and since duplicate values would be adjacent we could directly
-skip them during each iteration. Also, Sorting Array is $O(nlogn)$ operation, which wouldn't impact the
-runtime of our $O(n^2)$ solution.  
+skip them during each iteration. Also, sorting the array ($O(nlogn)$) wouldn't impact the total runtime as
+loops themselves use $O(n^2)$.  
 
 ??? note "Pseudocode"
     - Sort the input Array and start an outer loop as an indicative of first number in triplet.

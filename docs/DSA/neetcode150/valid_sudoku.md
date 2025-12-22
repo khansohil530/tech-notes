@@ -4,6 +4,8 @@ tags:
   - Hash Table
   - LC_Medium
   - Neetcode150
+hide:
+  - toc
 ---
 # 36. Valid Sudoku
 

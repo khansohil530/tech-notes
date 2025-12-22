@@ -5,6 +5,8 @@ tags:
   - Union Find
   - LC_Medium
   - Neetcode150
+hide:
+  - toc
 ---
 # 128. Longest Consecutive Sequence
 

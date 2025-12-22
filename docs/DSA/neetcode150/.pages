@@ -17,3 +17,10 @@ nav:
      - 3sum.md
      - container_with_most_water.md
      - trapping_rain_water.md
+  - Sliding Window:
+     - best_time_to_buy_and_sell_stock.md
+     - longest_substring_without_repeating_characters.md
+     - longest_repeating_character_replacement.md
+     - permutation_in_string.md
+     - minimum_window_substring.md
+     - sliding_window_maximum.md

@@ -2,6 +2,7 @@
 comments: false
 hide:
   - footer
+  - toc
 ---
 
 # DSA
@@ -28,7 +29,7 @@ hide:
                 <img src="https://img.shields.io/badge/Leetcode-grey?logo=leetcode"  alt="Leetcode Logo"/>
                 <img src="https://img.shields.io/badge/Go-grey?logo=go&logoColor=#00ADD8" alt="Go Logo">
                 <img src="https://img.shields.io/badge/Python-grey?logo=python&logoColor=#3776AB" alt="Python Logo">
-                <img src="https://img.shields.io/badge/inactive-orange" alt="status: inactive">
+                <img src="https://img.shields.io/badge/active-blue" alt="status: active">
             </td>
          </tr>
     </tbody>

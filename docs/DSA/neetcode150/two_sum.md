@@ -4,6 +4,8 @@ tags:
   - Array
   - LC_Easy
   - Neetcode150
+hide:
+  - toc
 ---
 # 1. Two Sum
 

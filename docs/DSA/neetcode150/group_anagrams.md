@@ -4,6 +4,8 @@ tags:
   - Array
   - LC_Medium
   - Neetcode150
+hide:
+  - toc
 ---
 # 49. Group Anagrams
 
@@ -46,5 +48,5 @@ We can use this information to generate the group of Anagram string.
     **Python**: We're using tuple as key, because they're hashable object. If you use strings as key,
     consider the number of digits in counts when generating the string key.
 
-    **Go**: keys to map must be `comparable` types. Slices (`[]int`) aren't comparablable but Arrays (`[N]T`) are
-    comparable if their element Type (`T`) is comparable. 
+    **Go**: keys to map must be `comparable` types. Slices (`[]int`) aren't comparablable because of no fixed size, but
+    since Arrays (`[N]T`) have fixed size, they're comparable if their element Type (`T`) is comparable. 

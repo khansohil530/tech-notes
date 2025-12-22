@@ -77,7 +77,7 @@ concurrency, using queue and dispatcher which smoothen the load and enforce limi
 
 ## Event-Driven Execution
 
-Last [model](#single-listener--multiple-workers) solves the problem of concurrency, however its worker still block their 
+Last model solves the problem of concurrency, however its worker still block their 
 execution during an I/O operation (like DB calls, disk request). Under load, this causes issues worker starvation where
 active workers idly waiting for completion of I/O which introduces artificial throughput limits. Developer might even 
 over-provision workers and machines to hide this I/O wait.

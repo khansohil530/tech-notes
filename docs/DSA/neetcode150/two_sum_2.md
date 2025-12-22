@@ -3,6 +3,8 @@ tags:
   - Two Pointers
   - LC_Medium
   - Neetcode150
+hide:
+  - toc
 ---
 # 167. Two Sum II - Input Array Is Sorted
 
