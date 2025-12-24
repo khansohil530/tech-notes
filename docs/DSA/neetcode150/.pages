@@ -24,3 +24,10 @@ nav:
      - permutation_in_string.md
      - minimum_window_substring.md
      - sliding_window_maximum.md
+  - Stack:
+     - valid_parentheses.md
+     - min_stack.md
+     - evaluate_reverse_polish_notation.md
+     - daily_temperatures.md
+     - car_fleet.md
+     - largest_rectangle_in_histogram.md
