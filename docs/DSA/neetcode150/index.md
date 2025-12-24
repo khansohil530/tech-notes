@@ -232,3 +232,73 @@ hide:
         </tr>
     </tbody>
 </table>
+
+
+## Stack
+
+<table>
+    <thead>
+        <tr>
+            <th>Problems</th><th>Tags</th><th>References</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Valid Parentheses</td>
+            <td>
+                <img src="https://img.shields.io/badge/easy-darkgreen" alt="easy">
+            </td>
+            <td>
+                <a href="valid_parentheses/">notes</a> | 
+                <a href="https://leetcode.com/problems/valid-parentheses/"  target="_blank" >link</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Min Stack</td>
+            <td>
+                <img src="https://img.shields.io/badge/medium-orange" alt="medium">
+            </td>
+            <td>
+                <a href="min_stack/">notes</a> | 
+                <a href="https://leetcode.com/problems/min-stack/" target="_blank" >link</a></td>
+        </tr>
+        <tr>
+            <td>Evaluate Reverse Polish Notation</td>
+            <td>
+                <img src="https://img.shields.io/badge/medium-orange" alt="medium">
+            </td>
+            <td>
+                <a href="evaluate_reverse_polish_notation/">notes</a> | 
+                <a href="https://leetcode.com/problems/evaluate-reverse-polish-notation/" target="_blank" >link</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Daily Temperatures</td>
+            <td>
+                <img src="https://img.shields.io/badge/medium-orange" alt="medium">
+            </td>
+            <td>
+                <a href="daily_temperatures/">notes</a> | 
+                <a href="https://leetcode.com/problems/daily-temperatures/" target="_blank" >link</a>
+            </td>
+        </tr><tr>
+            <td>⭐Car Fleet</td>
+            <td>
+                <img src="https://img.shields.io/badge/medium-orange" alt="medium">
+            </td>
+            <td>
+                <a href="car_fleet/">notes</a> | 
+                <a href="https://leetcode.com/problems/car-fleet/" target="_blank" >link</a>
+            </td>
+        </tr><tr>
+            <td>⭐Largest Rectangle In Histogram</td>
+            <td>
+                <img src="https://img.shields.io/badge/hard-red" alt="hard">
+            </td>
+            <td>
+                <a href="largest_rectangle_in_histogram/">notes</a> | 
+                <a href="https://leetcode.com/problems/largest-rectangle-in-histogram/" target="_blank" >link</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
