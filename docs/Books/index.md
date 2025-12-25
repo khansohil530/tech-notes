@@ -25,7 +25,7 @@ hide:
             <td>The book discusses various principles and trade-offs that are fundamental to data systems, as it 
                 explores various design decisions taken by different products.</td>
             <td>
-                <a target="_blank" href="ddia/">notes</a><br/>
+                <a href="ddia/">notes</a><br/>
                 <a target="_blank" href="https://www.amazon.in/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/9352135245">
                     link
                 </a>
