@@ -1,0 +1,25 @@
+flowchart TD
+%% Base facts
+    A[name_namerica_NorthAmerica]
+    B[within_usa_namerica]
+    C[within_idaho_usa]
+    D[born_in_lucy_idaho]
+    E[lives_in_lucy_europe]
+
+%% Rule 1
+    A -->|rule1| A1[within_recursive_namerica_NorthAmerica]
+
+%% Rule 2 applications
+    A1 -->|rule2| B1[within_recursive_usa_NorthAmerica]
+    B --> B1
+
+    B1 -->|rule2| C1[within_recursive_idaho_NorthAmerica]
+    C --> C1
+
+%% Rule 3
+    C1 -->|rule3| F[migrated_lucy_USA_Europe]
+    D --> F
+    E --> F
+
+%% Query result
+    F --> G[result_Who_lucy]
