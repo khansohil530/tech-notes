@@ -38,11 +38,11 @@ Final Result: After all tokens are processed, the top of the stack contains the 
 === "Python"
 
     ```python
-    --8<-- "docs/DSA/neetcode150/src/py/evaluate_reverse_polish_notation.py"
+    --8<-- "docs/DSA/src/py/evaluate_reverse_polish_notation.py"
     ```
 
 === "Go"
 
     ```go
-    --8<-- "docs/DSA/neetcode150/src/go/evaluate_reverse_polish_notation.go:4"
+    --8<-- "docs/DSA/src/go/evaluate_reverse_polish_notation.go:4"
     ```

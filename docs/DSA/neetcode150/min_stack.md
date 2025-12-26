@@ -28,11 +28,11 @@ candidate minimum values, with the current minimum always at the top.
 === "Python"
 
     ```python
-    --8<-- "docs/DSA/neetcode150/src/py/min_stack.py"
+    --8<-- "docs/DSA/src/py/min_stack.py"
     ```
 
 === "Go"
 
     ```go
-    --8<-- "docs/DSA/neetcode150/src/go/min_stack.go:2"
+    --8<-- "docs/DSA/src/go/min_stack.go:2"
     ```

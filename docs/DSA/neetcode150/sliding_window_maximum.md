@@ -49,11 +49,11 @@ window = [-1, 2], q = [3, 2] -> top invalid, pop front
 === "Python"
 
     ```python
-    --8<-- "docs/DSA/neetcode150/src/py/sliding_window_maximum.py:4"
+    --8<-- "docs/DSA/src/py/sliding_window_maximum.py:4"
     ```
 
 === "Go"
 
     ```go
-    --8<-- "docs/DSA/neetcode150/src/go/sliding_window_maximum.go:2"
+    --8<-- "docs/DSA/src/go/sliding_window_maximum.go:2"
     ```

@@ -32,11 +32,11 @@ overwritten as we continue scanning.
 === "Python"
 
     ```python
-    --8<-- "docs/DSA/neetcode150/src/py/longest_substring_without_repeating_characters.py"
+    --8<-- "docs/DSA/src/py/longest_substring_without_repeating_characters.py"
     ```
 
 === "Go"
 
     ```go
-    --8<-- "docs/DSA/neetcode150/src/go/longest_substring_without_repeating_characters.go:2"
+    --8<-- "docs/DSA/src/go/longest_substring_without_repeating_characters.go:2"
     ```

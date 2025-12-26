@@ -26,11 +26,11 @@ if $r-l+1 == len(s)$, we've found the permutation of $s1$.
 === "Python"
 
     ```python
-    --8<-- "docs/DSA/neetcode150/src/py/permutation_in_string.py:4"
+    --8<-- "docs/DSA/src/py/permutation_in_string.py:4"
     ```
 
 === "Go"
 
     ```go
-    --8<-- "docs/DSA/neetcode150/src/go/permutation_in_string.go:2"
+    --8<-- "docs/DSA/src/go/permutation_in_string.go:2"
     ```

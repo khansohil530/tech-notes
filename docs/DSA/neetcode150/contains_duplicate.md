@@ -33,13 +33,13 @@ $O(n)$, which majority of time is acceptable as memory isn't as scare as old day
 === "Python"
 
     ```python
-    --8<-- "docs/DSA/neetcode150/src/py/contains_duplicate.py:2"
+    --8<-- "docs/DSA/src/py/contains_duplicate.py:2"
     ```
 
 === "Go"
 
     ```go
-    --8<-- "docs/DSA/neetcode150/src/go/contains_duplicate.go:2"
+    --8<-- "docs/DSA/src/go/contains_duplicate.go:2"
     ```
  
 ??? info "Go HashSet Implementation"

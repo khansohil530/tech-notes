@@ -37,9 +37,9 @@ This can be checked pretty easily using hash maps (similar to [contains_dupliact
 
 === "Python"
     ```python
-    --8<-- "docs/DSA/neetcode150/src/py/valid_sudoku.py:3"
+    --8<-- "docs/DSA/src/py/valid_sudoku.py:3"
     ```
 === "Go"
     ```go
-    --8<-- "docs/DSA/neetcode150/src/go/valid_sudoku.go:2"
+    --8<-- "docs/DSA/src/go/valid_sudoku.go:2"
     ```

@@ -1,0 +1,10 @@
+title: Binary Search
+nav:
+  - index.md
+  - binary_search.md
+  - search_a_2d_matrix.md
+  - koko_eating_bananas.md
+  - find_minimum_in_rotated_sorted_array.md
+  - search_in_rotated_sorted_array.md
+  - time_based_key_value_store.md
+  - median_of_two_sorted_arrays.md

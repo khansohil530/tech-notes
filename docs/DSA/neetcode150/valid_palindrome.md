@@ -27,13 +27,13 @@ form palindrome.
 === "Python"
 
     ```python
-    --8<-- "docs/DSA/neetcode150/src/py/valid_palindrome.py:1"
+    --8<-- "docs/DSA/src/py/valid_palindrome.py:1"
     ```
 
 === "Go"
 
     ```go
-    --8<-- "docs/DSA/neetcode150/src/go/valid_palindrome.go:5"
+    --8<-- "docs/DSA/src/go/valid_palindrome.go:5"
     ```
 
 ??? info "Go Implementation note"

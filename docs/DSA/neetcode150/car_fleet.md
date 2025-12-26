@@ -40,11 +40,11 @@ This works because once cars are sorted by position, a car can only interact wit
 === "Python"
 
     ```python
-    --8<-- "docs/DSA/neetcode150/src/py/car_fleet.py"
+    --8<-- "docs/DSA/src/py/car_fleet.py"
     ```
 
 === "Go"
 
     ```go
-    --8<-- "docs/DSA/neetcode150/src/go/car_fleet.go:4"
+    --8<-- "docs/DSA/src/go/car_fleet.go:4"
     ```

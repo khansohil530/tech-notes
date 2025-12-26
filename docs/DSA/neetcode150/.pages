@@ -31,3 +31,4 @@ nav:
      - daily_temperatures.md
      - car_fleet.md
      - largest_rectangle_in_histogram.md
+  - binarysearch

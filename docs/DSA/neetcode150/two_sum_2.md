@@ -25,11 +25,11 @@ our current sum by increasing left pointer.
 === "Python"
 
     ```python
-    --8<-- "docs/DSA/neetcode150/src/py/two_sum_2.py:2"
+    --8<-- "docs/DSA/src/py/two_sum_2.py:2"
     ```
 
 === "Go"
 
     ```go
-    --8<-- "docs/DSA/neetcode150/src/go/two_sum_2.go:2"
+    --8<-- "docs/DSA/src/go/two_sum_2.go:2"
     ```

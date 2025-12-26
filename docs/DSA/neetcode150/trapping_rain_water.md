@@ -47,11 +47,11 @@ pointer on the side with the smaller maximum height, because that side becomes t
 === "Python"
 
     ```python
-    --8<-- "docs/DSA/neetcode150/src/py/trapping_rain_water.py:2"
+    --8<-- "docs/DSA/src/py/trapping_rain_water.py:2"
     ```
 
 === "Go"
 
     ```go
-    --8<-- "docs/DSA/neetcode150/src/go/trapping_rain_water.go:2"
+    --8<-- "docs/DSA/src/go/trapping_rain_water.go:2"
     ```

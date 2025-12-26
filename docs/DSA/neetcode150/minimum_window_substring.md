@@ -42,11 +42,11 @@ With this setup, when we shift our window to right:
 === "Python"
 
     ```python
-    --8<-- "docs/DSA/neetcode150/src/py/minimum_window_substring.py"
+    --8<-- "docs/DSA/src/py/minimum_window_substring.py"
     ```
 
 === "Go"
 
     ```go
-    --8<-- "docs/DSA/neetcode150/src/go/minimum_window_substring.go:2"
+    --8<-- "docs/DSA/src/go/minimum_window_substring.go:2"
     ```
