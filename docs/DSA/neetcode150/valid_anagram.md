@@ -30,9 +30,9 @@ frequency of one string and match them with the other.
 
 === "Python"
     ```python
-    --8<-- "docs/DSA/neetcode150/src/py/valid_anagram.py"
+    --8<-- "docs/DSA/src/py/valid_anagram.py"
     ```
 === "Go"
     ```go
-    --8<-- "docs/DSA/neetcode150/src/go/valid_anagram.go:2"
+    --8<-- "docs/DSA/src/go/valid_anagram.go:2"
     ```

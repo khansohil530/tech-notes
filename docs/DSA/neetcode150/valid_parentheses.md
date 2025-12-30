@@ -43,13 +43,13 @@ A stack is well suited for this task since it allows constant-time access to the
 === "Python"
 
     ```python
-    --8<-- "docs/DSA/neetcode150/src/py/valid_parentheses.py"
+    --8<-- "docs/DSA/src/py/valid_parentheses.py"
     ```
 
 === "Go"
 
     ```go
-    --8<-- "docs/DSA/neetcode150/src/go/valid_parentheses.go:2"
+    --8<-- "docs/DSA/src/go/valid_parentheses.go:2"
     ```
 
 ??? info "Go Implementation"

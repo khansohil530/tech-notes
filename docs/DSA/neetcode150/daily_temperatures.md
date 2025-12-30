@@ -39,11 +39,11 @@ processed as soon as a warmer day appears and that no unresolved day is missed.
 === "Python"
 
     ```python
-    --8<-- "docs/DSA/neetcode150/src/py/daily_temperatures.py"
+    --8<-- "docs/DSA/src/py/daily_temperatures.py"
     ```
 
 === "Go"
 
     ```go
-    --8<-- "docs/DSA/neetcode150/src/go/daily_temperatures.go:2"
+    --8<-- "docs/DSA/src/go/daily_temperatures.go:2"
     ```

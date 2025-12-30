@@ -40,11 +40,11 @@ suboptimal windows while computing the maximum profit in a single pass.
 === "Python"
 
     ```python
-    --8<-- "docs/DSA/neetcode150/src/py/best_time_to_buy_and_sell_stock.py"
+    --8<-- "docs/DSA/src/py/best_time_to_buy_and_sell_stock.py"
     ```
 
 === "Go"
 
     ```go
-    --8<-- "docs/DSA/neetcode150/src/go/best_time_to_buy_and_sell_stock.go:2"
+    --8<-- "docs/DSA/src/go/best_time_to_buy_and_sell_stock.go:2"
     ```

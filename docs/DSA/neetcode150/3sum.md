@@ -31,11 +31,11 @@ loops themselves use $O(n^2)$.
 === "Python"
 
     ```python
-    --8<-- "docs/DSA/neetcode150/src/py/3sum.py:2"
+    --8<-- "docs/DSA/src/py/3sum.py:2"
     ```
 
 === "Go"
 
     ```go
-    --8<-- "docs/DSA/neetcode150/src/go/3sum.go:4"
+    --8<-- "docs/DSA/src/go/3sum.go:4"
     ```

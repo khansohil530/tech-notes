@@ -48,11 +48,11 @@ smaller elements.
 === "Python"
 
     ```python
-    --8<-- "docs/DSA/neetcode150/src/py/largest_rectangle_in_histogram.py"
+    --8<-- "docs/DSA/src/py/largest_rectangle_in_histogram.py"
     ```
 
 === "Go"
 
     ```go
-    --8<-- "docs/DSA/neetcode150/src/go/largest_rectangle_in_histogram.go:2"
+    --8<-- "docs/DSA/src/go/largest_rectangle_in_histogram.go:2"
     ```

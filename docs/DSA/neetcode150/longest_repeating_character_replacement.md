@@ -142,11 +142,11 @@ This avoids recomputing frequencies and ensures the algorithm runs in linear tim
 === "Python"
 
     ```python
-    --8<-- "docs/DSA/neetcode150/src/py/longest_repeating_character_replacement.py:4"
+    --8<-- "docs/DSA/src/py/longest_repeating_character_replacement.py:4"
     ```
 
 === "Go"
 
     ```go
-    --8<-- "docs/DSA/neetcode150/src/go/longest_repeating_character_replacement.go:2"
+    --8<-- "docs/DSA/src/go/longest_repeating_character_replacement.go:2"
     ```

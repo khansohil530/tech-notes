@@ -39,9 +39,9 @@ to generate the result.
 
 === "Python"
     ```python
-    --8<-- "docs/DSA/neetcode150/src/py/product_of_array_except_self.py:2"
+    --8<-- "docs/DSA/src/py/product_of_array_except_self.py:2"
     ```
 === "Go"
     ```go
-    --8<-- "docs/DSA/neetcode150/src/go/product_of_array_except_self.go:2"
+    --8<-- "docs/DSA/src/go/product_of_array_except_self.go:2"
     ```

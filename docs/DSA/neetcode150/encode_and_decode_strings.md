@@ -38,9 +38,9 @@ of these values. This would lead us to create streams as follows -> `<size><plac
 
 === "Python"
     ```python
-    --8<-- "docs/DSA/neetcode150/src/py/encode_and_decode_strings.py:2"
+    --8<-- "docs/DSA/src/py/encode_and_decode_strings.py:2"
     ```
 === "Go"
     ```go
-    --8<-- "docs/DSA/neetcode150/src/go/encode_and_decode_strings.go:10"
+    --8<-- "docs/DSA/src/go/encode_and_decode_strings.go:10"
     ```

@@ -302,3 +302,83 @@ hide:
         </tr>
     </tbody>
 </table>
+
+## Binary Search
+
+[Refresher :material-replay:](binarysearch/index.md){ .md-button }
+
+<table>
+    <thead>
+        <tr>
+            <th>Problems</th><th>Tags</th><th>References</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Binary Search</td>
+            <td>
+                <img src="https://img.shields.io/badge/easy-darkgreen" alt="easy">
+            </td>
+            <td>
+                <a href="binarysearch/binary_search.md">notes</a> | 
+                <a href="https://leetcode.com/problems/binary-search/"  target="_blank" >link</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Search a 2D Matrix</td>
+            <td>
+                <img src="https://img.shields.io/badge/medium-orange" alt="medium">
+            </td>
+            <td>
+                <a href="binarysearch/search_a_2d_matrix.md">notes</a> | 
+                <a href="https://leetcode.com/problems/search-a-2d-matrix/" target="_blank" >link</a></td>
+        </tr>
+        <tr>
+            <td>Koko Eating Bananas</td>
+            <td>
+                <img src="https://img.shields.io/badge/medium-orange" alt="medium">
+            </td>
+            <td>
+                <a href="binarysearch/koko_eating_bananas.md">notes</a> | 
+                <a href="https://leetcode.com/problems/koko-eating-bananas/" target="_blank" >link</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Find Minimum In Rotated Sorted Array</td>
+            <td>
+                <img src="https://img.shields.io/badge/medium-orange" alt="medium">
+            </td>
+            <td>
+                <a href="binarysearch/find_minimum_in_rotated_sorted_array.md">notes</a> | 
+                <a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/" target="_blank" >link</a>
+            </td>
+        </tr><tr>
+            <td>Search In Rotated Sorted Array</td>
+            <td>
+                <img src="https://img.shields.io/badge/medium-orange" alt="medium">
+            </td>
+            <td>
+                <a href="binarysearch/search_in_rotated_sorted_array.md">notes</a> | 
+                <a href="https://leetcode.com/problems/search-in-rotated-sorted-array/" target="_blank" >link</a>
+            </td>
+        </tr><tr>
+            <td>Time Based Key Value Store</td>
+            <td>
+                <img src="https://img.shields.io/badge/medium-orange" alt="medium">
+            </td>
+            <td>
+                <a href="binarysearch/time_based_key_value_store.md">notes</a> | 
+                <a href="https://leetcode.com/problems/time-based-key-value-store/" target="_blank" >link</a>
+            </td>
+        </tr><tr>
+            <td>⭐Median of Two Sorted Arrays</td>
+            <td>
+                <img src="https://img.shields.io/badge/hard-red" alt="hard">
+            </td>
+            <td>
+                <a href="binarysearch/median_of_two_sorted_arrays.md">notes</a> | 
+                <a href="https://leetcode.com/problems/median-of-two-sorted-arrays/" target="_blank" >link</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
