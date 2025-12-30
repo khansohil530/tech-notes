@@ -371,7 +371,7 @@ hide:
                 <a href="https://leetcode.com/problems/time-based-key-value-store/" target="_blank" >link</a>
             </td>
         </tr><tr>
-            <td>Median of Two Sorted Arrays</td>
+            <td>⭐Median of Two Sorted Arrays</td>
             <td>
                 <img src="https://img.shields.io/badge/hard-red" alt="hard">
             </td>
