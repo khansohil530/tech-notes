@@ -305,7 +305,7 @@ hide:
 
 ## Binary Search
 
-[Refresher :material-replay:](binarysearch/index.md){ .md-button }
+[Refresher :material-refresh:](binarysearch/index.md){ .md-button }
 
 <table>
     <thead>
@@ -320,7 +320,7 @@ hide:
                 <img src="https://img.shields.io/badge/easy-darkgreen" alt="easy">
             </td>
             <td>
-                <a href="binarysearch/binary_search.md">notes</a> | 
+                <a href="binarysearch/binary_search/">notes</a> | 
                 <a href="https://leetcode.com/problems/binary-search/"  target="_blank" >link</a>
             </td>
         </tr>
@@ -330,7 +330,7 @@ hide:
                 <img src="https://img.shields.io/badge/medium-orange" alt="medium">
             </td>
             <td>
-                <a href="binarysearch/search_a_2d_matrix.md">notes</a> | 
+                <a href="binarysearch/search_a_2d_matrix/">notes</a> | 
                 <a href="https://leetcode.com/problems/search-a-2d-matrix/" target="_blank" >link</a></td>
         </tr>
         <tr>
@@ -339,7 +339,7 @@ hide:
                 <img src="https://img.shields.io/badge/medium-orange" alt="medium">
             </td>
             <td>
-                <a href="binarysearch/koko_eating_bananas.md">notes</a> | 
+                <a href="binarysearch/koko_eating_bananas/">notes</a> | 
                 <a href="https://leetcode.com/problems/koko-eating-bananas/" target="_blank" >link</a>
             </td>
         </tr>
@@ -349,7 +349,7 @@ hide:
                 <img src="https://img.shields.io/badge/medium-orange" alt="medium">
             </td>
             <td>
-                <a href="binarysearch/find_minimum_in_rotated_sorted_array.md">notes</a> | 
+                <a href="binarysearch/find_minimum_in_rotated_sorted_array/">notes</a> | 
                 <a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/" target="_blank" >link</a>
             </td>
         </tr><tr>
@@ -358,7 +358,7 @@ hide:
                 <img src="https://img.shields.io/badge/medium-orange" alt="medium">
             </td>
             <td>
-                <a href="binarysearch/search_in_rotated_sorted_array.md">notes</a> | 
+                <a href="binarysearch/search_in_rotated_sorted_array/">notes</a> | 
                 <a href="https://leetcode.com/problems/search-in-rotated-sorted-array/" target="_blank" >link</a>
             </td>
         </tr><tr>
@@ -367,7 +367,7 @@ hide:
                 <img src="https://img.shields.io/badge/medium-orange" alt="medium">
             </td>
             <td>
-                <a href="binarysearch/time_based_key_value_store.md">notes</a> | 
+                <a href="binarysearch/time_based_key_value_store/">notes</a> | 
                 <a href="https://leetcode.com/problems/time-based-key-value-store/" target="_blank" >link</a>
             </td>
         </tr><tr>
@@ -376,8 +376,123 @@ hide:
                 <img src="https://img.shields.io/badge/hard-red" alt="hard">
             </td>
             <td>
-                <a href="binarysearch/median_of_two_sorted_arrays.md">notes</a> | 
+                <a href="binarysearch/median_of_two_sorted_arrays/">notes</a> | 
                 <a href="https://leetcode.com/problems/median-of-two-sorted-arrays/" target="_blank" >link</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+## Linked List
+
+[Floyd's Cycle Detection :material-turtle::material-rabbit: ](linkedlist/index.md){ .md-button }
+
+<table>
+    <thead>
+        <tr>
+            <th>Problems</th><th>Tags</th><th>References</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Reverse Linked List</td>
+            <td>
+                <img src="https://img.shields.io/badge/easy-darkgreen" alt="easy">
+            </td>
+            <td>
+                <a href="linkedlist/reverse_linked_list/">notes</a> | 
+                <a href="https://leetcode.com/problems/reverse-linked-list/"  target="_blank" >link</a>
+            </td>
+        </tr><tr>
+            <td>Merge Two Sorted Lists</td>
+            <td>
+                <img src="https://img.shields.io/badge/easy-darkgreen" alt="easy">
+            </td>
+            <td>
+                <a href="linkedlist/merge_two_sorted_lists/">notes</a> | 
+                <a href="https://leetcode.com/problems/merge-two-sorted-lists/"  target="_blank" >link</a>
+            </td>
+        </tr><tr>
+            <td>Linked List Cycle</td>
+            <td>
+                <img src="https://img.shields.io/badge/easy-darkgreen" alt="easy">
+            </td>
+            <td>
+                <a href="linkedlist/linked_list_cycle/">notes</a> | 
+                <a href="https://leetcode.com/problems/linked-list-cycle/"  target="_blank" >link</a>
+            </td>
+        </tr><tr>
+            <td>⭐Reorder List</td>
+            <td>
+                <img src="https://img.shields.io/badge/medium-orange" alt="medium">
+            </td>
+            <td>
+                <a href="linkedlist/reorder_list/">notes</a> | 
+                <a href="https://leetcode.com/problems/reorder-list/" target="_blank" >link</a></td>
+        </tr>
+        <tr>
+            <td>Remove Nth Node From End of List</td>
+            <td>
+                <img src="https://img.shields.io/badge/medium-orange" alt="medium">
+            </td>
+            <td>
+                <a href="linkedlist/remove_nth_node_from_end_of_list/">notes</a> | 
+                <a href="https://leetcode.com/problems/remove-nth-node-from-end-of-list/" target="_blank" >link</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Copy List With Random Pointer</td>
+            <td>
+                <img src="https://img.shields.io/badge/medium-orange" alt="medium">
+            </td>
+            <td>
+                <a href="linkedlist/copy_list_with_random_pointer/">notes</a> | 
+                <a href="https://leetcode.com/problems/copy-list-with-random-pointer/" target="_blank" >link</a>
+            </td>
+        </tr><tr>
+            <td>Add Two Numbers</td>
+            <td>
+                <img src="https://img.shields.io/badge/medium-orange" alt="medium">
+            </td>
+            <td>
+                <a href="linkedlist/add_two_numbers/">notes</a> | 
+                <a href="https://leetcode.com/problems/add-two-numbers/" target="_blank" >link</a>
+            </td>
+        </tr><tr>
+            <td>Find The Duplicate Number</td>
+            <td>
+                <img src="https://img.shields.io/badge/medium-orange" alt="medium">
+            </td>
+            <td>
+                <a href="linkedlist/find_the_duplicate_number/">notes</a> | 
+                <a href="https://leetcode.com/problems/find-the-duplicate-number/" target="_blank" >link</a>
+            </td>
+        </tr><tr>
+            <td>⭐LRU Cache</td>
+            <td>
+                <img src="https://img.shields.io/badge/medium-orange" alt="medium">
+            </td>
+            <td>
+                <a href="linkedlist/lru_cache/">notes</a> | 
+                <a href="https://leetcode.com/problems/lru-cache/" target="_blank" >link</a>
+            </td>
+        </tr><tr>
+            <td>Merge K Sorted Lists</td>
+            <td>
+                <img src="https://img.shields.io/badge/hard-red" alt="hard">
+            </td>
+            <td>
+                <a href="linkedlist/merge_k_sorted_lists/">notes</a> | 
+                <a href="https://leetcode.com/problems/merge-k-sorted-lists/" target="_blank" >link</a>
+            </td>
+        </tr><tr>
+            <td>⭐Reverse Nodes In K Group</td>
+            <td>
+                <img src="https://img.shields.io/badge/hard-red" alt="hard">
+            </td>
+            <td>
+                <a href="linkedlist/reverse_nodes_in_k_group/">notes</a> | 
+                <a href="https://leetcode.com/problems/reverse-nodes-in-k-group/" target="_blank" >link</a>
             </td>
         </tr>
     </tbody>
