@@ -1,0 +1,14 @@
+title: Linked List
+nav:
+  - index.md
+  - reverse_linked_list.md
+  - merge_two_sorted_lists.md
+  - linked_list_cycle.md
+  - reorder_list.md
+  - remove_nth_node_from_end_of_list.md
+  - copy_list_with_random_pointer.md
+  - add_two_numbers.md
+  - find_the_duplicate_number.md
+  - lru_cache.md
+  - merge_k_sorted_lists.md
+  - reverse_nodes_in_k_group.md
