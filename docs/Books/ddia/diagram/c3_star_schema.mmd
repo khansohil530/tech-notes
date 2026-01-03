@@ -1,0 +1,40 @@
+erDiagram
+    FACT_SALES {
+        int sales_id PK
+        date sale_date
+        int product_key FK
+        int customer_key FK
+        int store_key FK
+        int quantity_sold
+        float sales_amount
+    }
+
+    DIM_PRODUCT {
+        int product_key PK
+        string sku
+        string description
+        string brand_name
+        string category
+        string fat_content
+        string package_size
+    }
+
+    DIM_CUSTOMER {
+        int customer_key PK
+        string customer_name
+        string gender
+        int age
+        string loyalty_status
+    }
+
+    DIM_STORE {
+        int store_key PK
+        string store_name
+        string city
+        string state
+        string region
+    }
+
+    FACT_SALES }o--|| DIM_PRODUCT : "product_key"
+    FACT_SALES }o--|| DIM_CUSTOMER : "customer_key"
+    FACT_SALES }o--|| DIM_STORE : "store_key"
