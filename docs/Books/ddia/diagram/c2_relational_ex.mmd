@@ -1,0 +1,24 @@
+flowchart LR
+    subgraph OO[Object-Oriented Model]
+        R[Resume Object]
+        R --> N[Name : String]
+        R --> E[Experiences : List]
+        R --> S[Skills : List]
+        R --> ED[Education : Object]
+
+        E --> E1[Experience<br/>company, role, dates]
+        E --> E2[Experience<br/>company, role, dates]
+    end
+
+    subgraph RDB[Relational Database Model]
+        T1[Resume Table<br/>resume_id, name]
+        T2[Experience Table<br/>exp_id, resume_id, company, role, dates]
+        T3[Skill Table<br/>skill_id, resume_id, skill]
+        T4[Education Table<br/>edu_id, resume_id, degree, school]
+    end
+
+    R ---|Mapped via ORM| T1
+    E1 --- T2
+    E2 --- T2
+    S --- T3
+    ED --- T4
