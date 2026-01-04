@@ -1,0 +1,4862 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A personal collection of technical notes and tutorials">
+      
+      
+      
+        <link rel="canonical" href="https://khansohil530.github.io/tech-notes/Books/ddia/c4/">
+      
+      
+        <link rel="prev" href="../c3/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Encoding and Evolution - My Tech Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../styles/overrides.css">
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/panzoom.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style><meta name="panzoom-theme" content="material">
+<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#encoding-and-evolution" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="My Tech Notes" class="md-header__button md-logo" aria-label="My Tech Notes" data-md-component="logo">
+      
+  <img src="../../../assets/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Tech Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Encoding and Evolution
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="orange" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="deep-orange" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/khansohil530/tech-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    tech-notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../DSA/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  DSA
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Courses/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Courses
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Books
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="My Tech Notes" class="md-nav__button md-logo" aria-label="My Tech Notes" data-md-component="logo">
+      
+  <img src="../../../assets/logo.svg" alt="logo">
+
+    </a>
+    My Tech Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/khansohil530/tech-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    tech-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../DSA/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DSA
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DSA
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../DSA/neetcode150/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Neetcode 150
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Neetcode 150
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arrays and Hashing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Arrays and Hashing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/contains_duplicate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    217. Contains Duplicate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/valid_anagram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    242. Valid Anagram
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/two_sum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Two Sum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/group_anagrams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    49. Group Anagrams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/top_k_frequent_element/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    347. Top K Frequent Elements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/encode_and_decode_strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    271. Encode and Decode Strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/product_of_array_except_self/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    238. Product of Array Except Self
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/valid_sudoku/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    36. Valid Sudoku
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/longest_consecutive_sequence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    128. Longest Consecutive Sequence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3">
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Two Pointers
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Two Pointers
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/valid_palindrome/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    125. Valid Palindrome
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/two_sum_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    167. Two Sum II - Input Array Is Sorted
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/3sum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. 3Sum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/container_with_most_water/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Container With Most Water
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/trapping_rain_water/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    42. Trapping Rain Water
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4">
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_4" id="__nav_2_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sliding Window
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Sliding Window
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/best_time_to_buy_and_sell_stock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    121. Best Time to Buy and Sell Stock
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/longest_substring_without_repeating_characters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Longest Substring Without Repeating Characters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/longest_repeating_character_replacement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    424. Longest Repeating Character Replacement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/permutation_in_string/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    567. Permutation in String
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/minimum_window_substring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    76. Minimum Window Substring
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/sliding_window_maximum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    239. Sliding Window Maximum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5">
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_5" id="__nav_2_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stack
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Stack
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/valid_parentheses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Valid Parentheses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/min_stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    155. Min Stack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/evaluate_reverse_polish_notation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    150. Evaluate Reverse Polish Notation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/daily_temperatures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    739. Daily Temperatures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/car_fleet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    853. Car Fleet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/largest_rectangle_in_histogram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    84. Largest Rectangle in Histogram
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../DSA/neetcode150/binarysearch/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Binary Search
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_6" id="__nav_2_2_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Binary Search
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/binarysearch/binary_search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    704. Binary Search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/binarysearch/search_a_2d_matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    74. Search a 2D Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/binarysearch/koko_eating_bananas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    875. Koko Eating Bananas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/binarysearch/find_minimum_in_rotated_sorted_array/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    153. Find Minimum in Rotated Sorted Array
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/binarysearch/search_in_rotated_sorted_array/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    33. Search in Rotated Sorted Array
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/binarysearch/time_based_key_value_store/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    981. Time Based Key-Value Store
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/binarysearch/median_of_two_sorted_arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Median of Two Sorted Arrays
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_7">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../DSA/neetcode150/linkedlist/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linked List
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_7" id="__nav_2_2_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Linked List
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/linkedlist/reverse_linked_list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    206. Reverse Linked List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/linkedlist/merge_two_sorted_lists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. Merge Two Sorted Lists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/linkedlist/linked_list_cycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    141. Linked List Cycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/linkedlist/reorder_list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    143. Reorder List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/linkedlist/remove_nth_node_from_end_of_list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Remove Nth Node From End of List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/linkedlist/copy_list_with_random_pointer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    138. Copy List with Random Pointer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/linkedlist/add_two_numbers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Add Two Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/linkedlist/find_the_duplicate_number/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    287. Find the Duplicate Number
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/linkedlist/lru_cache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    146. LRU Cache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/linkedlist/merge_k_sorted_lists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Merge k Sorted Lists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/linkedlist/reverse_nodes_in_k_group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Reverse Nodes in k-Group
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Courses/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Courses
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Courses/fode/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals of Database Engineering
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals of Database Engineering
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fode/acid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ACID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fode/db_internals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Internals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fode/db_index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-Tree Index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fode/indexing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Working with Indexes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fode/db_partition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Partitioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fode/db_shard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Sharding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fode/concurrency_control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrency Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fode/replication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Replication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fode/db_engines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Engines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fode/db_cursor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Cursor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fode/nosql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NoSQL Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fode/db_security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fode/extra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extra Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Courses/foos/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals of Operating System
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals of Operating System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/foos/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Need of OS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/foos/process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Program and Process
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/foos/memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Memory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/foos/cpu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CPU
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/foos/process_mgmt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Process Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/foos/storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/foos/socket/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Socket
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/foos/extra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extra Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Courses/focn/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals of Computer Networking
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals of Computer Networking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/focn/basic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basics of Networking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/focn/ip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Internet Protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/focn/tcp_udp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TCP and UDP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_5">
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_5" id="__nav_3_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Other Popular Protocols
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Other Popular Protocols
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/focn/dns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/focn/http/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/focn/tls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TLS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/focn/extra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Miscellaneous
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Courses/fobe/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals of Backend Engineering
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals of Backend Engineering
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fobe/comm_pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Communication Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fobe/app_protocols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Communication Protocols
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fobe/execution_patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Execution Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Books
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Books
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Designing Data-Intensive Applications
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Designing Data-Intensive Applications
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reliable, Scalable and Maintainable Applications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models and Query Languages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage and Retrieval
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Encoding and Evolution
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Encoding and Evolution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#format-for-encoding-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Format for Encoding Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Format for Encoding Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#language-specific-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Language-Specific Formats
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-xml-and-binary-variants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON, XML, and Binary Variants
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thrift-and-protocol-buffers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thrift and Protocol Buffers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avro
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-merits-of-schemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Merits of Schemas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modes-of-dataflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modes of Dataflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modes of Dataflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dataflow-through-databases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dataflow Through Databases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dataflow-through-services-rest-and-rpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dataflow Through Services: REST and RPC
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#format-for-encoding-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Format for Encoding Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Format for Encoding Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#language-specific-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Language-Specific Formats
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-xml-and-binary-variants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON, XML, and Binary Variants
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thrift-and-protocol-buffers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thrift and Protocol Buffers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avro
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-merits-of-schemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Merits of Schemas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modes-of-dataflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modes of Dataflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modes of Dataflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dataflow-through-databases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dataflow Through Databases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dataflow-through-services-rest-and-rpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dataflow Through Services: REST and RPC
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/khansohil530/tech-notes/edit/main/docs/Books/ddia/c4.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="encoding-and-evolution">Encoding and Evolution<a class="headerlink" href="#encoding-and-evolution" title="Permanent link">¶</a></h1>
+<p class="annotate">In the previous chapter, we discussed how databases handle changes to the storage data model over time. This chapter 
+focuses on how these changes are handled in application code. In large applications, such changes cannot occur instantly
+because clients may still rely on an older data model that conflicts with newer changes. Server-side applications can
+deploy updates gradually using techniques like <em>rolling updates</em> to minimize downtime, but client-facing applications 
+require manual user updates, allowing old and new code to coexist. To function smoothly in this case, the system must 
+be both <strong>forward-compatible</strong> (1) and <strong>backward-compatible</strong> (2).</p>
+<ol>
+<li>Old code is compatible working with data written by New code</li>
+<li>New code is compatible working with data written by Old code</li>
+</ol>
+<p>Backward compatibility is easier to achieve because newer code can explicitly handle known cases from older data. 
+Forward compatibility, however, is more challenging, as it requires older code to safely ignore additions introduced by
+newer code. Different communication protocols address this problem in their own ways using various encoding formats 
+such as JSON, ProtoBuf, Thrift, and Avro.</p>
+<h2 id="format-for-encoding-data">Format for Encoding Data<a class="headerlink" href="#format-for-encoding-data" title="Permanent link">¶</a></h2>
+<p>Applications typically work with two different data formats:</p>
+<ul>
+<li>In-memory data structures optimized for CPU operations (such as lists, hash maps, etc.)</li>
+<li>Network or storage formats, which represent data as a sequence of bytes</li>
+</ul>
+<p>It is the program’s responsibility to translate between these formats. Converting in-memory data to bytes is called 
+<strong>encoding</strong> (or marshaling/serialization), while the reverse process is called <strong>decoding</strong> 
+(or unmarshalling/deserialization). This need has led to the development of various message formats and libraries,
+each optimized for specific use cases.</p>
+<h3 id="language-specific-formats">Language-Specific Formats<a class="headerlink" href="#language-specific-formats" title="Permanent link">¶</a></h3>
+<p>Most programming languages conveniently provide built-in libraries for encoding and decoding 
+(such as Java <em>Serialization</em> and Python <em>pickle</em>). However, using them introduces several problems:</p>
+<ul>
+<li>The system becomes tightly coupled to a specific programming language, along with any other system that needs to integrate with it.</li>
+<li>Decoding often involves instantiating arbitrary classes, which can create security risks if an attacker is able to trigger remote code execution.</li>
+<li>There is usually no built-in support for forward or backward compatibility.</li>
+<li>These libraries often have poor efficiency and performance.</li>
+</ul>
+<p>Because of these issues, it is generally recommended to use such libraries only for temporary purposes, such as storing
+intermediate results locally.</p>
+<h3 id="json-xml-and-binary-variants">JSON, XML, and Binary Variants<a class="headerlink" href="#json-xml-and-binary-variants" title="Permanent link">¶</a></h3>
+<p class="annotate">Using a standard format that can be implemented across different environments is more beneficial than relying on custom
+formats. This led to the development of widely adopted formats such as JSON, XML, and CSV. These are 
+<strong>text-based formats</strong> (1), which makes them partially human-readable. JSON is especially popular due to its built-in
+support in web browsers.</p>
+<ol>
+<li>Data is encoded by translating individual characters into bytes using encodings such as Unicode.</li>
+</ol>
+<p>Issues with text-based formats:</p>
+<ul>
+<li>
+<p><strong>Ambiguous number encoding:</strong> XML and CSV cannot distinguish between numbers and digit-only strings without an 
+  external schema. JSON improves on this but does not differentiate between integers and floating-point numbers.</p>
+<details class="note">
+<summary>Integers <span class="arithmatex">\(\gt 2^{53}\)</span> aren't accurate in languages like JavaScript</summary>
+<p>Many languages such as JavaScript and Python store numbers as <strong>IEEE 754 double-precision floats</strong>. 
+These represent values in the form <span class="arithmatex">\((1.\text{mantissa}) \times 2^{\text{exponent}}\)</span> using 64 bits: 1 sign bit, 11 
+exponent bits, and 52 mantissa bits. Because the leading 1 is implicit, doubles can accurately represent integers 
+only up to <span class="arithmatex">\(2^{53}\)</span>.</p>
+<p>Beyond this limit, not all integers are representable, causing values to be rounded. For example, 
+<span class="arithmatex">\(2^{53} + 1 \approx 2^{53}\)</span>, while <span class="arithmatex">\(2^{53} + 2\)</span> is representable. As values grow, the gap between representable 
+numbers increases. A common workaround is to encode large integers as decimal strings and parse them explicitly.</p>
+</details>
+</li>
+<li>
+<p><strong>No native support for binary data:</strong> Binary values must be encoded as text (e.g., using Base64), which increases 
+  data size by about 33% and typically requires a schema to interpret correctly.</p>
+</li>
+<li>
+<p><strong>Limited schema support:</strong> XML and JSON offer optional schema mechanisms, but they are complex and rarely used in 
+  practice (XML schemas are more common than JSON schemas). CSV provides no schema support at all.</p>
+</li>
+</ul>
+<p>Despite these limitations, JSON, XML, and CSV are sufficient for many use cases. They are likely to remain popular, 
+especially for data exchange between organizations, where <em>the difficulty of getting different organizations to agree 
+on anything outweighs most other concerns</em>.</p>
+<hr>
+<p><strong>Binary encoding</strong></p>
+<p>Binary formats use significantly less space and offer faster encoding and decoding than text-based formats. This has 
+led to the development of binary extensions of JSON and XML, such as MessagePack, BSON, and WBXML. In addition to 
+supporting more data types, these extensions retain the same data model as their original formats. For example, 
+MessagePack (a binary variant of JSON) still encodes field names as strings rather than relying on a schema.
+You can compare the following byte representations of the same data to better understand the differences between these
+encoding formats.
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>{
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  "name": "John",
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  "age": 23,
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  "skills": ["code", "design"]
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>}
+</code></pre></div><p></p>
+<details class="note">
+<summary>JSON Byte representation</summary>
+<p>=&gt; JSON, encoded using UTF-8 and represented in hexadecimal. Before encoding, the data is cleaned and minified to 
+remove unnecessary characters such as spaces, newlines, and tabs. This results in a size of 51 bytes.
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>┌────┐
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│ 7b │  '{'
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>└────┘
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>┌──────────────────────┐  ┌────┐  ┌──────────────────────┐  ┌────┐
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│ 22 6e 61 6d 65 22    │  │ 3a │  │ 22 4a 6f 68 6e 22    │  │ 2c │  
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>└──────────────────────┘  └────┘  └──────────────────────┘  └────┘
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    "name"                 ':'          "John"                ','
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>┌──────────────────┐  ┌────┐  ┌──────────┐  ┌────┐
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│ 22 61 67 65 22   │  │ 3a │  │ 32 33    │  │ 2c │
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>└──────────────────┘  └────┘  └──────────┘  └────┘
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>   "age"                ':'      "23"         ','
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>┌──────────────────────────┐  ┌────┐  ┌────┐
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>│ 22 73 6b 69 6c 6c 73 22  │  │ 3a │  │ 5b │
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>└──────────────────────────┘  └────┘  └────┘
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>  "skills"                     ':'     '['
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>                    ┌──────────────────────┐  ┌────┐
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>                    │ 22 63 6f 64 65 22    │  │ 2c │
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>                    └──────────────────────┘  └────┘
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>                         "code"                ','
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>                    ┌──────────────────────────┐  ┌────┐
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>                    │ 22 64 65 73 69 67 6e 22  │  │ 5d │  
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>                    └──────────────────────────┘  └────┘
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>                        "design"                   ']'
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>┌────┐
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>│ 7d │
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>└────┘
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a> '}'
+</code></pre></div><p></p>
+</details>
+<details class="note">
+<summary>MessagePack Byte representation</summary>
+<p>=&gt; MessagePack encodes data using a <code>[type + length] [raw bytes]</code> structure and takes 36 bytes.
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>┌────┐
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>│ 83 │
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>└────┘
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>object (3 entries)
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>┌────┐     ┌─────────────┐  ┌────┐    ┌─────────────┐
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>│ a4 │     │ 6e 61 6d 65 │  │ a4 │    │ 4a 6f 68 6e │
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>└────┘     └─────────────┘  └────┘    └─────────────┘
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>string        "name"        string      "John"
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>(length 4)                  (length4)       
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>┌────┐  ┌──────────┐  ┌────┐  ┌─────────────────────────┐
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>│ a3 │  │ 61 67 65 │  │ d3 │  │ 00 00 00 00 00 00 00 17 │
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>└────┘  └──────────┘  └────┘  └─────────────────────────┘
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>string(3)   "age"      int64         23
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>┌────┐  ┌───────────────────┐  ┌────┐
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>│ a6 │  │ 73 6b 69 6c 6c 73 │  │ 92 │
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>└────┘  └───────────────────┘  └────┘
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>string(6)         "skills"     array(2)
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>                    ┌────┐  ┌──────────────┐
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>                    │ a4 │  │ 63 6f 64 65  │
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>                    └────┘  └──────────────┘
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>                     string(4)    "code"
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>                    ┌────┐  ┌───────────────────┐
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>                    │ a6 │  │ 64 65 73 69 67 6e │
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>                    └────┘  └───────────────────┘
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>                     string(6)     "design"
+</code></pre></div><p></p>
+</details>
+<p>From this comparison, the space savings of MessagePack over JSON (51 bytes vs. 36 bytes) is relatively small, which may
+not justify sacrificing human readability in many cases.</p>
+<h3 id="thrift-and-protocol-buffers">Thrift and Protocol Buffers<a class="headerlink" href="#thrift-and-protocol-buffers" title="Permanent link">¶</a></h3>
+<p>MessagePack cannot save much space because it still needs to encode field names as strings within the message. 
+This overhead could be avoided by using a schema, as done by Thrift and Protocol Buffers.</p>
+<p>Both <strong>Thrift</strong> and <strong>Protocol Buffers</strong> (Protobuf) require a schema to translate data. This schema defines the
+structure and field identifiers used during encoding. Each provides code-generation tools that use the schema to 
+generate classes, which can then be used directly for serialization and deserialization.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">Thrift</span><span class="w"> </span><span class="o">=</span><span class="p">&gt;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">struct</span><span class="w"> </span><span class="n">Person</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="mi">1</span><span class="o">:</span><span class="w"> </span><span class="k">required</span><span class="w"> </span><span class="kt">string</span><span class="w">       </span><span class="n">name</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="mi">2</span><span class="o">:</span><span class="w"> </span><span class="k">optional</span><span class="w"> </span><span class="n">i8</span><span class="w">           </span><span class="n">age</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="mi">3</span><span class="o">:</span><span class="w"> </span><span class="k">optional</span><span class="w"> </span><span class="n">list</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span><span class="w"> </span><span class="n">skill</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">}</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="na">Protobuf</span><span class="w"> </span><span class="o">=</span><span class="p">&gt;</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="kd">message</span><span class="w"> </span><span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="k">required</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="na">name</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="k">optional</span><span class="w"> </span><span class="kt">int32</span><span class="w">  </span><span class="na">age</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="k">repeated</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="na">skill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="p">}</span>
+</code></pre></div>
+<p>Thrift supports multiple encoding formats, two of the most commonly used being <strong>BinaryProtocol</strong> and <strong>CompactProtocol</strong>.
+BinaryProtocol encodes each field as <code>[field_type: 1 byte][field_id: int16][value…]</code> and terminates the struct with a 
+<code>(0x00)</code> byte. Unlike MessagePack, field names are replaced with numeric <strong>field tags</strong> defined in the schema,
+allowing BinaryProtocol to encode the data in 49 bytes.</p>
+<details class="note">
+<summary>Thrift-BinaryProtocol</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>┌────┐  ┌───────┐  ┌─────────────┐  ┌─────────────┐
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>│ 0b │  │ 00 01 │  │ 00 00 00 04 │  │ 4a 6f 68 6e │
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>└────┘  └───────┘  └─────────────┘  └─────────────┘
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>type 11  field tag    length 4        "John"
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>(string)     1                  
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>┌────┐  ┌───────┐  ┌─────────────────────────┐
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>│ 0a │  │ 00 02 │  │ 00 00 00 00 00 00 00 17 │
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>└────┘  └───────┘  └─────────────────────────┘
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>type 10  field tag     23
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>(i64)      2
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>┌────┐  ┌───────┐     ┌────┐  ┌────────────┐
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>│ 0f │  │ 00 03 │     │ 0b │  │ 00 00 00 02│
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>└────┘  └───────┘     └────┘  └────────────┘
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>type 15  field tag  item type   list size 2
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>(list)      3       11 (string)
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>                    ┌─────────────┐  ┌─────────────┐
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>                    │ 00 00 00 04 │  │ 63 6f 64 65 │
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>                    └─────────────┘  └─────────────┘
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>                        length 4        "code"
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>                    ┌─────────────┐  ┌───────────────────┐  ┌────┐
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>                    │ 00 00 00 06 │  │ 64 65 73 69 67 6e │  │ 00 │ end of struct
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>                    └─────────────┘  └───────────────────┘  └────┘
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>                        length 6          "design"
+</code></pre></div>
+</details>
+<p class="annotate"><strong>CompactProtocol</strong> further reduces size by encoding the field type and tag into a single byte and by using 
+variable-length integers for numeric values (1). Smaller numbers can be stored in a single byte, while larger numbers 
+use additional bytes. Using this approach, CompactProtocol encodes the same data in 23 bytes.</p>
+<ol>
+<li>The most significant bit of each byte indicates whether additional bytes are needed to represent the number.</li>
+</ol>
+<details class="note">
+<summary>Thrift-CompactProtocol</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>┌╌╌╌╌╌╌╌╌╌┬╌╌╌╌╌╌╌╌╌┐    ┌────┐  ┌────┐  ┌─────────────┐
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>╎ 0 0 0 1 ╎ 1 0 0 0 ╎ -&gt; │ 18 │  │ 04 │  │ 4a 6f 68 6e │
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>└╌╌╌╌╌╌╌╌╌┴╌╌╌╌╌╌╌╌╌┘    └────┘  └────┘  └─────────────┘
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>field       type 8      tag+type  length 4  "John" 
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>tag = 1     (string)
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>┌╌╌╌╌╌╌╌╌╌┬╌╌╌╌╌╌╌╌╌┐    ┌────┐  ┌────┐
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>╎ 0 0 0 1 ╎ 0 1 1 0 ╎ -&gt; │ 16 │  │ 2e │
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>└╌╌╌╌╌╌╌╌╌┴╌╌╌╌╌╌╌╌╌┘    └────┘  └────┘
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>field       type 6      tag+type   zigzag-varint(23)
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>tag += 1     (i64)
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>┌╌╌╌╌╌╌╌╌╌┬╌╌╌╌╌╌╌╌╌┐    ┌────┐  ┌────┐       ┌╌╌╌╌╌╌╌╌╌┬╌╌╌╌╌╌╌╌╌┐
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>╎ 0 0 0 1 ╎ 1 0 0 1 ╎ -&gt; │ 19 │  │ 28 │ &lt;---  ╎ 0 0 1 0 ╎ 1 0 0 0 ╎
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>└╌╌╌╌╌╌╌╌╌┴╌╌╌╌╌╌╌╌╌┘    └────┘  └────┘       └╌╌╌╌╌╌╌╌╌┴╌╌╌╌╌╌╌╌╌┘
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>field       type 9      tag+type                 2 list    item type 8  
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>tag += 1     (list)                              items      (string)
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>                        ┌────┐  ┌─────────────┐
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>                        │ 04 │  │ 63 6f 64 65 │
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>                        └────┘  └─────────────┘
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>                         length 4    "code"
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>                        ┌────┐  ┌───────────────────┐   ┌────┐
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>                        │ 06 │  │ 64 65 73 69 67 6e │   │ 00 │ end of struct
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>                        └────┘  └───────────────────┘   └────┘
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>                         length 6    "design"
+</code></pre></div>
+</details>
+<hr>
+<p>Protobuf uses a similar approach, encoding data as <code>[field key][value]</code>, where
+<code>field key = (field_number &lt;&lt; 3) | wire_type</code>. Here, <code>field_number</code> is the field identifier from the schema, 
+and <code>wire_type</code> represents the data type. Unlike Thrift, Protobuf does not use an explicit end marker, does not require
+fields to be ordered, and represents repeated fields as repeated key–value pairs. As a result, Protobuf also encodes 
+the same message in 23 bytes.</p>
+<details class="note">
+<summary>Protobuf</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>┌╌╌╌╌╌╌╌╌╌╌╌┬╌╌╌╌╌╌╌┐   ┌────┐  ┌────┐  ┌─────────────┐
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>╎ 0 0 0 0 1 ╎ 0 1 0 ╎ -&gt;│ 0a │  │ 04 │  │ 4a 6f 68 6e │
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>└╌╌╌╌╌╌╌╌╌╌╌┴╌╌╌╌╌╌╌┘   └────┘  └────┘  └─────────────┘
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a> field 1    wire type 2   key    length 4   "John"
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>              (string)
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>┌╌╌╌╌╌╌╌╌╌╌╌┬╌╌╌╌╌╌╌┐    ┌────┐  ┌────┐
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>╎ 0 0 0 1 0 ╎ 0 0 0 ╎ -&gt; │ 10 │  │ 17 │
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>└╌╌╌╌╌╌╌╌╌╌╌┴╌╌╌╌╌╌╌┘    └────┘  └────┘
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a> field 2    wire type 0    key    varint(23)
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>             (varint)
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>┌╌╌╌╌╌╌╌╌╌╌╌┬╌╌╌╌╌╌╌┐    ┌────┐  ┌────┐  ┌─────────────┐
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>╎ 0 0 0 1 1 ╎ 0 1 0 ╎ -&gt; │ 1a │  │ 04 │  │ 63 6f 64 65 │
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>└╌╌╌╌╌╌╌╌╌╌╌┴╌╌╌╌╌╌╌┘    └────┘  └────┘  └─────────────┘
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a> field 3    wire type 2    key    length 4    "code"
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>              (string)
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>┌╌╌╌╌╌╌╌╌╌╌╌┬╌╌╌╌╌╌╌┐     ┌────┐  ┌────┐  ┌───────────────────┐
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>╎ 0 0 0 1 1 ╎ 0 1 0 ╎ -&gt;  │ 1a │  │ 06 │  │ 64 65 73 69 67 6e │
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>└╌╌╌╌╌╌╌╌╌╌╌┴╌╌╌╌╌╌╌┘     └────┘  └────┘  └───────────────────┘
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a> field 3    wire type 2    key    length 6    "design"
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>              (string)
+</code></pre></div>
+</details>
+<hr>
+<p><strong>How well do these formats adapt to evolution?</strong></p>
+<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Forward Compatibility (old readers, new writers)</th>
+<th>Backward Compatibility (new readers, old writers)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Adding a new field</strong></td>
+<td>Old readers safely ignore unknown field IDs</td>
+<td>New readers treat missing fields as unset or default</td>
+</tr>
+<tr>
+<td><strong>Removing a field</strong></td>
+<td>Old readers ignore the missing field</td>
+<td>Safe only if the field was optional</td>
+</tr>
+<tr>
+<td><strong>Renaming a field</strong></td>
+<td>Safe — field names are not encoded on the wire</td>
+<td>Safe — field numbers/IDs remain unchanged</td>
+</tr>
+<tr>
+<td><strong>Changing a datatype</strong></td>
+<td>Unsafe — wire encoding changes</td>
+<td>Unsafe — old data cannot be decoded correctly</td>
+</tr>
+<tr>
+<td><strong>Changing required/optional</strong></td>
+<td>Unsafe — old writers may omit required data</td>
+<td>Unsafe — new readers may reject or mis-handle data</td>
+</tr>
+</tbody>
+</table>
+<h3 id="avro">Avro<a class="headerlink" href="#avro" title="Permanent link">¶</a></h3>
+<p class="annotate">Avro is also a binary encoding format, but it takes a different approach from Thrift (1) and Protocol Buffers. Like 
+them, it uses a schema to define the encoding structure, but it supports two schema representations: <strong>Avro IDL</strong> (2) 
+for human editing and a JSON-based format for machine use.</p>
+<ol>
+<li>Avro originated as a subproject of Hadoop, where Thrift was found to be insufficient.</li>
+<li>Interface Definition Language.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">Avro</span><span class="w"> </span><span class="na">IDL</span><span class="w"> </span><span class="o">=</span><span class="p">&gt;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">record</span><span class="w"> </span><span class="n">Person</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="kt">string</span><span class="w">               </span><span class="n">name</span><span class="p">;</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="n">union</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">null</span><span class="p">,</span><span class="w"> </span><span class="n">long</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="na">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">null</span><span class="p">;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="n">array</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span><span class="w">        </span><span class="n">skills</span><span class="p">;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="p">}</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="n">JSON</span><span class="w"> </span><span class="na">equivalent</span><span class="w"> </span><span class="o">=</span><span class="p">&gt;</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="p">{</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="s">"type"</span><span class="o">:</span><span class="w"> </span><span class="s">"record"</span><span class="p">,</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="s">"name"</span><span class="o">:</span><span class="w"> </span><span class="s">"Person"</span><span class="p">,</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="s">"fields"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">        </span><span class="p">{</span><span class="s">"name"</span><span class="o">:</span><span class="w"> </span><span class="s">"name"</span><span class="p">,</span><span class="w">   </span><span class="s">"type"</span><span class="o">:</span><span class="w"> </span><span class="s">"string"</span><span class="p">},</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">        </span><span class="p">{</span><span class="s">"name"</span><span class="o">:</span><span class="w"> </span><span class="s">"age"</span><span class="p">,</span><span class="w">    </span><span class="s">"type"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s">"null"</span><span class="p">,</span><span class="w"> </span><span class="s">"long"</span><span class="p">],</span><span class="w"> </span><span class="s">"default"</span><span class="o">:</span><span class="w"> </span><span class="n">null</span><span class="p">},</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">        </span><span class="p">{</span><span class="s">"name"</span><span class="o">:</span><span class="w"> </span><span class="s">"skills"</span><span class="p">,</span><span class="w"> </span><span class="s">"type"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="s">"type"</span><span class="o">:</span><span class="w"> </span><span class="s">"array"</span><span class="p">,</span><span class="w"> </span><span class="s">"items"</span><span class="o">:</span><span class="w"> </span><span class="s">"string"</span><span class="p">}}</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="p">}</span>
+</code></pre></div>
+<p>Unlike Thrift and Protobuf, Avro does not associate tags with fields, nor does it encode field names in the serialized
+data. When encoding the same example, Avro requires only 18 bytes. The encoded data is simply a concatenation of
+values, with no embedded field IDs or data types. As a result, decoding requires reading the data in the exact order
+defined by the schema, which specifies both field order and types.</p>
+<details class="note">
+<summary>Avro</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>┌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┬╌╌╌┐   ┌────┐  ┌─────────────┐
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>╎ 0 0 0 0 0 1 0 ╎ 0 ╎-&gt; │ 04 │  │ 4a 6f 68 6e │
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>└╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┴╌╌╌┘   └────┘  └─────────────┘
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a> length 4        sign               "John"
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>┌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┬╌╌╌┐   ┌────┐  ┌────┐
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>╎ 0 0 0 0 0 0 1 ╎ 0 ╎-&gt; │ 02 │  │ 2e │
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>└╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┴╌╌╌┘   └────┘  └────┘
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>union branch 1 (long, not null)  zigzag-varint(23)
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a> length 3        sign
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>┌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┬╌╌╌┐   ┌────┐
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>╎ 0 0 0 0 0 0 1 ╎ 0 ╎-&gt; │ 02 │
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>└╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┴╌╌╌┘   └────┘
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a> block count 2
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>┌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┬╌╌╌┐   ┌────┐  ┌─────────────┐
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>╎ 0 0 0 0 0 1 0 ╎ 0 ╎-&gt; │ 04 │  │ 63 6f 64 65 │
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>└╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┴╌╌╌┘   └────┘  └─────────────┘
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a> length 4                          "code"
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>┌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┬╌╌╌┐   ┌────┐  ┌───────────────────┐  ┌────┐
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>╎ 0 0 0 0 0 1 1 ╎ 0 ╎-&gt; │ 06 │  │ 64 65 73 69 67 6e │  │ 00 │ 
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>└╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┴╌╌╌┘   └────┘  └───────────────────┘  └────┘
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a> length 6                        "design"            end of array
+</code></pre></div>
+</details>
+<p><em>How, then, does Avro remain compatible with schema changes?</em></p>
+<p class="annotate">Avro uses separate <strong>writer schemas</strong> (1) and <strong>reader schemas</strong> (2) during encoding and decoding. These schemas do not
+need to be identical, but they must be compatible. The Avro library resolves differences between the writer and reader
+schemas automatically. For example, fields are reordered as needed, fields present in the writer but missing in the 
+reader are ignored, and fields present in the reader but absent in the writer are filled with default values defined in
+the reader schema (see the documentation for full details).</p>
+<ol>
+<li>The schema available to the application, typically compiled into the app.</li>
+<li>The expected schema of incoming data.</li>
+</ol>
+<hr>
+<p>To maintain <strong>forward compatibility</strong> (new writers, old readers) and <strong>backward compatibility</strong> (new readers, old writers):</p>
+<ul>
+<li>Fields may be added or removed only if default values are provided.</li>
+<li>Datatypes may be changed, provided Avro can perform the type conversion.</li>
+<li>Fields may be renamed using aliases in the reader schema, which supports backward compatibility.</li>
+</ul>
+<p><strong>How does the reader obtain the writer’s schema for comparison?</strong> This depends on the context:</p>
+<ul>
+<li>When storing many records in a large file (e.g., Hadoop), the writer schema is stored once at the beginning of the file using Avro object container files.</li>
+<li>When storing records in a database, where schemas may evolve over time, the writer schema version can be stored with each record, while all historical schema versions are maintained separately.</li>
+<li>When transmitting records over the network, the writer and reader can negotiate schemas during connection setup (Avro RPC).</li>
+</ul>
+<hr>
+<p><strong>Dynamically Generated Schemas</strong></p>
+<p>A key reason Avro does not use field IDs is to support dynamically generated schemas. For example, when exporting a 
+database to a binary format, an Avro schema can be generated automatically from table column names. The data can then
+be encoded using this schema and stored in an Avro object container file that includes the writer schema. Changes to 
+the database schema can be handled automatically, without manual schema updates.</p>
+<p><strong>Code Generation in Dynamically Typed Languages</strong></p>
+<p>Schema-based code generation is especially valuable in statically typed languages, where it enables compile-time type 
+checking. In dynamically typed languages, however, code generation often adds an extra compilation step without 
+providing the same benefits. With Avro object container files, applications can work directly with the data while 
+the underlying library manages the schema, abstracting these details away from the developer.</p>
+<h3 id="the-merits-of-schemas">The Merits of Schemas<a class="headerlink" href="#the-merits-of-schemas" title="Permanent link">¶</a></h3>
+<ul>
+<li>Encoded data consumes significantly less space compared to non-schema formats such as MessagePack. </li>
+<li>Schemas serve as living documentation backed by real application usage, making it easier to validate forward and 
+  backward compatibility by comparing new changes against previously defined schemas. </li>
+<li>In statically typed languages, code generation enables compile-time type checking and more efficient data structures.</li>
+</ul>
+<h2 id="modes-of-dataflow">Modes of Dataflow<a class="headerlink" href="#modes-of-dataflow" title="Permanent link">¶</a></h2>
+<p>Forward and backward compatibility are properties of the processes that encode and decode data shared through files or
+networks. Below are some of the most common dataflow scenarios.</p>
+<h3 id="dataflow-through-databases">Dataflow Through Databases<a class="headerlink" href="#dataflow-through-databases" title="Permanent link">¶</a></h3>
+<p>The process that writes to a database encodes the data, while the process that reads from it decodes the data. Since 
+new code must always be able to read existing data, backward compatibility is essential. In addition, databases often 
+have multiple readers running different versions of code simultaneously, which can result in old readers consuming new
+data-requiring forward compatibility as well.</p>
+<div class="admonition note">
+<p>A common edge case is preserving unknown fields. While this can often be handled in application code, it may lead 
+to data loss if those fields are inadvertently dropped by the message format.</p>
+</div>
+<p>Databases allow updates to any value at any time, including data written using older schemas. Updating such data often
+requires schema migrations, which can be expensive. Most DBMSs support schema evolution by allowing new columns with
+default null values, so older records automatically return null when read.</p>
+<p>Databases also require regular backups for security, archival, or analytical purposes. In these cases, data is typically
+dumped in the current format, even if it contains records written using older schemas. Formats such as Avro object 
+container files are well suited here, as they store data together with its schema.</p>
+<h3 id="dataflow-through-services-rest-and-rpc">Dataflow Through Services: REST and RPC<a class="headerlink" href="#dataflow-through-services-rest-and-rpc" title="Permanent link">¶</a></h3>
+<p>When processes communicate over a network, the most common approach is a <strong>client–server</strong> architecture. Server 
+processes expose APIs (or services) that clients use to make requests. On the web, clients are usually browsers that 
+rely on standardized protocols (HTTP, TLS) and formats (HTML, URLs, JSON). Applications may also define custom 
+protocols using HTTP as the transport layer.</p>
+<p>In a <strong>microservice architecture</strong>, servers can themselves act as clients to other services. The primary goal is to 
+split large applications into smaller, independently deployable services, which requires APIs to remain compatible
+across versions.</p>
+<p>Two common approaches to building web services are <strong>REST</strong> and <strong>SOAP</strong>:</p>
+<ol>
+<li><strong>REST</strong> is a design philosophy built on HTTP, using URLs to identify resources and simple data formats along 
+   with standard HTTP features.</li>
+<li><strong>SOAP</strong> is an XML-based protocol for network communication. Although commonly used over HTTP, it defines its own 
+   extensive set of standards through web service frameworks.</li>
+</ol>
+<p>SOAP APIs are described using the Web Services Description Language (WSDL), which enables code generation. However, 
+WSDL is not human-readable, and SOAP APIs tend to rely heavily on vendor-specific tools, making interoperability harder
+for unsupported languages. RESTful APIs, by contrast, are simpler and typically require less code generation.</p>
+<p class="annotate">Both REST and SOAP originated from the idea of <strong>Remote Procedure Calls (RPC)</strong>, which aim to make remote interactions 
+resemble local function calls. This model is fundamentally flawed for several reasons (1), yet modern RPC frameworks 
+such as gRPC—built on formats like Thrift and Protobuf—continue to evolve. These frameworks make network boundaries 
+explicit, for example by using futures that may fail. As a result, RPC is most commonly used between services owned by
+the same organization, while REST is more often used for public APIs.</p>
+<ol>
+<li>Issues such as unpredictability, timeouts, network failures, and semantic mismatches.</li>
+</ol>
+<p>Evolvability is critical so that clients and servers can be deployed independently. In practice, servers are usually 
+updated before clients, which requires forward compatibility for responses and backward compatibility for requests. 
+In RPC systems, this behavior is largely determined by the encoding format used for requests and responses.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 4, 2026 18:05:21 UTC">January 4, 2026</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+    <hr class="discussion-separator">
+
+  <!-- Insert generated snippet here -->
+    <script src="https://giscus.app/client.js" data-repo="khansohil530/tech-notes" data-repo-id="R_kgDOQSJf1g" data-category="Q&amp;A" data-category-id="DIC_kwDOQSJf1s4CzpVY" data-mapping="pathname" data-strict="0" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="top" data-theme="dark" data-lang="en" data-loading="lazy" crossorigin="anonymous" async>
+    </script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
+
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
+
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../c3/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Storage and Retrieval">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Storage and Retrieval
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/khansohil530" target="_blank" rel="noopener" title="Github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://linkedin.com/in/sohil-khan-7206161a3" target="_blank" rel="noopener" title="LinkedIn" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://khansohil530.github.io/" target="_blank" rel="noopener" title="About me" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../assets/javascripts/panzoom.min.js"></script>
+      
+        <script src="../../../assets/javascripts/zoompan.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

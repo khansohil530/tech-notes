@@ -1,0 +1,23 @@
+flowchart TD
+    A[Start] --> B[Find vertex with name = United States]
+    B --> C[Initialize set: in_usa = United States]
+    C --> D[Traverse incoming :within edges]
+    D --> E[Add discovered vertices to in_usa]
+    E --> D
+
+    A --> F[Find vertex with name = Europe]
+    F --> G[Initialize set: in_europe = Europe]
+    G --> H[Traverse incoming :within edges]
+    H --> I[Add discovered vertices to in_europe]
+    I --> H
+
+    E --> J[From in_usa vertices<br/>follow incoming :born_in edges]
+    J --> K[Set: people_born_in_usa]
+
+    I --> L[From in_europe vertices<br/>follow incoming :lives_in edges]
+    L --> M[Set: people_living_in_europe]
+
+    K --> N[Intersect / Join]
+    M --> N
+
+    N --> O[People born in USA<br/>and living in Europe]

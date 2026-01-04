@@ -1,0 +1,5064 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A personal collection of technical notes and tutorials">
+      
+      
+      
+        <link rel="canonical" href="https://khansohil530.github.io/tech-notes/Books/ddia/c3/">
+      
+      
+        <link rel="prev" href="../c2/">
+      
+      
+        <link rel="next" href="../c4/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Storage and Retrieval - My Tech Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../styles/overrides.css">
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/panzoom.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style><meta name="panzoom-theme" content="material">
+<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#storage-and-retrieval" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="My Tech Notes" class="md-header__button md-logo" aria-label="My Tech Notes" data-md-component="logo">
+      
+  <img src="../../../assets/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Tech Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Storage and Retrieval
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="orange" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="deep-orange" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/khansohil530/tech-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    tech-notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../DSA/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  DSA
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Courses/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Courses
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Books
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="My Tech Notes" class="md-nav__button md-logo" aria-label="My Tech Notes" data-md-component="logo">
+      
+  <img src="../../../assets/logo.svg" alt="logo">
+
+    </a>
+    My Tech Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/khansohil530/tech-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    tech-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../DSA/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DSA
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DSA
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../DSA/neetcode150/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Neetcode 150
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Neetcode 150
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arrays and Hashing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Arrays and Hashing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/contains_duplicate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    217. Contains Duplicate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/valid_anagram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    242. Valid Anagram
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/two_sum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Two Sum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/group_anagrams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    49. Group Anagrams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/top_k_frequent_element/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    347. Top K Frequent Elements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/encode_and_decode_strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    271. Encode and Decode Strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/product_of_array_except_self/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    238. Product of Array Except Self
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/valid_sudoku/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    36. Valid Sudoku
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/longest_consecutive_sequence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    128. Longest Consecutive Sequence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3">
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Two Pointers
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Two Pointers
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/valid_palindrome/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    125. Valid Palindrome
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/two_sum_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    167. Two Sum II - Input Array Is Sorted
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/3sum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. 3Sum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/container_with_most_water/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Container With Most Water
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/trapping_rain_water/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    42. Trapping Rain Water
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4">
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_4" id="__nav_2_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sliding Window
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Sliding Window
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/best_time_to_buy_and_sell_stock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    121. Best Time to Buy and Sell Stock
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/longest_substring_without_repeating_characters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Longest Substring Without Repeating Characters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/longest_repeating_character_replacement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    424. Longest Repeating Character Replacement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/permutation_in_string/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    567. Permutation in String
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/minimum_window_substring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    76. Minimum Window Substring
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/sliding_window_maximum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    239. Sliding Window Maximum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5">
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_5" id="__nav_2_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stack
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Stack
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/valid_parentheses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Valid Parentheses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/min_stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    155. Min Stack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/evaluate_reverse_polish_notation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    150. Evaluate Reverse Polish Notation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/daily_temperatures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    739. Daily Temperatures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/car_fleet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    853. Car Fleet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/largest_rectangle_in_histogram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    84. Largest Rectangle in Histogram
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../DSA/neetcode150/binarysearch/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Binary Search
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_6" id="__nav_2_2_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Binary Search
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/binarysearch/binary_search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    704. Binary Search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/binarysearch/search_a_2d_matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    74. Search a 2D Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/binarysearch/koko_eating_bananas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    875. Koko Eating Bananas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/binarysearch/find_minimum_in_rotated_sorted_array/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    153. Find Minimum in Rotated Sorted Array
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/binarysearch/search_in_rotated_sorted_array/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    33. Search in Rotated Sorted Array
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/binarysearch/time_based_key_value_store/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    981. Time Based Key-Value Store
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/binarysearch/median_of_two_sorted_arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Median of Two Sorted Arrays
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_7">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../DSA/neetcode150/linkedlist/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linked List
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_7" id="__nav_2_2_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Linked List
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/linkedlist/reverse_linked_list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    206. Reverse Linked List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/linkedlist/merge_two_sorted_lists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. Merge Two Sorted Lists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/linkedlist/linked_list_cycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    141. Linked List Cycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/linkedlist/reorder_list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    143. Reorder List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/linkedlist/remove_nth_node_from_end_of_list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Remove Nth Node From End of List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/linkedlist/copy_list_with_random_pointer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    138. Copy List with Random Pointer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/linkedlist/add_two_numbers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Add Two Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/linkedlist/find_the_duplicate_number/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    287. Find the Duplicate Number
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/linkedlist/lru_cache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    146. LRU Cache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/linkedlist/merge_k_sorted_lists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Merge k Sorted Lists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DSA/neetcode150/linkedlist/reverse_nodes_in_k_group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Reverse Nodes in k-Group
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Courses/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Courses
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Courses/fode/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals of Database Engineering
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals of Database Engineering
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fode/acid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ACID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fode/db_internals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Internals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fode/db_index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-Tree Index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fode/indexing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Working with Indexes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fode/db_partition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Partitioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fode/db_shard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Sharding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fode/concurrency_control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrency Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fode/replication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Replication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fode/db_engines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Engines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fode/db_cursor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Cursor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fode/nosql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NoSQL Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fode/db_security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fode/extra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extra Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Courses/foos/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals of Operating System
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals of Operating System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/foos/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Need of OS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/foos/process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Program and Process
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/foos/memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Memory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/foos/cpu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CPU
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/foos/process_mgmt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Process Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/foos/storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/foos/socket/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Socket
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/foos/extra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extra Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Courses/focn/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals of Computer Networking
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals of Computer Networking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/focn/basic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basics of Networking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/focn/ip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Internet Protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/focn/tcp_udp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TCP and UDP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_5">
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_5" id="__nav_3_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Other Popular Protocols
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Other Popular Protocols
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/focn/dns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/focn/http/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/focn/tls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TLS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/focn/extra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Miscellaneous
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Courses/fobe/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals of Backend Engineering
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals of Backend Engineering
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fobe/comm_pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Communication Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fobe/app_protocols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Communication Protocols
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Courses/fobe/execution_patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Execution Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Books
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Books
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Designing Data-Intensive Applications
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Designing Data-Intensive Applications
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reliable, Scalable and Maintainable Applications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models and Query Languages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage and Retrieval
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage and Retrieval
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#data-structures-which-powers-dbs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data structures which powers DBs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data structures which powers DBs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hash-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hash Index
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sstables-and-lsm-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSTables and LSM-Trees
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#btree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BTree
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparing-b-trees-and-lsm-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparing B-Trees and LSM-Trees
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-indexing-structures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Indexing Structures
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transaction-processing-or-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transaction Processing or Analytics?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transaction Processing or Analytics?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-warehousing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Warehousing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stars-and-snowflakes-schemas-for-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stars and Snowflakes: Schemas for Analytics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#column-oriented-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Column-Oriented Storage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Column-Oriented Storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#column-compression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Column Compression
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sort-order-in-column-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sort Order in Column Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-to-column-oriented-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writing to Column-Oriented Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aggregation-data-cubes-and-materialized-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aggregation: Data Cubes and Materialized Views
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Encoding and Evolution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#data-structures-which-powers-dbs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data structures which powers DBs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data structures which powers DBs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hash-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hash Index
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sstables-and-lsm-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSTables and LSM-Trees
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#btree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BTree
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparing-b-trees-and-lsm-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparing B-Trees and LSM-Trees
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-indexing-structures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Indexing Structures
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transaction-processing-or-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transaction Processing or Analytics?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transaction Processing or Analytics?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-warehousing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Warehousing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stars-and-snowflakes-schemas-for-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stars and Snowflakes: Schemas for Analytics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#column-oriented-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Column-Oriented Storage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Column-Oriented Storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#column-compression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Column Compression
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sort-order-in-column-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sort Order in Column Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-to-column-oriented-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writing to Column-Oriented Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aggregation-data-cubes-and-materialized-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aggregation: Data Cubes and Materialized Views
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/khansohil530/tech-notes/edit/main/docs/Books/ddia/c3.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="storage-and-retrieval">Storage and Retrieval<a class="headerlink" href="#storage-and-retrieval" title="Permanent link">¶</a></h1>
+<p>The <a href="../c2/">previous chapter</a> discussed how the application layer models data for a database. In this chapter, we 
+examine how the database, or more specifically, the storage engine, models data for the layers beneath it. This topic
+is important because different storage engines are designed for different types of applications, particularly 
+transactional and analytical operations.</p>
+<p>Transactional databases typically use one of two popular categories of storage engines that are widely adopted across
+many DBMSs: log-structured and page-oriented storage engines.</p>
+<h2 id="data-structures-which-powers-dbs">Data structures which powers DBs<a class="headerlink" href="#data-structures-which-powers-dbs" title="Permanent link">¶</a></h2>
+<p>Log-structured storage engines record data in an append-only, sequential data file known as a <strong>log</strong>. For example, 
+the simplest log-structured database can store key–value pairs separated by a delimiter in a file. To operate on this
+data, the database needs two basic methods:</p>
+<ul>
+<li><code>set</code> to append a key–value pair to the file </li>
+<li><code>get</code> to return the most recent value associated with a key</li>
+</ul>
+<p>This approach optimizes <code>set</code> operations for fast, high-throughput writes, as it uses sequential writes which are much
+faster than random disk writes. However, this choice negatively impacts the performance of <code>get</code> operations, since
+the DB may need to scan the entire log to locate a key.</p>
+<p>To improve performance <code>get</code>, DBs use an auxiliary data structure called an <strong>index</strong>.</p>
+<p>Indexes are additional data structures derived from the data stored in the database. They are organized to enable
+efficient lookup of indexed keys in the file. Indexes significantly improve read performance, but they introduce 
+overhead on writes because each write must also update the index. Due to this tradeoff, DBs doesn't automatically
+index all data, instead it allows developers to choose the indexes that best fit their application's access patterns.</p>
+<h3 id="hash-index">Hash Index<a class="headerlink" href="#hash-index" title="Permanent link">¶</a></h3>
+<p>The simplest approach is to use an in-memory <strong>hash map</strong> that maps each key to the byte offset of its corresponding 
+value in the data file. With this approach:</p>
+<ul>
+<li><code>get</code> can directly retrieve the byte offset for a key and seek to the corresponding location on disk to fetch the value</li>
+<li><code>set</code> must maintain correct byte offsets when writing new values or updating existing ones</li>
+</ul>
+<p>This simple design is also used by <strong>Bitcask</strong>, which is a storage engine designed for systems that require 
+high-performance reads and writes while having keys small enough to fit entirely in memory. This model works 
+particularly well for workloads where values change frequently compared to keys.</p>
+<p>However, continuously appending data to a file can waste storage space by retaining duplicate and obsolete values. 
+To address this issue, databases segment data files into fixed sizes. Once a segment reaches its size limit, a new 
+segment file is created to record subsequent changes.</p>
+<p>Over time, older segment files are <strong>compacted</strong> and merged by retaining only the most recent value for each key and 
+discarding obsolete entries. To avoid blocking ongoing reads and writes, compaction is performed in the background 
+while keeping the old segment files available. Once compaction is complete, the database deletes the old segments and
+switches to the newly merged segment file for processing incoming requests.</p>
+<p>Since values are distributed across multiple segment files, each segment maintains its own in-memory hash index. To 
+look up a key, the database starts by checking the hash indexes from the most recent segment to the oldest one. To 
+reduce lookup overhead, the number of segment files is kept small. A few additional implementation details are 
+important to make this approach work effectively:</p>
+<ul>
+<li>It is faster and simpler to store values in a binary format rather than a text-based format.</li>
+<li>Deletions are handled by appending a special marker called a <strong>tombstone</strong>. A tombstone indicates that the 
+  corresponding value has been deleted and can be safely removed during compaction.</li>
+<li>To enable fast recovery after crashes, databases periodically snapshot the hash indexes to disk.</li>
+<li>Data corruption is detected using checksums, which is especially useful for identifying partially written records.</li>
+<li>Since writes are append-only, a common design choice is to use a single writer thread, while reads can be processed 
+  concurrently by multiple threads.</li>
+</ul>
+<p><strong>Advantages of appending entries instead of overwriting:</strong></p>
+<ul>
+<li>Appending and segment merging are sequential operations, which are significantly faster than random disk writes.</li>
+<li>Concurrency control and crash recovery are simpler in an append-only design.</li>
+<li>Periodic merging of old segments prevents long-term data fragmentation.</li>
+</ul>
+<p><strong>Limitations of this approach:</strong></p>
+<ul>
+<li>The hash index must fit in memory, which becomes impractical for a very large number of keys. An on-disk hash map is
+  possible, but it performs poorly due to random access patterns.</li>
+<li>Range queries are inefficient because there is no key <strong>locality</strong>, each key in the range must be searched for and 
+  fetched individually.</li>
+</ul>
+<h3 id="sstables-and-lsm-trees">SSTables and LSM-Trees<a class="headerlink" href="#sstables-and-lsm-trees" title="Permanent link">¶</a></h3>
+<p>Earlier, segment files stored values in the order they were written. With <strong>LSM-Trees</strong>, however, data is stored 
+<strong>sorted by key</strong>, and each key appears at most once in a segment file. This storage format is called 
+a <strong>Sorted String Table (SSTable)</strong>, and it provides several advantages:</p>
+<ul>
+<li>Merging segment files becomes simple and efficient, even when the files are larger than memory. A merge operation 
+  can use a <em>merge sort</em> style algorithm: read the smallest key from each segment file, write only the most recent 
+  version of each key to the output file, and repeat until all segments are merged. If a key appears in multiple 
+  segments, only the value from the most recent segment is retained.</li>
+<li>A sparsely populated in-memory index can be used because segment files are sorted by key. The index stores a subset 
+  of keys, each covering a range of a few KBs in the segment file. To fetch a value whose key is directly not present
+  in the index, the DB reads the corresponding file offsets where the key could be present and scans it to locate the
+  required key-value.</li>
+<li>Since each read typically scans multiple key–value pairs, databases can compress these ranges before writing them to 
+  disk, reducing storage usage and I/O bandwidth. The index then points to compressed blocks, which are decompressed to
+  retrieve the contained key–value pairs.</li>
+</ul>
+<p>Storing data in sorted order, however, would normally break sequential writes. To address this, storage engines use 
+self-balancing tree data structures (such as AVL trees) that allow keys to be inserted in any order while maintaining 
+sorted traversal. The storage engine first writes incoming data to an in-memory self-balancing tree called 
+a <strong>memtable</strong>. When the memtable reaches a configured size, its contents are flushed to disk as an SSTable.</p>
+<p>Read operations first check the memtable, then the most recent SSTables on disk, followed by older SSTables if needed. 
+To recover from crashes, the database also maintains an append-only log that can be replayed to reconstruct the
+memtable.</p>
+<p>LSM-Trees were originally proposed for log-structured file systems, but the idea of maintaining and compacting sorted 
+files was later adopted by database storage engines. These are commonly referred to as <strong>LSM-based storage engines</strong>, 
+with examples including LevelDB, RocksDB, and the storage engines used in Cassandra and HBase.</p>
+<p><strong>Performance optimizations</strong></p>
+<ul>
+<li>LSM-trees can be slow when looking up keys that are not present in the database, since the search may need to 
+  scan multiple data structures. To address this, databases use <strong>Bloom filters</strong>, which can quickly determine whether
+  a key does not exist in the database, thereby avoiding unnecessary disk reads.</li>
+<li>There are different strategies for merging and compaction. The most common ones are:</li>
+<li>Size-tiered compaction, which merges newer, smaller SSTables into larger SSTables. </li>
+<li>Leveled compaction, which splits the key space into multiple SSTable levels, with older data progressively moved 
+    into separate levels.</li>
+</ul>
+<h3 id="btree">BTree<a class="headerlink" href="#btree" title="Permanent link">¶</a></h3>
+<p>A B-Tree is the most commonly used data structure for indexing in both relational and NoSQL databases. Like SSTables, 
+it stores sorted key–value pairs, but instead of using variable-sized segments, it organizes data into fixed-size 
+blocks or pages (typically 4 KB).</p>
+<p>This design aligns well with storage devices, which are also organized into fixed-size blocks. Each page can be 
+identified by its disk address, allowing pages to reference one another directly.</p>
+<p>Using this structure, a B-Tree index organizes indexed keys across multiple pages. Each page stores a contiguous
+range of keys along with references to child pages between keys, where each key defines the boundaries covered by the 
+corresponding child page.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌────┬─────┬────┬─────┬────┬─────┬────┬─────┬────┬─────┬────┐
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│ref │ 100 │ref │ 200 │ref │ 300 │ref │ 400 │ref │ 500 │ref │
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>└─┬──┴─────┴─┬──┴─────┴─┬──┴─────┴─┬──┴─────┴─┬──┴─────┴─┬──┘
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  │          │          │          │          │          └── key ≥ 500
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  │          │          │          │          └───────────── 400 ≤ key &lt; 500
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  │          │          │          └──────────────────────── 300 ≤ key &lt; 400
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  │          │          └──────────────── 200 ≤ key &lt; 300
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  │          └── 100 ≤ key &lt; 200              │
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  └─── key &lt; 100                              │
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>                                              │
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>                                              │
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>┌────┬─────┬────┬─────┬────┬─────┬────┬─────┬─┴──┬─────┬────┐
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│ref │ 210 │ref │ 230 │ref │ 250 │ref │ 270 │ref │ 290 │ref │
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>└─┬──┴─────┴─┬──┴─────┴─┬──┴─────┴─┬──┴─────┴─┬──┴─────┴─┬──┘
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a> ...        ...        ...         │         ...        ...
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>                               250 ≤ key &lt; 270
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>                                   │
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>┌─────┬────┬─────┬────┬─────┬────┬─┴───┬────┬─────┬────┐
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>│ 250 │val │ 251 │val │ 252 │val │ 253 │val │ 254 │val │
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>└─────┴────┴─────┴────┴─────┴────┴─────┴────┴─────┴────┘
+</code></pre></div>
+<ul>
+<li>For searching a key, the lookup starts at the root node and follows the child reference that corresponds to the range 
+  in which the search key falls. This process continues down the tree until it reaches a leaf node/page, which either 
+  stores the value inline (within the leaf page) or contains a reference to an external page where the value is stored. 
+  The number of child page references from a single page is called the <strong>branching factor</strong>. It depends on the space 
+  required to store page references and key range boundaries, but it is typically on the order of hundreds. </li>
+<li>To update an existing key, the corresponding leaf page is located, modified, and written back to disk. </li>
+<li>
+<p>To insert a new key, the value is added to the appropriate leaf page. If the leaf page, or any intermediate page, does
+  not have enough free space to accommodate the new key, a page split occurs. This operation divides the full page into
+  two half-full pages and recursively updates the references in the parent nodes.</p>
+<details class="note">
+<summary>For example</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>┌────┬─────┬────┬─────┬────┬─────┬────┬──────────────────┐
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│ref │ 310 │ref │ 333 │ref │ 345 │ref │   (spare space)  │
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>└─┬──┴─────┴─┬──┴─────┴─┬──┴─────┴─┬──┴──────────────────┘
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a> ...        ...         │         ...
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>                     333 ≤ key &lt; 345
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>                        │
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>┌─────┬────┬─────┬────┬─┴───┬────┬─────┬────┬─────┬────┐
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│ 333 │val │ 335 │val │ 337 │val │ 340 │val │ 342 │val │
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>└─────┴────┴─────┴────┴─────┴────┴─────┴────┴─────┴────┘
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>==&gt; Insert key 334
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>Parent node (key promoted after split)
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>┌────┬─────┬────┬─────┬────┬─────┬────┬─────┬────┬──────────┐
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>│ref │ 310 │ref │ 333 │ref │ 337 │ref │ 345 │ref │ (spare)  │
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>└─┬──┴─────┴─┬──┴─────┴─┬──┴─────┴─┬──┴─────┴─┬──┴──────────┘
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a> ...        ...         │          │         ...
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>                  333 ≤ key &lt; 345  └──────────────────── 333 ≤ key &lt; 345
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>                        │                                   │
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>┌─────┬────┬─────┬────┬─┴───┬────┬────────────────────┐     │
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>│ 333 │val │ 334 │val │ 335 │val │   (spare space)    │     │
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>└─────┴────┴─────┴────┴─────┴────┴────────────────────┘     │
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>                                                            │
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>┌─────┬────┬─────┬────┬─────┬────┬────────────────────┐     │
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>│ 337 │val │ 340 │val │ 342 │val │   (spare space)    │─────┘
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>└─────┴────┴─────┴────┴─────┴────┴────────────────────┘
+</code></pre></div>
+</details>
+</li>
+</ul>
+<div class="admonition note">
+<p>Most databases can fit their indexes into a B-tree that is only 3-4 levels deep, which means only a small number of 
+page references are required to locate a target page. For example, a four-level tree with 4 KB pages and a 
+branching factor of 500 can store up to 256 TB of data.</p>
+</div>
+<p>Writing to a B-tree requires modifying existing pages, which can trigger additional writes due to page splits. 
+This process is risky because a crash during modification can leave the index in a corrupted state. To prevent this, 
+B-tree indexes rely on an additional data structure called a <strong>write-ahead log (WAL)</strong>, also known as a <em>redo log</em>. 
+The WAL records all modifications to the B-tree before they are applied to disk, allowing the database to recover to a
+consistent state after a crash.</p>
+<p>In addition, updating pages in place requires careful concurrency control to prevent the tree from entering an 
+inconsistent state. This is typically handled using lightweight locks known as <em>latches</em>.</p>
+<p><strong>Optimizations over traditional B-trees</strong>:</p>
+<ul>
+<li>Instead of overwriting pages in place, some databases use a copy-on-write scheme to avoid inconsistent states.
+  This approach can also help support different isolation levels for concurrency control.</li>
+<li>Packing more keys into a single page increases the branching factor, which reduces the number of tree levels and 
+  improves overall B-tree performance. Some databases use abbreviated or prefix-compressed keys to save space.</li>
+<li>Additional pointers are often added to improve performance. For example, leaf pages may include pointers to 
+  neighboring leaf pages, enabling faster range scans without repeatedly traversing parent pages.</li>
+</ul>
+<h3 id="comparing-b-trees-and-lsm-trees">Comparing B-Trees and LSM-Trees<a class="headerlink" href="#comparing-b-trees-and-lsm-trees" title="Permanent link">¶</a></h3>
+<p>B-trees are typically considered faster for read operations, while LSM-trees generally provide better write performance.
+However, these characteristics are highly workload-dependent. A few key factors should be considered when comparing the
+performance of different storage engines:</p>
+<p><strong>Write Amplification</strong>: B-trees often write data multiple times: first to the <strong>write-ahead log (WAL)</strong> and then to 
+the data pages on disk. In addition, even small updates may require rewriting an entire page. LSM-trees also incur 
+multiple writes due to compaction and merging of SSTables. This process—where a single application-level write 
+results in multiple writes at the storage level—is known as <strong>write amplification</strong>.</p>
+<p>Write amplification is a critical metric, especially for write-heavy systems, where excessive disk bandwidth consumption
+can become a performance bottleneck. LSM-trees typically achieve higher write throughput because they rely on 
+sequential writes to SSTables, which generally results in lower write amplification compared to random page updates.</p>
+<hr>
+<p><strong>Compression</strong>: B-tree pages usually contain unused space to accommodate future insertions without triggering page 
+splits. In contrast, LSM-trees do not require such slack space and are periodically compacted to eliminate 
+fragmentation, allowing them to use storage more efficiently than B-trees.</p>
+<p>However, ongoing compaction can sometimes interfere with concurrent read and write workloads due to limited disk 
+bandwidth. This effect is more noticeable at higher latency percentiles, which can negatively impact average response 
+times and throughput. In such scenarios, B-trees often exhibit more predictable performance.</p>
+<p>Disk bandwidth must be shared between incoming writes and background compaction. For systems with high write 
+throughput, compaction must be carefully tuned otherwise, it may fail to keep up with incoming writes, leading to an 
+accumulation of unmerged SSTables. This, in turn, degrades read performance, as lookups must check an increasing number
+of SSTables.</p>
+<h3 id="other-indexing-structures">Other Indexing Structures<a class="headerlink" href="#other-indexing-structures" title="Permanent link">¶</a></h3>
+<p><strong>Secondary Indexes</strong>: The key–value indexes discussed earlier are also known as primary key indexes in relational
+databases. A primary key uniquely identifies a row in a relational table, a document in a document database, or a 
+vertex in a graph database. Other records in the database can refer to that row, document, or vertex using its 
+primary key (or ID), and the index is used to resolve these references efficiently.</p>
+<p>Secondary indexes can be constructed in a similar way to primary key indexes, with one important difference: 
+secondary keys are not unique. This can be handled in two ways: either by storing a list of matching row 
+identifiers as the index value, or by making each secondary key unique by appending a row identifier to it.</p>
+<hr>
+<p><strong>Storing Values Within the Index</strong>: Indexes store keys used for lookup, and their associated values can either be the
+actual row data or a reference to the row. In the latter approach, rows are stored in a separate structure called a
+<em>heap file</em>, which does not require any particular ordering. This avoids duplicating data across multiple secondary 
+indexes and is efficient for in-place updates. However, it introduces an extra I/O operation when fetching the row after
+an index lookup, which can negatively impact read performance.</p>
+<p>To avoid this additional lookup, some databases store the row data directly within the index. Such indexes are known as
+<strong>clustered indexes</strong>.</p>
+<p>A middle ground between these approaches is the <strong>covering index</strong>, which stores additional columns within the index so 
+that the database can answer certain queries directly from the index. While this improves read performance, it 
+increases storage usage and write overhead due to data duplication.</p>
+<hr>
+<p><strong>Multi-Column Indexes</strong>: So far, we have considered indexes that map a single key to a value. This is insufficient for
+queries involving multiple columns. The most common approach is a <em>concatenated index</em>, which combines multiple columns 
+into a single composite key by appending one column to another. This allows efficient lookups when queries specify 
+columns in left-to-right order, but it is ineffective when queries omit the leading columns.</p>
+<p><em>Multidimensional indexes</em> provide a more general solution for queries involving multiple dimensions and are 
+particularly important for geospatial data. Standard B-tree and LSM-tree indexes cannot efficiently answer queries over 
+latitude and longitude ranges. One approach is to map multidimensional coordinates to a single value using a
+space-filling curve and index it using a regular B-tree. More commonly, specialized spatial indexes such as <em>R-trees</em> 
+are used.</p>
+<hr>
+<p><strong>Full-Text Search and Fuzzy Indexes</strong>: Full-text and fuzzy indexes are useful when searching for similar keys rather 
+than exact matches, such as handling misspelled words. Full-text search engines typically support features like 
+ignoring grammatical variations, handling synonyms, and tolerating a limited number of character edits to accommodate 
+typos.</p>
+<hr>
+<p><strong>In-Memory Databases</strong>: As RAM becomes cheaper, many datasets can be stored entirely in memory, potentially 
+distributed across multiple machines. Some in-memory databases (such as those used for caching) can tolerate data loss,
+while others aim to provide durability using techniques such as periodic snapshots to disk, write-ahead logging, 
+replication, or even specialized hardware like battery-backed RAM.</p>
+<p>Beyond performance benefits, in-memory databases also enable data models that are difficult to implement efficiently 
+using disk-based indexes. For example, systems like Redis provide database-like interfaces to data structures such as
+priority queues and sets.</p>
+<p>If non-volatile memory (NVM) technologies become more widely adopted, further changes to storage engine design will 
+likely be required. While this remains an active area of research, it is an important trend to watch going forward.</p>
+<h2 id="transaction-processing-or-analytics">Transaction Processing or Analytics?<a class="headerlink" href="#transaction-processing-or-analytics" title="Permanent link">¶</a></h2>
+<p>In the early days of business data processing, a write to a database typically corresponded to a real-world commercial 
+transaction—such as making a sale, placing an order with a supplier, or paying an employee’s salary. Because of this
+usage pattern, a group of reads and writes forming a single logical unit came to be called a <strong>transaction</strong>. This 
+terminology persisted even as databases expanded far beyond their original scope.</p>
+<p>A transaction does not necessarily imply full ACID guarantees; rather, it is often used to describe a category of 
+databases designed for <strong>low-latency reads and writes</strong>, as opposed to periodic <strong>batch processing</strong> jobs.</p>
+<p class="annotate">Since these transactions store and retrieve various types of data based on user input, this access pattern became known
+as <strong>Online Transaction Processing (OLTP)</strong>. In contrast, databases also began to be used for data analytics, which 
+exhibit very different access patterns (1), primarily scanning large volumes of data to derive insights. This usage model is 
+referred to as <strong>Online Analytical Processing (OLAP)</strong>.</p>
+<ol>
+<li>OLAP queries typically read a small number of columns from a very large number of rows and return computed aggregate
+   statistics rather than individual stored values.</li>
+</ol>
+<p>The major differences between OLTP and OLAP are summarized below:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>OLTP</th>
+<th>OLAP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Main read pattern</td>
+<td>Small number of records per query, fetched by key</td>
+<td>Aggregations over large numbers of records</td>
+</tr>
+<tr>
+<td>Main write pattern</td>
+<td>Random-access, low-latency writes from user input</td>
+<td>Bulk imports (ETL) or event streams</td>
+</tr>
+<tr>
+<td>Primarily used by</td>
+<td>End users or customers via applications</td>
+<td>Internal analysts for decision support</td>
+</tr>
+<tr>
+<td>What data represents</td>
+<td>Current state of data (point-in-time view)</td>
+<td>Historical data accumulated over time</td>
+</tr>
+<tr>
+<td>Dataset size</td>
+<td>Gigabytes to terabytes</td>
+<td>Terabytes to petabytes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="data-warehousing">Data Warehousing<a class="headerlink" href="#data-warehousing" title="Permanent link">¶</a></h3>
+<p>OLTP systems are typically required to be highly available and to process transactions with low latency, as they are
+often critical to day-to-day business operations. Executing OLAP queries on the same OLTP database can significantly 
+degrade the performance of concurrently executing transactions, since analytical queries are usually expensive and 
+require scanning large portions of the dataset.</p>
+<p>This led to the development of <strong>data warehouses</strong>, which are separate databases designed specifically for OLAP 
+workloads. Data warehouses allow analytical queries to run without impacting OLTP operations. They maintain a 
+read-only copy of data from one or more OLTP systems within an organization.</p>
+<p>Data is transferred into a data warehouse using a process called <strong>Extract–Transform–Load (ETL)</strong>. This process
+involves extracting data from OLTP databases (either through periodic batch exports or continuous data streams), 
+transforming it into a cleaned and analysis-friendly schema, and then loading it into the data warehouse.</p>
+<p>An additional advantage of separating analytical workloads is that the database can be optimized specifically for 
+OLAP access patterns. Traditional indexing structures such as B-trees and LSM-trees perform poorly for analytical 
+queries. Although both OLTP and OLAP systems may expose a similar SQL-based interface, their internal storage layouts 
+and access patterns are fundamentally different.</p>
+<h3 id="stars-and-snowflakes-schemas-for-analytics">Stars and Snowflakes: Schemas for Analytics<a class="headerlink" href="#stars-and-snowflakes-schemas-for-analytics" title="Permanent link">¶</a></h3>
+<p>Most data warehouses use a fairly formulaic approach to model their internal data, known as a <strong>star schema</strong>, also 
+referred to as dimensional modeling. At the center of this model is the fact table, whose rows represent events that 
+occurred at a specific point in time. Some columns in the fact table store attributes associated with the event, while 
+other columns are foreign keys that reference related tables called <strong>dimension tables</strong>. Dimension tables capture the
+who, what, where, when, how, and why of each event.</p>
+<details class="note">
+<summary>For example</summary>
+<div class="panzoom-box" data-key="none" id="panzoom0" oncontextmenu="return false;">
+    
+    <nav class="panzoom-nav">
+    <button class="panzoom-info panzoom-button">
+    <svg class="panzoom-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm169.8-90.7c7.9-22.3 29.1-37.3 52.8-37.3l58.3 0c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24l0-13.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1l-58.3 0c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"></path>
+    </svg>
+</button><button class="panzoom-reset panzoom-button">
+    <svg class="panzoom-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <path d="M125.7 160l50.3 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L48 224c-17.7 0-32-14.3-32-32L16 64c0-17.7 14.3-32 32-32s32 14.3 32 32l0 51.2L97.6 97.6c87.5-87.5 229.3-87.5 316.8 0s87.5 229.3 0 316.8s-229.3 87.5-316.8 0c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0c62.5 62.5 163.8 62.5 226.3 0s62.5-163.8 0-226.3s-163.8-62.5-226.3 0L125.7 160z"></path>
+    </svg>
+</button><button class="panzoom-max panzoom-button">
+    <svg class="panzoom-icon" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+        <path d="M32 32C14.3 32 0 46.3 0 64l0 96c0 17.7 14.3 32 32 32s32-14.3 32-32l0-64 64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L32 32zM64 352c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 96c0 17.7 14.3 32 32 32l96 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0 0-64zM320 32c-17.7 0-32 14.3-32 32s14.3 32 32 32l64 0 0 64c0 17.7 14.3 32 32 32s32-14.3 32-32l0-96c0-17.7-14.3-32-32-32l-96 0zM448 352c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 64-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l96 0c17.7 0 32-14.3 32-32l0-96z"></path>
+    </svg>
+</button><button class="panzoom-min panzoom-button panzoom-hidden">
+    <svg class="panzoom-icon" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+        <path d="M160 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 64-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l96 0c17.7 0 32-14.3 32-32l0-96zM32 320c-17.7 0-32 14.3-32 32s14.3 32 32 32l64 0 0 64c0 17.7 14.3 32 32 32s32-14.3 32-32l0-96c0-17.7-14.3-32-32-32l-96 0zM352 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 96c0 17.7 14.3 32 32 32l96 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0 0-64zM320 320c-17.7 0-32 14.3-32 32l0 96c0 17.7 14.3 32 32 32s32-14.3 32-32l0-64 64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0z"></path>
+    </svg>
+</button>
+    </nav>
+    <pre class="mermaid"><code>erDiagram
+    FACT_SALES {
+        int sales_id PK
+        date sale_date
+        int product_key FK
+        int customer_key FK
+        int store_key FK
+        int quantity_sold
+        float sales_amount
+    }
+
+    DIM_PRODUCT {
+        int product_key PK
+        string sku
+        string description
+        string brand_name
+        string category
+        string fat_content
+        string package_size
+    }
+
+    DIM_CUSTOMER {
+        int customer_key PK
+        string customer_name
+        string gender
+        int age
+        string loyalty_status
+    }
+
+    DIM_STORE {
+        int store_key PK
+        string store_name
+        string city
+        string state
+        string region
+    }
+
+    FACT_SALES }o--|| DIM_PRODUCT : "product_key"
+    FACT_SALES }o--|| DIM_CUSTOMER : "customer_key"
+    FACT_SALES }o--|| DIM_STORE : "store_key"</code></pre> 
+    <div class="panzoom-info-box panzoom-info-box-bottom panzoom-hidden">
+Use mouse to pan and zoom
+</div>
+</div>
+</details>
+<div class="admonition note">
+<p>Sometimes even date is stored in dimension table to attach additional metadata to dates like holiday/non-holiday dates.</p>
+</div>
+<p>The term star schema comes from the way these table relationships appear when visualized: the fact table sits at the
+center, surrounded by dimension tables. A variation of this design is the <strong>snowflake schema</strong>, in which dimension 
+tables are further normalized into sub-dimensions. Snowflake schemas are more normalized than star schemas, but star 
+schemas are often preferred because they are simpler and more intuitive for analysts to query and work with.</p>
+<h2 id="column-oriented-storage">Column-Oriented Storage<a class="headerlink" href="#column-oriented-storage" title="Permanent link">¶</a></h2>
+<p>Fact tables in large organizations can grow to <strong>trillions of rows</strong>, consuming <strong>petabytes of data</strong>. At this scale,
+efficiently querying them using OLTP-style storage engines becomes challenging. In OLTP systems, data is typically 
+stored in a <strong>row-oriented</strong> layout, where all values from a single row are stored contiguously on disk.</p>
+<p>Common OLAP access patterns involve selecting a small subset of columns (for example, 4–5 out of hundreds) and applying
+filters over large numbers of rows. When such queries are executed on row-oriented storage, the database must read 
+entire rows from disk into memory, parse them, and then discard most of the data that is not needed for the query.
+This results in significant inefficiency due to excessive I/O and unnecessary data processing.</p>
+<p>To address this problem, OLAP databases use <strong>column-oriented storage</strong>, where values from the same column across all 
+rows are stored contiguously. When each column is stored separately, a query only needs to read and process the columns
+it actually references, significantly reducing I/O and computation.</p>
+<h3 id="column-compression">Column Compression<a class="headerlink" href="#column-compression" title="Permanent link">¶</a></h3>
+<p>Column-oriented storage also enables highly effective compression because column values tend to be repetitive, which 
+makes them well suited for compression techniques. Depending on the data characteristics, different compression methods
+can be applied. One technique that is particularly effective in data warehouse workloads is <strong>bitmap encoding</strong>.</p>
+<p>In many cases, the number of distinct values in a column is small compared to the total number of rows. 
+A column with <code>n</code> distinct values can be represented using <code>n</code> separate bitmaps. Each bitmap corresponds to a 
+distinct value, and a set bit in the bitmap indicates that the row at that position contains the corresponding value. 
+For example,</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>┌───────┬──────────────────┐
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>│ RowID │ product_category │
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>├───────┼──────────────────┤
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>│ 1     │ Dairy            │
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>│ 2     │ Snacks           │
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>│ 3     │ Dairy            │
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>│ 4     │ Beverages        │
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>│ 5     │ Dairy            │
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>│ 6     │ Snacks           │
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>└───────┴──────────────────┘
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>┌─────────────────┬───────────────────┐
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>│   RowID →       │   1  2  3  4  5  6│
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>├─────────────────┼───────────────────┤
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>│Bitmap[Dairy]    │   1  0  1  0  1  0│
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>│Bitmap[Snacks]   │   0  1  0  0  0  1│
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>│Bitmap[Beverages]│   0  0  0  1  0  0│
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>└─────────────────┴───────────────────┘
+</code></pre></div>
+<p>If <code>n</code> is very small, these bitmaps can be stored with one bit per row. But if <code>n</code> is bigger, there will be a lot of
+zeros in most of the bitmaps. In such case, the bitmaps can additionally be <strong>run-length encoded</strong> as follows</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>1 million rows, where Beverages appears only once:
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Bitmap[Beverages]: 0 0 0 0 0 ... 0 1 0 0 ... 0
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>RLE              : (0,523456), (1,1), (0,476543)
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>                    523k 0s,   1 1s, 476k 0s
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Column DB Families</p>
+<p>Cassandra and HBase have a concept of column families, which can mislead to call them column-oriented. Each column
+family stores all columns from a row together, along with a row key making the storage model still mostly row-oriented.</p>
+</div>
+<hr>
+<p><strong>Memory Bandwidth and Vectorized Processing</strong>: A major bottleneck when scanning millions of values is the bandwidth 
+required to move data from disk into memory and then into the CPU. OLAP databases are designed to make efficient use of
+memory bandwidth and CPU caches by minimizing branch mispredictions and leveraging <strong>single-instruction–multiple-data 
+(SIMD)</strong> instructions available in modern CPUs.</p>
+<p>In addition, CPUs can operate directly on compressed data using bitwise operations such as AND and OR through a
+technique known as <strong>vectorized processing</strong>. This approach is significantly faster than traditional execution models 
+that rely on function calls and conditional branching.</p>
+<h3 id="sort-order-in-column-storage">Sort Order in Column Storage<a class="headerlink" href="#sort-order-in-column-storage" title="Permanent link">¶</a></h3>
+<p>Instead of storing data in arbitrary order, column-oriented databases can apply sorting using a self-balancing data 
+structure. However, columns cannot be sorted independently, as this would break the alignment of rows across columns. 
+Instead, a primary sort key is chosen—most commonly a timestamp or date column. Any additional sort keys further group 
+rows within the ordering defined by the preceding keys.</p>
+<p>Sorting provides a clear advantage by enabling much more effective compression, since similar values are stored 
+sequentially. This compression benefit is strongest for the primary sort key and gradually diminishes for subsequent
+sort keys.</p>
+<div class="admonition note">
+<p class="admonition-title">C-Store extension</p>
+<p>Different queries benefit from different sort orders. Since data is often replicated across multiple machines 
+anyway, the same dataset can be stored multiple times using different sort orders. This allows the query engine to
+choose the version that best matches a given query’s access pattern.</p>
+</div>
+<h3 id="writing-to-column-oriented-storage">Writing to Column-Oriented Storage<a class="headerlink" href="#writing-to-column-oriented-storage" title="Permanent link">¶</a></h3>
+<p>Compression and sorting make in-place updates difficult in column-oriented storage. To address this, OLAP databases 
+typically use an <strong>LSM-tree–style</strong> approach. Incoming writes are first applied to an in-memory store that maintains
+data in a sorted structure. Once enough data has accumulated, it is merged with the on-disk column files and written 
+out as new files in bulk.</p>
+<p>As a result, read queries must consider both the column data stored on disk and the more recent writes held in memory, 
+combining the two to produce correct query results.</p>
+<h3 id="aggregation-data-cubes-and-materialized-views">Aggregation: Data Cubes and Materialized Views<a class="headerlink" href="#aggregation-data-cubes-and-materialized-views" title="Permanent link">¶</a></h3>
+<p>When multiple queries frequently aggregate the same values, it is beneficial to cache those results. One way to create
+such a cache is by using <strong>materialized views</strong>. In relational databases, a materialized view is defined similarly to a
+standard (virtual) view, which is a table-like object derived from a query.</p>
+<p>The key difference is that a <strong>materialized view</strong> stores the query results as a physical copy on disk, whereas a 
+<strong>virtual view</strong> is merely a query shortcut that is expanded and executed on the fly at query time.</p>
+<p>Because materialized views store denormalized data, they must be updated whenever the underlying data changes, which
+adds overhead to write operations. For this reason, they are primarily used in <strong>read-heavy data warehouse</strong> workloads.</p>
+<p>A common special case of a materialized view is a <strong>data cube</strong>, also known as an <strong>OLAP cube</strong>, which precomputes
+aggregates across selected dimensions.</p>
+<details class="note">
+<summary>2-Dimensional Data Cube</summary>
+<p>Each cell in the following materialized view represents an aggregate value computed by the function 
+<code>Sales(Product, Region)</code>.
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>                       Region →
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>         ┌───────────┬────────────────────┐
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>         │           │  East   West  South│
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>         ├───────────┼────────────────────┤
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>         │ Milk      │  120    100     80 │
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>Product ↓│ Bread     │   90    110     70 │
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>         │ Juice     │  150    130    120 │
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>         └───────────┴────────────────────┘
+</code></pre></div><p></p>
+</details>
+<p>Using the same principle, higher-dimensional cubes can be constructed. The main advantage of a materialized data cube
+is that certain analytical queries become extremely fast because the results are precomputed. The trade-off is reduced 
+flexibility, as data cubes cannot support the full range of queries that can be executed against the raw, detailed data.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 4, 2026 18:05:21 UTC">January 4, 2026</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+    <hr class="discussion-separator">
+
+  <!-- Insert generated snippet here -->
+    <script src="https://giscus.app/client.js" data-repo="khansohil530/tech-notes" data-repo-id="R_kgDOQSJf1g" data-category="Q&amp;A" data-category-id="DIC_kwDOQSJf1s4CzpVY" data-mapping="pathname" data-strict="0" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="top" data-theme="dark" data-lang="en" data-loading="lazy" crossorigin="anonymous" async>
+    </script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
+
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
+
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../c2/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Data Models and Query Languages">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Data Models and Query Languages
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../c4/" class="md-footer__link md-footer__link--next" aria-label="Next: Encoding and Evolution">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Encoding and Evolution
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/khansohil530" target="_blank" rel="noopener" title="Github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://linkedin.com/in/sohil-khan-7206161a3" target="_blank" rel="noopener" title="LinkedIn" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://khansohil530.github.io/" target="_blank" rel="noopener" title="About me" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../assets/javascripts/panzoom.min.js"></script>
+      
+        <script src="../../../assets/javascripts/zoompan.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
