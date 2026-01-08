@@ -1,0 +1,18 @@
+title: Trees
+nav:
+  - index.md
+  - invert_binary_tree.md
+  - maximum_depth_of_binary_tree.md
+  - diameter_of_binary_tree.md
+  - balanced_binary_tree.md
+  - same_tree.md
+  - subtree_of_another_tree.md
+  - lowest_common_ancestor_of_a_binary_search_tree.md
+  - binary_tree_level_order_traversal.md
+  - binary_tree_right_side_view.md
+  - count_good_nodes_in_binary_tree.md
+  - validate_binary_search_tree.md
+  - kth_smallest_element_in_a_bst.md
+  - construct_binary_tree_from_preorder_and_inorder_traversal.md
+  - binary_tree_maximum_path_sum.md
+  - serialize_and_deserialize_binary_tree.md
