@@ -84,6 +84,9 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.inlinehilite
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.tilde
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.superfences:

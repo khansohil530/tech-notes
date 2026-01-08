@@ -6,6 +6,10 @@ hide:
 
 # Neetcode 150
 
+??? note "Commonly used algorithms"
+    Strings => [Z Function Pattern Match](algos/zfunction.md){ .md-button }
+
+
 ## Arrays & Hashing
 <table>
     <thead>
@@ -493,6 +497,170 @@ hide:
             <td>
                 <a href="linkedlist/reverse_nodes_in_k_group/">notes</a> | 
                 <a href="https://leetcode.com/problems/reverse-nodes-in-k-group/" target="_blank" >link</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+## Trees
+
+[Refresher :material-refresh:](trees/index.md){ .md-button }
+
+<table>
+    <thead>
+        <tr>
+            <th>Problems</th>
+            <th>Tags</th>
+            <th>References</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Invert Binary Tree</td>
+            <td>
+                <img src="https://img.shields.io/badge/easy-darkgreen" alt="easy">
+            </td>
+            <td>
+                <a href="trees/invert_binary_tree/">notes</a> | 
+                <a href="https://leetcode.com/problems/invert-binary-tree/" target="_blank">link</a>
+            </td>
+        </tr><tr>
+            <td>Maximum Depth of Binary Tree</td>
+            <td>
+                <img src="https://img.shields.io/badge/easy-darkgreen" alt="easy">
+            </td>
+            <td>
+                <a href="trees/maximum_depth_of_binary_tree/">notes</a> | 
+                <a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/" target="_blank">link</a>
+            </td>
+        </tr><tr>
+            <td>Diameter of Binary Tree</td>
+            <td>
+                <img src="https://img.shields.io/badge/easy-darkgreen" alt="easy">
+            </td>
+            <td>
+                <a href="trees/diameter_of_binary_tree/">notes</a> | 
+                <a href="https://leetcode.com/problems/diameter-of-binary-tree/" target="_blank">link</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Balanced Binary Tree</td>
+            <td>
+                <img src="https://img.shields.io/badge/easy-darkgreen" alt="easy">
+            </td>
+            <td>
+                <a href="trees/balanced_binary_tree/">notes</a> | 
+                <a href="https://leetcode.com/problems/balanced-binary-tree/" target="_blank">link</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Same Tree</td>
+            <td>
+                <img src="https://img.shields.io/badge/easy-darkgreen" alt="easy">
+            </td>
+            <td>
+                <a href="trees/same_tree/">notes</a> | 
+                <a href="https://leetcode.com/problems/same-tree/" target="_blank">link</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Subtree of Another Tree</td>
+            <td>
+                <img src="https://img.shields.io/badge/easy-darkgreen" alt="easy">
+            </td>
+            <td>
+                <a href="trees/subtree_of_another_tree/">notes</a> | 
+                <a href="https://leetcode.com/problems/subtree-of-another-tree/" target="_blank">link</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Lowest Common Ancestor of a Binary Search Tree</td>
+            <td>
+                <img src="https://img.shields.io/badge/medium-orange" alt="medium">
+            </td>
+            <td>
+                <a href="trees/lowest_common_ancestor_of_a_binary_search_tree/">notes</a> | 
+                <a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/" target="_blank">link</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Binary Tree Level Order Traversal</td>
+            <td>
+                <img src="https://img.shields.io/badge/medium-orange" alt="medium">
+            </td>
+            <td>
+                <a href="trees/binary_tree_level_order_traversal/">notes</a> | 
+                <a href="https://leetcode.com/problems/binary-tree-level-order-traversal/" target="_blank">link</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Binary Tree Right Side View</td>
+            <td>
+                <img src="https://img.shields.io/badge/medium-orange" alt="medium">
+            </td>
+            <td>
+                <a href="trees/binary_tree_right_side_view/">notes</a> | 
+                <a href="https://leetcode.com/problems/binary-tree-right-side-view/" target="_blank">link</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Count Good Nodes In Binary Tree</td>
+            <td>
+                <img src="https://img.shields.io/badge/medium-orange" alt="medium">
+            </td>
+            <td>
+                <a href="trees/count_good_nodes_in_binary_tree/">notes</a> | 
+                <a href="https://leetcode.com/problems/count-good-nodes-in-binary-tree/" target="_blank">link</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Validate Binary Search Tree</td>
+            <td>
+                <img src="https://img.shields.io/badge/medium-orange" alt="medium">
+            </td>
+            <td>
+                <a href="trees/validate_binary_search_tree/">notes</a> | 
+                <a href="https://leetcode.com/problems/validate-binary-search-tree/" target="_blank">link</a>
+            </td>
+        </tr>
+        <tr>
+            <td>⭐Kth Smallest Element in a BST</td>
+            <td>
+                <img src="https://img.shields.io/badge/medium-orange" alt="medium">
+            </td>
+            <td>
+                <a href="trees/kth_smallest_element_in_a_bst/">notes</a> | 
+                <a href="https://leetcode.com/problems/kth-smallest-element-in-a-bst/" target="_blank">link</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Construct Binary Tree From Preorder And Inorder Traversal</td>
+            <td>
+                <img src="https://img.shields.io/badge/medium-orange" alt="medium">
+            </td>
+            <td>
+                <a href="trees/construct_binary_tree_from_preorder_and_inorder_traversal/">notes</a> | 
+                <a href="https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/" target="_blank">link</a>
+            </td>
+        </tr>
+        <tr>
+            <td>⭐Binary Tree Maximum Path Sum</td>
+            <td>
+                <img src="https://img.shields.io/badge/hard-red" alt="hard">
+            </td>
+            <td>
+                <a href="trees/binary_tree_maximum_path_sum/">notes</a> | 
+                <a href="https://leetcode.com/problems/binary-tree-maximum-path-sum/" target="_blank">link</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Serialize And Deserialize Binary Tree</td>
+            <td>
+                <img src="https://img.shields.io/badge/hard-red" alt="hard">
+            </td>
+            <td>
+                <a href="trees/serialize_and_deserialize_binary_tree/">notes</a> | 
+                <a href="https://leetcode.com/problems/serialize-and-deserialize-binary-tree/" target="_blank">link</a>
             </td>
         </tr>
     </tbody>
