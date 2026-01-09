@@ -1,0 +1,31 @@
+sequenceDiagram
+    participant U1 as UserA
+    participant L as Leader
+    participant F1 as Follower 1
+    participant F2 as Follower 2<br/> (delayed)
+    participant U2 as UserB
+
+    U1->>L: INSERT comment id=1<br/> main comment
+    L-->>U1: insert ok
+
+    L->>F1: replicate main<br/> comment
+    L->>F2: replicate main<br/> comment
+
+    U1->>L: INSERT comment id=2<br/> reply_to=1
+    L-->>U1: insert ok
+
+    L->>F1: replicate reply<br/> comment
+    activate F1
+    L->>F2: replicate reply<br/> comment
+    activate F2
+
+    U2->>F2: SELECT comment<br/> where id=1 main comment
+    U2->>F1: SELECT comment<br/> where id=2 reply
+    deactivate F1
+
+    F1-->>U2: returns reply
+
+    F2-->>U2: returns main comment
+    deactivate F2
+
+    note over U2,F1: Inconsistent-prefix read<br/> child visible before parent
