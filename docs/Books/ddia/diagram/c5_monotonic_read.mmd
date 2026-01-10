@@ -1,0 +1,26 @@
+sequenceDiagram
+    participant U1 as User 1234
+    participant L as Leader
+    participant F1 as Follower 1
+    participant F2 as Follower 2
+    participant U2 as User 2345
+
+    U1->>L: INSERT comment reply_to=55555
+    L-->>U1: insert ok
+
+    L->>F1: replicate INSERT
+    activate F1
+    note over F1: write applied
+    deactivate F1
+
+    L->>F2: replicate INSERT delayed
+    activate F2
+    note right of F2: write not yet applied
+
+    U2->>F1: SELECT comments WHERE reply_to=55555
+    F1-->>U2: 1 result
+
+    U2->>F2: SELECT comments WHERE reply_to=55555
+    F2-->>U2: no results
+    note over F2: write applied
+    deactivate F2

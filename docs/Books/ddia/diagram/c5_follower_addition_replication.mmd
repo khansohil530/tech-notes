@@ -1,0 +1,6 @@
+flowchart TD
+    A[Leader Database] -->|Take consistent snapshot<br/> no full DB lock if possible| B[Snapshot at Point in Time]
+    B -->|Copy snapshot| C[New Follower Node]
+    C -->|Connect to leader<br/>Request changes since snapshot| D[Using Log Sequence Number or Binlog Coordinates <br/> in Replication Log]
+    D -->|Stream backlog of changes| C
+    C -->|All changes applied| E[Follower Caught Up]

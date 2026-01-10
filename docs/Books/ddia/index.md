@@ -17,8 +17,8 @@ hide:
 
 ## Part 2. Distributed Data
 <div class="grid cards" markdown>
-- :fontawesome-solid-circle-check:{ .status-pending } [5. Replication]()
-- :fontawesome-solid-circle-check:{ .status-pending } [6. Partitioning]()
+- :fontawesome-solid-circle-check:{ .status-done } [5. Replication](c5.md)
+- :fontawesome-solid-circle-check:{ .status-done } [6. Partitioning](c6.md)
 - :fontawesome-solid-circle-check:{ .status-pending } [7. Transactions]()
 - :fontawesome-solid-circle-check:{ .status-pending } [8. The Trouble with Distributed Systems]()
 - :fontawesome-solid-circle-check:{ .status-pending } [9. Consistency and Consensus]()
